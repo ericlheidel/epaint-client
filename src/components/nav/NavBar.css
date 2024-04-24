@@ -1,0 +1,32 @@
+.navbar {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: var(--color-two);
+  /* box-shadow: 5px 5px 15px var(--color-two); */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.navbar-placeholder {
+  height: 115px;
+}
+
+.navbar-item {
+  font-size: 2rem;
+  list-style-type: none;
+  padding: 1rem;
+  color: var(--color-four);
+  margin: auto 0;
+}
+
+.navbar-user-img {
+  height: 5rem;
+  margin: 10px 0;
+  border: 5px solid var(--color-one);
+  border-radius: 100%;
+}
