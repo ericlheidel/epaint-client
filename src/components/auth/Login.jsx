@@ -30,7 +30,7 @@ export const Login = () => {
     <main>
       <section>
         <form onSubmit={handleLogin}>
-          <h1>ePaint</h1>
+          <h1>Paintkillerz</h1>
           <h2>Please Sign In</h2>
           <fieldset>
             <label htmlFor="username"> Email Address </label>

@@ -42,7 +42,7 @@ export const Register = () => {
     <main>
       <section>
         <form onSubmit={handleRegister}>
-          <h1>ePaint</h1>
+          <h1>Paintkillerz</h1>
           <h2>Register Your ePaint Account</h2>
           <fieldset>
             <label htmlFor="firstName"> First Name </label>

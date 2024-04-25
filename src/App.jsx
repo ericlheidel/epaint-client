@@ -7,6 +7,8 @@ import { Login } from "./components/auth/Login.jsx"
 import { Authorized } from "./components/auth/Authorized.jsx"
 import { HomeLandingPage } from "./components/home/HomeLandingPage.jsx"
 import { Register } from "./components/auth/Register.jsx"
+import { PaintsList } from "./components/paints/PaintsList.jsx"
+import { PaintDetail } from "./components/paints/PaintDetail.jsx"
 
 function App() {
   return (
@@ -16,6 +18,11 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route element={<Authorized />}>
           <Route path="/" element={<HomeLandingPage />} />
+          <Route path="/:paintTypeId/paints" element={<PaintsList />} />
+          <Route
+            path="/:paintTypeId/paints/:paintId"
+            element={<PaintDetail />}
+          />
         </Route>
       </Routes>
     </BrowserRouter>

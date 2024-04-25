@@ -12,7 +12,7 @@ export const NavBar = () => {
         <div className="navbar-placeholder">
           <ul className="navbar">
             <li className="navbar-item">
-              <Link to={`/paints`}>Paints</Link>
+              <Link to={`/all/paints`}>Paints</Link>
             </li>
             <li className="navbar-item">
               <Link to="/cart">Cart</Link>
