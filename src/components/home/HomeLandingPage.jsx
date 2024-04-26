@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 export const HomeLandingPage = () => {
   const navigate = useNavigate()
@@ -53,6 +53,17 @@ export const HomeLandingPage = () => {
           <h2 className="w-fit ml-auto mr-auto text-2xl mt-5">Montana</h2>
           <h2 className="w-fit ml-auto mr-auto text-2xl">Special</h2>
         </div>
+      </div>
+      <div className="mt-20 text-3xl">
+        <img
+          src="src/media/montana.jpg"
+          alt="image of logo"
+          className="size-44 m-auto rounded-lg hover:cursor-pointer hover:scale-110 hover:opacity-80"
+          onClick={() => {
+            navigate("/all/paints")
+          }}
+        />
+        <h2 className="w-fit ml-auto mr-auto text-2xl mt-5">All Paints</h2>
       </div>
     </div>
   )

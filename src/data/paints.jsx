@@ -34,3 +34,14 @@ export const updatePaint = (paint) => {
     body: JSON.stringify(paint),
   })
 }
+
+export const getPaintsBySearchAndOrder = (searchText, orderBy) => {
+  return fetch(
+    `${apiUrl}/paints?search_text=${searchText}&order_by=${orderBy}`,
+    {
+      headers: {
+        Authorization: `Token ${getToken()}`,
+      },
+    }
+  ).then((res) => res.json())
+}
