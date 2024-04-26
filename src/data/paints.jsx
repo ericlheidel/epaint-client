@@ -23,3 +23,14 @@ export const getPaintsByPaintTypeId = (paintTypeId) => {
     },
   }).then((res) => res.json())
 }
+
+export const updatePaint = (paint) => {
+  return fetch(`${apiUrl}/paints/${paint.id}`, {
+    method: "PUT",
+    headers: {
+      Authorization: `Token ${getToken()}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(paint),
+  })
+}
