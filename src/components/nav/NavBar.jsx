@@ -30,8 +30,9 @@ export const NavBar = () => {
               <Link
                 to=""
                 onClick={() => {
-                  localStorage.removeItem("paint_token")
-                  navigate("/login")
+                  localStorage
+                    .removeItem("paint_token")
+                    .then(navigate("/login"))
                 }}
               >
                 Logout

@@ -6,7 +6,7 @@ import { loginUser } from "../../data/auth.jsx"
 export const Login = () => {
   // const { setToken } = useAppContext()
   const [username, setUsername] = useState("eric")
-  const [password, setPassword] = useState("password")
+  const [password, setPassword] = useState("eric")
   // const existDialog = useRef()
 
   const navigate = useNavigate()
