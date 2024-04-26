@@ -8,6 +8,14 @@ export const getAllPaints = () => {
   }).then((res) => res.json())
 }
 
+export const getPaintById = (paintId) => {
+  return fetch(`${apiUrl}/paints/${paintId}`, {
+    headers: {
+      Authorization: `Token ${getToken()}`,
+    },
+  }).then((res) => res.json())
+}
+
 export const getPaintsByPaintTypeId = (paintTypeId) => {
   return fetch(`${apiUrl}/paints?paint_type_id=${paintTypeId}`, {
     headers: {
