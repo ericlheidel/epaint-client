@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-export const Paint = ({ paint, paintTypeId, paintTypeName }) => {
+export const Paint = ({ paint, paintTypeId }) => {
   return (
     <div>
       <Link to={`/${paintTypeId}/paints/${paint.id}`}>
