@@ -9,6 +9,7 @@ import { HomeLandingPage } from "./components/home/HomeLandingPage.jsx"
 import { Register } from "./components/auth/Register.jsx"
 import { PaintsList } from "./components/paints/PaintsList.jsx"
 import { PaintDetail } from "./components/paints/PaintDetail.jsx"
+import { Cart } from "./components/cart/Cart.jsx"
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             path="/:paintTypeId/paints/:paintId"
             element={<PaintDetail />}
           />
+          <Route path="/cart" element={<Cart />} />
         </Route>
       </Routes>
     </BrowserRouter>
