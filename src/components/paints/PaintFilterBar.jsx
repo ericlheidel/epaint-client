@@ -1,6 +1,10 @@
 import { useState } from "react"
 
-export const PaintFilterBar = ({ setSearchText, setOrderBy }) => {
+export const PaintFilterBar = ({
+  setSearchText,
+  setOrderBy,
+  handleSearchAndOrder,
+}) => {
   const [selectValue, setSelectValue] = useState("")
 
   return (
@@ -21,6 +25,7 @@ export const PaintFilterBar = ({ setSearchText, setOrderBy }) => {
             onClick={() => {
               setSelectValue("")
               setOrderBy("")
+              handleSearchAndOrder()
             }}
           >
             X
@@ -32,6 +37,7 @@ export const PaintFilterBar = ({ setSearchText, setOrderBy }) => {
           onChange={(e) => {
             setSelectValue(e.target.value)
             setOrderBy(e.target.value)
+            handleSearchAndOrder()
           }}
         >
           <option value={""} key={0}>

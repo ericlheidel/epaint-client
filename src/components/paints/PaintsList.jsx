@@ -5,7 +5,6 @@ import {
   getPaintsByPaintTypeId,
   getPaintsBySearchAndOrder,
 } from "../../data/paints.jsx"
-import { getPaintTypeById } from "../../data/painttypes.jsx"
 import { Paint } from "./Paint.jsx"
 import { PaintFilterBar } from "./PaintFilterBar.jsx"
 
@@ -14,8 +13,6 @@ export const PaintsList = () => {
 
   const [paints, setPaints] = useState([])
   const [paintTypeName, setPaintTypeName] = useState({})
-
-  // const [selectValue, setSelectValue] = useState("0")
 
   const [searchText, setSearchText] = useState("")
   const [orderBy, setOrderBy] = useState("")
@@ -34,19 +31,11 @@ export const PaintsList = () => {
     }
   }, [paintTypeId])
 
-  useEffect(() => {
-    if (paintTypeId !== "all") {
-      getPaintTypeById(paintTypeId).then((res) => {
-        setPaintTypeName(res)
-      })
-    }
-  }, [])
-
-  useEffect(() => {
+  const handleSearchAndOrder = () => {
     getPaintsBySearchAndOrder(searchText, orderBy).then((res) => {
       setPaints(res)
     })
-  }, [searchText, orderBy])
+  }
 
   return (
     <div>
@@ -64,7 +53,11 @@ export const PaintsList = () => {
           : ""}
       </h2>
       <div>
-        <PaintFilterBar setSearchText={setSearchText} setOrderBy={setOrderBy} />
+        <PaintFilterBar
+          setSearchText={setSearchText}
+          setOrderBy={setOrderBy}
+          handleSearchAndOrder={handleSearchAndOrder}
+        />
         <article className="flex flex-row flex-wrap gap-20 justify-evenly">
           {paints.map((paint) => {
             return (
