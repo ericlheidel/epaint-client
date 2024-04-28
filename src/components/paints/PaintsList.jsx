@@ -32,24 +32,30 @@ export const PaintsList = () => {
   }, [paintTypeId])
 
   const handleSearchAndOrder = () => {
-    getPaintsBySearchAndOrder(searchText, orderBy).then((res) => {
+    getPaintsBySearchAndOrder(searchText, orderBy, paintTypeId).then((res) => {
       setPaints(res)
     })
   }
+
+  useEffect(() => {
+    getPaintsBySearchAndOrder(searchText, orderBy, paintTypeId).then((res) => {
+      setPaints(res)
+    })
+  }, [searchText, orderBy, paintTypeId])
 
   return (
     <div>
       <h2 className="w-fit ml-auto mr-auto text-5xl">
         {paintTypeId === "all"
-          ? "All Montana Paints"
+          ? `All Montana Paints (${paints.length})`
           : paintTypeId === "1"
-          ? "Montana Black"
+          ? `Montana Black (${paints.length})`
           : paintTypeId === "2"
-          ? "Montana Gold"
+          ? `Montana Gold (${paints.length})`
           : paintTypeId === "3"
-          ? "Montana White"
+          ? `Montana White (${paints.length})`
           : paintTypeId === "4"
-          ? "Montana Special"
+          ? `Montana Special (${paints.length})`
           : ""}
       </h2>
       <div>
