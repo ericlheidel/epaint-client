@@ -25,7 +25,7 @@ export const PaintFilterBar = ({
             onClick={() => {
               setSelectValue("")
               setOrderBy("")
-              handleSearchAndOrder()
+              // handleSearchAndOrder()
             }}
           >
             X
@@ -37,14 +37,14 @@ export const PaintFilterBar = ({
           onChange={(e) => {
             setSelectValue(e.target.value)
             setOrderBy(e.target.value)
-            handleSearchAndOrder()
+            // handleSearchAndOrder()
           }}
         >
           <option value={""} key={0}>
             Order Paints By...
           </option>
           <option value={"color"} key={1}>
-            Paint Color
+            Paint Name
           </option>
           <option value={"paint_number"} key={2}>
             Paint Number

@@ -11,7 +11,10 @@ export const Paint = ({ paint, paintTypeId }) => {
             className="size-44"
           />
           <div className="flex flex-wrap justify-center h-auto">
-            <div className="text-2xl test">{paint.color}</div>
+            <div className="text-2xl test">
+              <h3>{paint.color}</h3>
+              <h3>{paint.paint_number}</h3>
+            </div>
           </div>
         </div>
       </Link>

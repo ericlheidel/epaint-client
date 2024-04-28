@@ -35,9 +35,9 @@ export const updatePaint = (paint) => {
   })
 }
 
-export const getPaintsBySearchAndOrder = (searchText, orderBy) => {
+export const getPaintsBySearchAndOrder = (searchText, orderBy, paintTypeId) => {
   return fetch(
-    `${apiUrl}/paints?search_text=${searchText}&order_by=${orderBy}`,
+    `${apiUrl}/paints?search_text=${searchText}&order_by=${orderBy}&paint_type_id=${paintTypeId}`,
     {
       headers: {
         Authorization: `Token ${getToken()}`,
