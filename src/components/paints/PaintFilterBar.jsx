@@ -1,10 +1,7 @@
 import { useState } from "react"
+import PropTypes from "prop-types"
 
-export const PaintFilterBar = ({
-  setSearchText,
-  setOrderBy,
-  handleSearchAndOrder,
-}) => {
+export const PaintFilterBar = ({ setSearchText, setOrderBy }) => {
   const [selectValue, setSelectValue] = useState("")
 
   return (
@@ -25,7 +22,6 @@ export const PaintFilterBar = ({
             onClick={() => {
               setSelectValue("")
               setOrderBy("")
-              // handleSearchAndOrder()
             }}
           >
             X
@@ -37,7 +33,6 @@ export const PaintFilterBar = ({
           onChange={(e) => {
             setSelectValue(e.target.value)
             setOrderBy(e.target.value)
-            // handleSearchAndOrder()
           }}
         >
           <option value={""} key={0}>
@@ -53,4 +48,9 @@ export const PaintFilterBar = ({
       </div>
     </div>
   )
+}
+
+PaintFilterBar.propTypes = {
+  setSearchText: PropTypes.func.isRequired,
+  setOrderBy: PropTypes.func.isRequired,
 }
