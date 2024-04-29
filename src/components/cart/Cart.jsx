@@ -5,18 +5,27 @@ import { deleteOrderPaintById } from "../../data/paints.jsx"
 export const Cart = () => {
   const [cart, setCart] = useState({})
 
-  useEffect(() => {
+  const refreshCart = () => {
     getCart().then((res) => {
       if (res) {
         setCart(res)
       }
     })
+  }
+  useEffect(() => {
+    refreshCart()
   }, [])
+
+  const handleRemoveAllPaintsFromOrder = () => {
+    cart.items.map((item) => {
+      deleteOrderPaintById(item.id).then(refreshCart())
+    })
+  }
 
   return (
     <div>
-      <div className="flex justify-center">
-        <table className="w-2/3">
+      <div className="flex flex-col">
+        <table className="w-2/3 mx-auto">
           <thead>
             <tr>
               <th>{"Image"}</th>
@@ -60,6 +69,14 @@ export const Cart = () => {
             })}
           </tbody>
         </table>
+        <div>{cart.total !== 0 && `$${cart.total?.toFixed(2)}`}</div>
+        <div>
+          {cart.number_of_items !== 0 && (
+            <button className="test" onClick={handleRemoveAllPaintsFromOrder}>
+              Delete Order
+            </button>
+          )}
+        </div>
       </div>
     </div>
   )
