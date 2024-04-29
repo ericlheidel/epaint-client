@@ -150,7 +150,7 @@ export const PaintDetail = () => {
                 hidden={hexIsHidden}
                 className="test"
                 onClick={() => {
-                  setUpdatedHex(null)
+                  setUpdatedHex("")
                   setHexIsHidden(true)
                 }}
               >
@@ -192,7 +192,7 @@ export const PaintDetail = () => {
                 hidden={rgbIsHidden}
                 className="test"
                 onClick={() => {
-                  setUpdatedRgb(null)
+                  setUpdatedRgb("")
                   setRgbIsHidden(true)
                 }}
               >
@@ -234,7 +234,7 @@ export const PaintDetail = () => {
                 hidden={cmykIsHidden}
                 className="test"
                 onClick={() => {
-                  setUpdatedCmyk(null)
+                  setUpdatedCmyk("")
                   setCmykIsHidden(true)
                 }}
               >
