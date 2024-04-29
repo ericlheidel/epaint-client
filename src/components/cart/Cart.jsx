@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { getCart } from "../../data/carts.jsx"
+import { deleteOrderPaintById } from "../../data/paints.jsx"
 
 export const Cart = () => {
   const [cart, setCart] = useState({})
@@ -41,7 +42,18 @@ export const Cart = () => {
                   <td>{item.size.size}</td>
                   <td>{item.size.price}</td>
                   <td>
-                    <button className="test">Remove</button>
+                    <button
+                      className="test"
+                      onClick={() => {
+                        deleteOrderPaintById(item.id).then(() => {
+                          getCart().then((res) => {
+                            setCart(res)
+                          })
+                        })
+                      }}
+                    >
+                      Remove
+                    </button>
                   </td>
                 </tr>
               )
