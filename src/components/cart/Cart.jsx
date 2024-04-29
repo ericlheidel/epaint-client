@@ -3,7 +3,7 @@ import { getCart } from "../../data/carts.jsx"
 import { deleteOrderPaintById } from "../../data/paints.jsx"
 
 export const Cart = () => {
-  const [cart, setCart] = useState({})
+  const [cart, setCart] = useState({ total: 0, number_of_items: 0 })
 
   const refreshCart = () => {
     getCart().then((res) => {
@@ -69,7 +69,9 @@ export const Cart = () => {
             })}
           </tbody>
         </table>
-        <div>{cart.total !== 0 && `$${cart.total?.toFixed(2)}`}</div>
+        <div>
+          {cart.total !== 0 && `Total Price $${cart.total?.toFixed(2)}`}
+        </div>
         <div>
           {cart.number_of_items !== 0 && (
             <button className="test" onClick={handleRemoveAllPaintsFromOrder}>
