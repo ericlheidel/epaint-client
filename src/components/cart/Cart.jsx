@@ -69,9 +69,7 @@ export const Cart = () => {
             })}
           </tbody>
         </table>
-        <div>
-          {cart.total !== 0 && `Total Price $${cart.total?.toFixed(2)}`}
-        </div>
+        <div>{cart.total !== 0 && `Total Price $${cart.total}`}</div>
         <div>
           {cart.number_of_items !== 0 && (
             <button className="test" onClick={handleRemoveAllPaintsFromOrder}>
