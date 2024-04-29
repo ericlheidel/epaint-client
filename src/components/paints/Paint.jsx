@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import PropTypes from "prop-types"
 
 export const Paint = ({ paint, paintTypeId }) => {
   return (
@@ -20,4 +21,9 @@ export const Paint = ({ paint, paintTypeId }) => {
       </Link>
     </div>
   )
+}
+
+Paint.propTypes = {
+  paint: PropTypes.object.isRequired,
+  paintTypeId: PropTypes.string.isRequired,
 }

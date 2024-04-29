@@ -1,20 +1,26 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
-import { getPaintById, updatePaint } from "../../data/paints.jsx"
-import { getAllSizes } from "../../data/sizes.jsx"
+import { useNavigate, useParams } from "react-router-dom"
+import {
+  addPaintToCart,
+  getPaintById,
+  updatePaint,
+} from "../../data/paints.jsx"
+import { getAllSizes, getSizeById } from "../../data/sizes.jsx"
 
 export const PaintDetail = () => {
   const { paintId } = useParams()
   const [paint, setPaint] = useState({})
   const [sizes, setSizes] = useState([])
-  const [selectedSize, setSelectedSize] = useState("")
+  const [selectedSize, setSelectedSize] = useState(1)
   const [correspondingPrice, setCorrespondingPrice] = useState(9.99)
   const [hexIsHidden, setHexIsHidden] = useState(true)
   const [rgbIsHidden, setRgbIsHidden] = useState(true)
   const [cmykIsHidden, setCmykIsHidden] = useState(true)
-  const [updatedHex, setUpdatedHex] = useState(null)
-  const [updatedRgb, setUpdatedRgb] = useState(null)
-  const [updatedCmyk, setUpdatedCmyk] = useState(null)
+  const [updatedHex, setUpdatedHex] = useState("")
+  const [updatedRgb, setUpdatedRgb] = useState("")
+  const [updatedCmyk, setUpdatedCmyk] = useState("")
+
+  const navigate = useNavigate()
 
   const getAndSetPaintAfterUpdate = () => {
     getPaintById(paintId).then((res) => {
@@ -51,20 +57,10 @@ export const PaintDetail = () => {
     cmyk: updatedCmyk,
   }
 
-  // const handleUpdateHex = (e) => {
-  //   e.preventDefault()
-
-  //   if (updatedHex !== null) {
-  //     updatePaint(updatedHexCode).then(
-  //       getPaintById(paintId).then(setHexIsHidden(true))
-  //     )
-  //   }
-  // }
-
   const handleUpdateHex = (e) => {
     e.preventDefault()
 
-    if (updatedHex !== null) {
+    if (updatedHex !== "") {
       setHexIsHidden(true)
       updatePaint(updatedHexCode).then(() => {
         getAndSetPaintAfterUpdate(paintId)
@@ -75,7 +71,7 @@ export const PaintDetail = () => {
   const handleUpdateRgb = (e) => {
     e.preventDefault()
 
-    if (updatedRgb !== null) {
+    if (updatedRgb !== "") {
       setRgbIsHidden(true)
       updatePaint(updatedRgbCode).then(() => {
         getAndSetPaintAfterUpdate(paintId)
@@ -86,13 +82,25 @@ export const PaintDetail = () => {
   const handleUpdateCmyk = (e) => {
     e.preventDefault()
 
-    if (updatedCmyk !== null) {
+    if (updatedCmyk !== "") {
       setCmykIsHidden(true)
       updatePaint(updatedCmykCode).then(() => {
         getAndSetPaintAfterUpdate(paintId)
       })
     }
   }
+
+  const handleAddPaintToCart = () => {
+    addPaintToCart(paintId, selectedSize).then(navigate("/cart"))
+  }
+
+  useEffect(() => {
+    if (selectedSize !== 0) {
+      getSizeById(parseInt(selectedSize)).then((res) => {
+        setCorrespondingPrice(res.price)
+      })
+    }
+  }, [selectedSize])
 
   return (
     <div>
@@ -233,16 +241,16 @@ export const PaintDetail = () => {
                 Cancel
               </button>
             </div>
+            <h3>Please choose a size...</h3>
             <select
               className="test"
               onChange={(e) => {
-                setSelectedSize(e.target.key)
-                setCorrespondingPrice(e.target.value)
+                setSelectedSize(e.target.value)
               }}
             >
               {sizes.map((size) => {
                 return (
-                  <option key={size.id} value={size.price}>
+                  <option key={size.id} value={size.id}>
                     {size.size}
                   </option>
                 )
@@ -250,7 +258,9 @@ export const PaintDetail = () => {
             </select>
             <div>${correspondingPrice}</div>
             <div>
-              <button className="test">Add To Cart</button>
+              <button className="test" onClick={handleAddPaintToCart}>
+                Add To Cart
+              </button>
             </div>
           </div>
         </div>

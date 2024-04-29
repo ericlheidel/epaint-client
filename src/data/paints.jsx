@@ -54,3 +54,14 @@ export const deleteOrderPaintById = (id) => {
     },
   })
 }
+
+export const addPaintToCart = (paintId, sizeId) => {
+  return fetch(`${apiUrl}/profile/cart`, {
+    method: "POST",
+    headers: {
+      Authorization: `Token ${getToken()}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ paint_id: paintId, size_id: sizeId }),
+  })
+}

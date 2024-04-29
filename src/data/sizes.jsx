@@ -7,3 +7,11 @@ export const getAllSizes = () => {
     },
   }).then((res) => res.json())
 }
+
+export const getSizeById = (id) => {
+  return fetch(`${apiUrl}/sizes/${id}`, {
+    headers: {
+      Authorization: `Token ${getToken()}`,
+    },
+  }).then((res) => res.json())
+}
