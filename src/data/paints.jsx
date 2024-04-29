@@ -45,3 +45,12 @@ export const getPaintsBySearchAndOrder = (searchText, orderBy, paintTypeId) => {
     }
   ).then((res) => res.json())
 }
+
+export const deleteOrderPaintById = (id) => {
+  return fetch(`${apiUrl}/cart/${id}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Token ${getToken()}`,
+    },
+  })
+}
