@@ -7,3 +7,12 @@ export const getUserPayments = () => {
     },
   }).then((res) => res.json())
 }
+
+export const deleteUserPayment = (paymentId) => {
+  return fetch(`${apiUrl}/payments/${paymentId}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Token ${getToken()}`,
+    },
+  })
+}

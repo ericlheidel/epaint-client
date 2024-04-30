@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { getUserPayments } from "../../data/payments.jsx"
+import { deleteUserPayment, getUserPayments } from "../../data/payments.jsx"
 
 export const Payments = () => {
   const [payments, setPayments] = useState([])
@@ -15,6 +15,16 @@ export const Payments = () => {
   useEffect(() => {
     refresh()
   }, [])
+
+  const handleDeletePayment = (paymentId) => {
+    const confirmDelete = window.confirm(
+      `Are you sure you want to delete this payment?`
+    )
+
+    if (confirmDelete) {
+      deleteUserPayment(paymentId).then(refresh())
+    }
+  }
 
   return (
     <div>
@@ -35,7 +45,7 @@ export const Payments = () => {
                   <td>{payment.acct_number}</td>
                   <td>{payment.ex_date}</td>
                   <td>
-                    <button>
+                    <button onClick={() => handleDeletePayment(payment.id)}>
                       <i className="fa-solid fa-trash"></i>
                     </button>
                   </td>
