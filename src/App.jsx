@@ -10,6 +10,7 @@ import { Register } from "./components/auth/Register.jsx"
 import { PaintsList } from "./components/paints/PaintsList.jsx"
 import { PaintDetail } from "./components/paints/PaintDetail.jsx"
 import { Cart } from "./components/cart/Cart.jsx"
+import { Payments } from "./components/payments/Payments.jsx"
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             element={<PaintDetail />}
           />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/payments" element={<Payments />} />
         </Route>
       </Routes>
     </BrowserRouter>
