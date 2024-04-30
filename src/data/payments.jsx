@@ -16,3 +16,18 @@ export const deleteUserPayment = (paymentId) => {
     },
   })
 }
+
+export const addNewPayment = (payment) => {
+  return fetch(`${apiUrl}/payments`, {
+    method: "POST",
+    headers: {
+      Authorization: `Token ${getToken()}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      name: payment.newPaymentName,
+      acct_number: payment.newAcctNumber,
+      ex_date: payment.newExDate,
+    }),
+  })
+}
