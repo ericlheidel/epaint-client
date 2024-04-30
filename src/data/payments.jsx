@@ -17,7 +17,7 @@ export const deleteUserPayment = (paymentId) => {
   })
 }
 
-export const addNewPayment = (payment) => {
+export const addNewPayment = (newPayment) => {
   return fetch(`${apiUrl}/payments`, {
     method: "POST",
     headers: {
@@ -25,9 +25,24 @@ export const addNewPayment = (payment) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      name: payment.newPaymentName,
-      acct_number: payment.newAcctNumber,
-      ex_date: payment.newExDate,
+      name: newPayment.newPaymentName,
+      acct_number: newPayment.newAcctNumber,
+      ex_date: newPayment.newExDate,
+    }),
+  })
+}
+
+export const updateUserPayment = (paymentId, updatedPayment) => {
+  return fetch(`${apiUrl}/payments/${paymentId}`, {
+    method: "PUT",
+    headers: {
+      Authorization: `Token ${getToken()}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      name: updatedPayment.updatedPaymentName,
+      acct_number: updatedPayment.updatedAcctNumber,
+      ex_date: updatedPayment.updatedExDate,
     }),
   })
 }
