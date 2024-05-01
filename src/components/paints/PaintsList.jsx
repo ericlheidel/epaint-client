@@ -15,11 +15,20 @@ export const PaintsList = () => {
   const [searchText, setSearchText] = useState("")
   const [orderBy, setOrderBy] = useState("")
 
+  const [isLoading, setIsLoading] = useState(true)
+
   useEffect(() => {
     getPaintsByPaintTypeId(paintTypeId).then((res) => {
       setPaints(res)
     })
   }, [paintTypeId])
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false)
+    }, 1000)
+    return () => clearTimeout(timer)
+  }, [])
 
   const handleSearchAndOrder = () => {
     getPaintsBySearchAndOrder(searchText, orderBy, paintTypeId).then((res) => {
@@ -35,29 +44,37 @@ export const PaintsList = () => {
 
   return (
     <div>
-      <h2 className="w-fit ml-auto mr-auto text-5xl">
-        {paintTypeId === "1"
-          ? `Montana Black (${paints.length})`
-          : paintTypeId === "2"
-          ? `Montana Gold (${paints.length})`
-          : paintTypeId === "3"
-          ? `Montana White (${paints.length})`
-          : paintTypeId === "4"
-          ? `Montana Special (${paints.length})`
-          : ""}
-      </h2>
-      <div>
-        <PaintFilterBar
-          setSearchText={setSearchText}
-          setOrderBy={setOrderBy}
-          handleSearchAndOrder={handleSearchAndOrder}
-        />
-        <article className="flex flex-row flex-wrap gap-20 justify-evenly">
-          {paints.map((paint) => {
-            return <Paint key={paint.id} paint={paint} />
-          })}
-        </article>
-      </div>
+      {isLoading ? (
+        <div className="m-auto p-">
+          <h1 className="text-5xl">Loading...</h1>
+        </div>
+      ) : (
+        <div>
+          <h2 className="w-fit ml-auto mr-auto text-5xl">
+            {paintTypeId === "1"
+              ? `Montana Black (${paints.length})`
+              : paintTypeId === "2"
+              ? `Montana Gold (${paints.length})`
+              : paintTypeId === "3"
+              ? `Montana White (${paints.length})`
+              : paintTypeId === "4"
+              ? `Montana Special (${paints.length})`
+              : ""}
+          </h2>
+          <div>
+            <PaintFilterBar
+              setSearchText={setSearchText}
+              setOrderBy={setOrderBy}
+              handleSearchAndOrder={handleSearchAndOrder}
+            />
+            <article className="flex flex-row flex-wrap gap-20 justify-evenly">
+              {paints.map((paint) => {
+                return <Paint key={paint.id} paint={paint} />
+              })}
+            </article>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

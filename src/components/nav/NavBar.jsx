@@ -36,7 +36,7 @@ export const NavBar = () => {
       </Link>
 
       {/* Right section with dropdown menu */}
-      <div className="relative">
+      <div className="relative" ref={dropdownRef}>
         <button
           onClick={() => setShowDropdown(!showDropdown)}
           className="text-3xl focus:outline-none"
