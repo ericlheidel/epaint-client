@@ -4,6 +4,7 @@ import { deleteOrderPaintById } from "../../data/paints.jsx"
 import { CompleteOrder } from "./CompleteOrder.jsx"
 import { getUserPayments } from "../../data/payments.jsx"
 import { useNavigate } from "react-router-dom"
+import { CartItem } from "./CartItem.jsx"
 
 export const Cart = () => {
   const [cart, setCart] = useState({
@@ -47,6 +48,7 @@ export const Cart = () => {
   return (
     <div>
       <div className="flex flex-col">
+        <h1 className="text-4xl mb-5">Cart</h1>
         <table className="w-2/3 mx-auto">
           <thead>
             <tr>
@@ -61,31 +63,7 @@ export const Cart = () => {
             {cart.items?.map((item) => {
               return (
                 <tr key={item.id}>
-                  <td>
-                    <img
-                      src={item.paint.image_one}
-                      alt="image of paint"
-                      className="size-12"
-                    />
-                  </td>
-                  <td>{item.paint.color}</td>
-                  <td>{item.paint.paint_number}</td>
-                  <td>{item.size.size}</td>
-                  <td>{item.size.price}</td>
-                  <td>
-                    <button
-                      className="test"
-                      onClick={() => {
-                        deleteOrderPaintById(item.id).then(() => {
-                          getCart().then((res) => {
-                            setCart(res)
-                          })
-                        })
-                      }}
-                    >
-                      Remove
-                    </button>
-                  </td>
+                  <CartItem item={item} setCart={setCart} />
                 </tr>
               )
             })}

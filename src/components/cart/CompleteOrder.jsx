@@ -20,21 +20,29 @@ export const CompleteOrder = ({ setIsCompleteHidden, cart }) => {
     if (!selectedPayment) {
       window.alert("Please select a payment method")
     } else {
-      closeOrder(selectedPayment, parseInt(cart.id))
+      const closedOrder = {
+        payment_type_id: selectedPayment,
+        purchase_date: getTodaysDate(),
+      }
+      closeOrder(closedOrder, parseInt(cart.id))
       navigate("/my-orders")
     }
+  }
+
+  const getTodaysDate = () => {
+    const now = new Date()
+    const year = now.getFullYear()
+    const month = (now.getMonth() + 1).toString().padStart(2, "0")
+    const day = now.getDate().toString().padStart(2, "0")
+    const formattedDate = `${year}-${month}-${day}`
+    return formattedDate
   }
 
   return (
     <div>
       <div>
-        <button
-          className="mr-5 test"
-          onClick={() => {
-            setIsCompleteHidden(true)
-          }}
-        >
-          Cancel
+        <button className="mr-5 test" onClick={handlePurchase}>
+          Purchase
         </button>
         <select
           className="mt-5"
@@ -55,8 +63,13 @@ export const CompleteOrder = ({ setIsCompleteHidden, cart }) => {
             )
           })}
         </select>
-        <button className="ml-5 test" onClick={handlePurchase}>
-          Purchase
+        <button
+          className="ml-5 test"
+          onClick={() => {
+            setIsCompleteHidden(true)
+          }}
+        >
+          Cancel
         </button>
       </div>
     </div>
