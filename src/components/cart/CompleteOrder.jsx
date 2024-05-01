@@ -17,9 +17,12 @@ export const CompleteOrder = ({ setIsCompleteHidden, cart }) => {
   }, [])
 
   const handlePurchase = () => {
-    window.alert("Thank you for your purchase!")
-    closeOrder(selectedPayment, parseInt(cart.id))
-    navigate("/my-orders")
+    if (!selectedPayment) {
+      window.alert("Please select a payment method")
+    } else {
+      closeOrder(selectedPayment, parseInt(cart.id))
+      navigate("/my-orders")
+    }
   }
 
   return (
