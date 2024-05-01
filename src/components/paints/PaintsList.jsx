@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import {
-  getAllPaints,
   getPaintsByPaintTypeId,
   getPaintsBySearchAndOrder,
 } from "../../data/paints.jsx"
@@ -12,23 +11,14 @@ export const PaintsList = () => {
   const { paintTypeId } = useParams()
 
   const [paints, setPaints] = useState([])
-  const [paintTypeName, setPaintTypeName] = useState({})
 
   const [searchText, setSearchText] = useState("")
   const [orderBy, setOrderBy] = useState("")
 
   useEffect(() => {
-    if (paintTypeId == "all") {
-      getAllPaints()
-        .then((res) => {
-          setPaints(res)
-        })
-        .then(setPaintTypeName("All Paints"))
-    } else {
-      getPaintsByPaintTypeId(paintTypeId).then((res) => {
-        setPaints(res)
-      })
-    }
+    getPaintsByPaintTypeId(paintTypeId).then((res) => {
+      setPaints(res)
+    })
   }, [paintTypeId])
 
   const handleSearchAndOrder = () => {
@@ -46,9 +36,7 @@ export const PaintsList = () => {
   return (
     <div>
       <h2 className="w-fit ml-auto mr-auto text-5xl">
-        {paintTypeId === "all"
-          ? `All Montana Paints (${paints.length})`
-          : paintTypeId === "1"
+        {paintTypeId === "1"
           ? `Montana Black (${paints.length})`
           : paintTypeId === "2"
           ? `Montana Gold (${paints.length})`
@@ -66,14 +54,7 @@ export const PaintsList = () => {
         />
         <article className="flex flex-row flex-wrap gap-20 justify-evenly">
           {paints.map((paint) => {
-            return (
-              <Paint
-                key={paint.id}
-                paint={paint}
-                paintTypeId={paintTypeId}
-                paintTypeName={paintTypeName}
-              />
-            )
+            return <Paint key={paint.id} paint={paint} />
           })}
         </article>
       </div>

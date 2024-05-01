@@ -11,6 +11,7 @@ import { PaintsList } from "./components/paints/PaintsList.jsx"
 import { PaintDetail } from "./components/paints/PaintDetail.jsx"
 import { Cart } from "./components/cart/Cart.jsx"
 import { Payments } from "./components/payments/Payments.jsx"
+import { PaintsListAll } from "./components/paints/PaintsListAll.jsx"
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route element={<Authorized />}>
           <Route path="/" element={<HomeLandingPage />} />
+          <Route path="/paints" element={<PaintsListAll />} />
           <Route path="/:paintTypeId/paints" element={<PaintsList />} />
           <Route
             path="/:paintTypeId/paints/:paintId"
