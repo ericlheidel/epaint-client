@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom"
 import PropTypes from "prop-types"
 
-export const Paint = ({ paint, paintTypeId }) => {
+export const Paint = ({ paint }) => {
   return (
     <div>
-      <Link to={`/${paintTypeId}/paints/${paint.id}`}>
+      <Link to={`/${paint.paint_type_id}/paints/${paint.id}`}>
         <div>
           <img
             src={paint.image_one}
