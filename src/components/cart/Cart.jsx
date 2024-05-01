@@ -54,10 +54,10 @@ export const Cart = () => {
             </tr>
           </thead>
           <tbody>
-            {cart.items?.map((item) => {
+            {cart.items?.map((paint) => {
               return (
-                <tr key={item.id}>
-                  <CartItem item={item} setCart={setCart} />
+                <tr key={paint.id}>
+                  <CartItem paint={paint} setCart={setCart} />
                 </tr>
               )
             })}

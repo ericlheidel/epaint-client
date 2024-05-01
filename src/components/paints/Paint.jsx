@@ -12,9 +12,9 @@ export const Paint = ({ paint }) => {
             className="size-44"
           />
           <div className="flex flex-wrap justify-center h-auto">
-            <div className="text-2xl test">
-              <h3>{paint.color}</h3>
-              <h3>{paint.paint_number}</h3>
+            <div>
+              <h3 className="text-2xl test">{paint.color}</h3>
+              <h3 className="text-2xl test">{paint.paint_number}</h3>
             </div>
           </div>
         </div>
