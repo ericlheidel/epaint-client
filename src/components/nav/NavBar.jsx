@@ -34,7 +34,7 @@ export const NavBar = () => {
       <Link to="/" className="text-3xl">
         <i className="fa-solid fa-spray-can"></i>
       </Link>
-
+      <h1 className="text-3xl">Paintkillerz</h1>
       {/* Right section with dropdown menu */}
       <div className="relative" ref={dropdownRef}>
         <button

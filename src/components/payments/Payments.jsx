@@ -4,13 +4,13 @@ import { AddPayment } from "./AddPayment.jsx"
 import { Payment } from "./Payment.jsx"
 
 export const Payments = () => {
-  const [payments, setPayments] = useState([])
+  const [userPayments, setUserPayments] = useState([])
   const [isNewHidden, setIsNewHidden] = useState(true)
 
   const refresh = () => {
     getUserPayments().then((res) => {
       if (res) {
-        setPayments(res)
+        setUserPayments(res)
       }
     })
   }
@@ -31,7 +31,7 @@ export const Payments = () => {
             </tr>
           </thead>
           <tbody>
-            {payments.map((payment) => {
+            {userPayments.map((payment) => {
               return (
                 <Payment key={payment.id} payment={payment} refresh={refresh} />
               )
