@@ -4,6 +4,7 @@ export const HomeLandingPage = () => {
   const navigate = useNavigate()
   return (
     <div>
+      <h1 className="text-4xl mb-5">Welcome to Paintkillerz!</h1>
       <div className="flex flex-row justify-around">
         <div className="text-center shrink-0">
           <img

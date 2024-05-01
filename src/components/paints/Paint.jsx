@@ -25,5 +25,4 @@ export const Paint = ({ paint }) => {
 
 Paint.propTypes = {
   paint: PropTypes.object.isRequired,
-  paintTypeId: PropTypes.string.isRequired,
 }
