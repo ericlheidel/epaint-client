@@ -3,6 +3,7 @@ import { getUserPayments } from "../../data/payments.jsx"
 import PropTypes from "prop-types"
 import { closeOrder } from "../../data/orders.jsx"
 import { useNavigate } from "react-router-dom"
+import { getTodaysDate } from "../../utils.jsx"
 
 export const CompleteOrder = ({ setIsCompleteHidden, cart }) => {
   const [userPayments, setUserPayments] = useState([])
@@ -27,15 +28,6 @@ export const CompleteOrder = ({ setIsCompleteHidden, cart }) => {
       closeOrder(closedOrder, parseInt(cart.id))
       navigate("/my-orders")
     }
-  }
-
-  const getTodaysDate = () => {
-    const now = new Date()
-    const year = now.getFullYear()
-    const month = (now.getMonth() + 1).toString().padStart(2, "0")
-    const day = now.getDate().toString().padStart(2, "0")
-    const formattedDate = `${year}-${month}-${day}`
-    return formattedDate
   }
 
   return (
