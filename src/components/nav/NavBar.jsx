@@ -114,13 +114,13 @@ const NavBarRight = () => {
 
 const NavBarLeft = () => {
   const [showDropdown, setShowDropdown] = useState(false)
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   const dropdownRef = useRef(null)
 
-  const handleLogout = () => {
-    localStorage.removeItem("paint_token")
-    navigate("/login")
-  }
+  // const handleLogout = () => {
+  //   localStorage.removeItem("paint_token")
+  //   navigate("/login")
+  // }
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -193,7 +193,7 @@ const NavBarLeft = () => {
             </li>
             <li>
               <Link
-                to="/4/pains"
+                to="/4/paints"
                 className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                 onClick={() => {
                   setShowDropdown(false)
