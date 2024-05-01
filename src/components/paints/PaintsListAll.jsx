@@ -8,10 +8,19 @@ export const PaintsListAll = () => {
   const [searchText, setSearchText] = useState("")
   const [orderBy, setOrderBy] = useState("")
 
+  const [isLoading, setIsLoading] = useState(true)
+
   useEffect(() => {
     getAllPaints().then((res) => {
       setAllPaints(res)
     })
+  }, [])
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false)
+    }, 1000)
+    return () => clearTimeout(timer)
   }, [])
 
   const handleSearchAndOrder = () => {
@@ -28,19 +37,27 @@ export const PaintsListAll = () => {
 
   return (
     <div>
-      <h2 className="w-fit ml-auto mr-auto text-5xl">{`All Montana Paints (${allPaints.length})`}</h2>
-      <div>
-        <PaintFilterBar
-          setSearchText={setSearchText}
-          setOrderBy={setOrderBy}
-          handleSearchAndOrder={handleSearchAndOrder}
-        />
-        <article className="flex flex-row flex-wrap gap-20 justify-evenly">
-          {allPaints.map((paint) => {
-            return <Paint key={paint.id} paint={paint} />
-          })}
-        </article>
-      </div>
+      {isLoading ? (
+        <div className="m-auto p-">
+          <h1 className="text-5xl">Loading...</h1>
+        </div>
+      ) : (
+        <>
+          <h2 className="w-fit ml-auto mr-auto text-5xl">{`All Montana Paints (${allPaints.length})`}</h2>
+          <div>
+            <PaintFilterBar
+              setSearchText={setSearchText}
+              setOrderBy={setOrderBy}
+              handleSearchAndOrder={handleSearchAndOrder}
+            />
+            <article className="flex flex-row flex-wrap gap-20 justify-evenly">
+              {allPaints.map((paint) => {
+                return <Paint key={paint.id} paint={paint} />
+              })}
+            </article>
+          </div>
+        </>
+      )}
     </div>
   )
 }
