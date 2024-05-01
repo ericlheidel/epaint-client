@@ -6,7 +6,16 @@ import { getUserPayments } from "../../data/payments.jsx"
 import { useNavigate } from "react-router-dom"
 
 export const Cart = () => {
-  const [cart, setCart] = useState({ total: 0, number_of_items: 0 })
+  const [cart, setCart] = useState({
+    id: 0,
+    created_date: "0000-00-00",
+    user_id: 0,
+    payment_type_id: null,
+    is_completed: false,
+    items: [],
+    total: 0,
+    number_of_items: 0,
+  })
   const [isCompleteHidden, setIsCompleteHidden] = useState(true)
   const [userPayments, setUserPayments] = useState([])
 
@@ -82,17 +91,17 @@ export const Cart = () => {
             })}
           </tbody>
         </table>
-        <div>{cart.total !== 0 && `Total Price $${cart.total}`}</div>
+        <div>{cart.total > 0 && `Total Price $${cart.total}`}</div>
         <div className="flex flex-row justify-center mt-5">
           <div>
-            {cart.number_of_items !== 0 && (
+            {cart.number_of_items > 0 && (
               <button className="test" onClick={handleRemoveAllPaintsFromOrder}>
                 Delete Order
               </button>
             )}
           </div>
           <div>
-            {cart.number_of_items !== 0 && (
+            {cart.number_of_items > 0 && (
               <button
                 className="ml-16 test"
                 onClick={() => {
