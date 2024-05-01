@@ -10,3 +10,11 @@ export const closeOrder = (order, orderId) => {
     body: JSON.stringify(order),
   })
 }
+
+export const getClosedOrders = () => {
+  return fetch(`${apiUrl}/orders?closed=true`, {
+    headers: {
+      Authorization: `Token ${getToken()}`,
+    },
+  }).then((res) => res.json())
+}
