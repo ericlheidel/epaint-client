@@ -8,12 +8,6 @@ import { CartItem } from "./CartItem.jsx"
 
 export const Cart = () => {
   const [cart, setCart] = useState({
-    id: 0,
-    created_date: "0000-00-00",
-    user_id: 0,
-    payment_type_id: null,
-    is_completed: false,
-    items: [],
     total: 0,
     number_of_items: 0,
   })

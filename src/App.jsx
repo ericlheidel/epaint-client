@@ -13,6 +13,7 @@ import { Cart } from "./components/cart/Cart.jsx"
 import { Payments } from "./components/payments/Payments.jsx"
 import { PaintsListAll } from "./components/paints/PaintsListAll.jsx"
 import { PreviousOrdersList } from "./components/orders/PreviousOrdersList.jsx"
+import { PreviousOrderDetail } from "./components/orders/PreviousOrderDetail.jsx"
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/payments" element={<Payments />} />
           <Route path="/my-orders" element={<PreviousOrdersList />} />
+          <Route path="/my-orders/:orderId" element={<PreviousOrderDetail />} />
         </Route>
       </Routes>
     </BrowserRouter>
