@@ -7,3 +7,21 @@ export const getProfile = () => {
     },
   }).then((res) => res.json())
 }
+
+export const getUserImage = () => {
+  return fetch(`${apiUrl}/userimages`, {
+    headers: {
+      Authorization: `Token ${getToken()}`,
+    },
+  }).then((res) => res.json())
+}
+
+export const postUserImage = () => {
+  return fetch(`${apiUrl}/userimages`, {
+    method: "POST",
+    headers: {
+      Authorization: `Token ${getToken()}`,
+      "Content-Type": "application/json",
+    },
+  })
+}

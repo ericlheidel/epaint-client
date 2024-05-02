@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
+import { getProfile } from "../../data/profile.jsx"
 
 //++   /$$$$$$$  /$$$$$$  /$$$$$$  /$$   /$$ /$$$$$$$$
 //++  | $$__  $$|_  $$_/ /$$__  $$| $$  | $$|__  $$__/
@@ -149,6 +150,8 @@ const NavBarLeft = () => {
   const [showDropdown, setShowDropdown] = useState(false)
   const dropdownRef = useRef(null)
 
+  const [profile, setProfile] = useState({})
+
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -163,14 +166,25 @@ const NavBarLeft = () => {
     }
   }, [])
 
+  useEffect(() => {
+    getProfile().then((res) => {
+      setProfile(res)
+    })
+  }, [])
+
   return (
     <div className="relative" ref={dropdownRef}>
-      <button
-        onClick={() => setShowDropdown(!showDropdown)}
-        className="text-3xl focus:outline-none"
-      >
-        <i className="fa-solid fa-spray-can"></i>
-      </button>
+      <div className="flex flex-row">
+        <button
+          onClick={() => setShowDropdown(!showDropdown)}
+          className="text-3xl focus:outline-none"
+        >
+          <i className="fa-solid fa-spray-can"></i>
+        </button>
+        <h1 className="mt-auto mb-auto ml-5 text-2xl">
+          {profile.user?.first_name}
+        </h1>
+      </div>
       {showDropdown && (
         <div className="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-lg">
           <ul className="py-2">
@@ -240,8 +254,9 @@ export const NavBar = () => {
   return (
     <nav className="flex justify-between items-center bg-gray-800 text-white p-4 mb-5">
       <NavBarLeft />
+
       <Link to="/">
-        <h1 className="text-3xl">Paintkillerz</h1>
+        <h1 className="text-3xl mr-5">Paintkillerz</h1>
       </Link>
       <NavBarRight />
     </nav>

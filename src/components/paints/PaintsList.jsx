@@ -68,6 +68,7 @@ export const PaintsList = () => {
               setOrderBy={setOrderBy}
               handleSearchAndOrder={handleSearchAndOrder}
             />
+            <div className="bg-slate-200 h-10 mb-10 mt-10"></div>
             <article className="paints-container flex flex-row flex-wrap gap-20 justify-evenly">
               {paints.map((paint) => {
                 return <Paint key={paint.id} paint={paint} />

@@ -9,7 +9,7 @@ export const PaintFilterBar = ({ setSearchText, setOrderBy }) => {
       <input
         type="text"
         placeholder="Search Paints..."
-        className=""
+        className="ml-12 p-2 text-xl rounded-lg text-slate-900 placeholder-slate-900 outline-none"
         spellCheck={false}
         onChange={(e) => {
           setSearchText(e.target.value)
@@ -30,6 +30,7 @@ export const PaintFilterBar = ({ setSearchText, setOrderBy }) => {
 
         <select
           value={selectValue}
+          className="mr-12 p-2 text-xl rounded-lg text-slate-900 outline-none"
           onChange={(e) => {
             setSelectValue(e.target.value)
             setOrderBy(e.target.value)
