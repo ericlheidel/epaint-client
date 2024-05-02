@@ -39,20 +39,22 @@ export const PaintsListAll = () => {
     <div>
       {isLoading ? (
         <div className="m-auto p-">
-          <h1 className="text-5xl">Loading...</h1>
+          <h1 className="bomber-urban text-9xl">Loading...</h1>
         </div>
       ) : (
         <>
           <div>
-            <div className="test">
-              <h2 className="w-fit ml-auto mr-auto text-5xl">{`All Montana Paints (${allPaints.length})`}</h2>
+            <div>
               <div>
+                <h2 className="bomber-urban mb-5 w-fit ml-auto mr-auto text-9xl">
+                  All Montana Paints
+                </h2>
                 <PaintFilterBar
                   setSearchText={setSearchText}
                   setOrderBy={setOrderBy}
                   handleSearchAndOrder={handleSearchAndOrder}
                 />
-                <div className="bg-slate-200 h-10 mb-10 mt-10"></div>
+                <div className="bg-slate-300 h-16 mb-10 mt-10"></div>
               </div>
             </div>
             <article className="paints-container flex flex-row flex-wrap gap-20 justify-evenly">

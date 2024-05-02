@@ -1,3 +1,15 @@
+@font-face {
+  font-family: "OneDrips";
+  src: url("./fonts/Onedrips.otf") format("opentype");
+  /* Add more src for different font weights/styles if available */
+}
+
+@font-face {
+  font-family: "BomberUrban-Regular";
+  src: url("./fonts/BomberUrban-Regular.otf") format("opentype");
+  /* Add more src for different font weights/styles if available */
+}
+
 html {
   margin: auto 0;
   text-align: center;
@@ -5,6 +17,14 @@ html {
 
 .test {
   border: 2px solid red;
+}
+
+.onedrips {
+  font-family: "OneDrips", sans-serif;
+}
+
+.bomber-urban {
+  font-family: "BomberUrban-Regular", sans-serif;
 }
 
 /* #root {

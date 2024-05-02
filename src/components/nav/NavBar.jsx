@@ -50,7 +50,7 @@ const NavBarRight = () => {
         onClick={() => setShowDropdown(!showDropdown)}
         className="text-3xl focus:outline-none"
       >
-        <i className="fa-solid fa-ellipsis"></i>
+        <i className="fa-solid fa-ellipsis mr-5 text-8xl text-slate-300"></i>
       </button>
       {showDropdown && (
         <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg">
@@ -99,7 +99,7 @@ const NavBarRight = () => {
                 Payments
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link
                 to="/profile"
                 className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
@@ -109,7 +109,7 @@ const NavBarRight = () => {
               >
                 Profile
               </Link>
-            </li>
+            </li> */}
             <li className="border-t border-gray-300 mt-2">
               <button
                 onClick={() => {
@@ -179,9 +179,9 @@ const NavBarLeft = () => {
           onClick={() => setShowDropdown(!showDropdown)}
           className="text-3xl focus:outline-none"
         >
-          <i className="fa-solid fa-spray-can"></i>
+          <i className="fa-solid fa-spray-can ml-5 text-8xl text-slate-300"></i>
         </button>
-        <h1 className="mt-auto mb-auto ml-5 text-2xl">
+        <h1 className="onedrips mt-10 ml-5 text-7xl text-slate-300">
           {profile.user?.first_name}
         </h1>
       </div>
@@ -254,9 +254,10 @@ export const NavBar = () => {
   return (
     <nav className="flex justify-between items-center bg-gray-800 text-white p-4 mb-5">
       <NavBarLeft />
-
       <Link to="/">
-        <h1 className="text-3xl mr-5">Paintkillerz</h1>
+        <h1 className="onedrips text-9xl text-slate-300 mr-20 mt-8">
+          Paintkillerz
+        </h1>
       </Link>
       <NavBarRight />
     </nav>
