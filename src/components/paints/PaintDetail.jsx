@@ -105,16 +105,16 @@ export const PaintDetail = () => {
   return (
     <div>
       <div>
-        <div className="flex flex-row">
+        <h1 className="bomber-urban mb-10 text-9xl">
+          {paint.color} {paint.paint_number}
+        </h1>
+        <div className="flex flex-col items-center">
           <img
             src={paint.image_two}
             alt="image of front and back of paint can"
-            className="size-96"
+            className="w-1/2"
           />
-          <div className="info-div">
-            Paint Information:
-            <div>Color: {paint.color}</div>
-            <div>Paint Number: {paint.paint_number}</div>
+          <div className="flex flex-row">
             <div>
               {paint.hex == null ? (
                 <button
@@ -129,118 +129,126 @@ export const PaintDetail = () => {
               )}
             </div>
             <div className="flex flex-row">
-              <form>
-                <input
-                  hidden={hexIsHidden}
-                  type="text"
-                  value={updatedHex}
-                  onChange={(e) => {
-                    setUpdatedHex(e.target.value)
-                  }}
-                />
+              <div className="hex flex flex-col">
+                <form>
+                  <input
+                    hidden={hexIsHidden}
+                    type="text"
+                    value={updatedHex}
+                    onChange={(e) => {
+                      setUpdatedHex(e.target.value)
+                    }}
+                  />
+                  <button
+                    hidden={hexIsHidden}
+                    className="test button"
+                    onClick={handleUpdateHex}
+                  >
+                    Submit
+                  </button>
+                </form>
                 <button
                   hidden={hexIsHidden}
                   className="test"
-                  onClick={handleUpdateHex}
-                >
-                  Submit
-                </button>
-              </form>
-              <button
-                hidden={hexIsHidden}
-                className="test"
-                onClick={() => {
-                  setUpdatedHex("")
-                  setHexIsHidden(true)
-                }}
-              >
-                Cancel
-              </button>
-            </div>
-            <div>
-              {paint.rgb == null ? (
-                <button
-                  hidden={!rgbIsHidden}
-                  className="test"
-                  onClick={() => setRgbIsHidden(false)}
-                >
-                  Add an RGB Code
-                </button>
-              ) : (
-                `RGB: ${paint.rgb}`
-              )}
-            </div>
-            <div className="flex flex-row">
-              <form>
-                <input
-                  hidden={rgbIsHidden}
-                  type="text"
-                  value={updatedRgb}
-                  onChange={(e) => {
-                    setUpdatedRgb(e.target.value)
+                  onClick={() => {
+                    setUpdatedHex("")
+                    setHexIsHidden(true)
                   }}
-                />
-                <button
-                  hidden={rgbIsHidden}
-                  className="test"
-                  onClick={handleUpdateRgb}
                 >
-                  Submit
+                  Cancel
                 </button>
-              </form>
-              <button
-                hidden={rgbIsHidden}
-                className="test"
-                onClick={() => {
-                  setUpdatedRgb("")
-                  setRgbIsHidden(true)
-                }}
-              >
-                Cancel
-              </button>
+              </div>
+              <div className="rgb">
+                <div className="rgb">
+                  {paint.rgb == null ? (
+                    <button
+                      hidden={!rgbIsHidden}
+                      className="test"
+                      onClick={() => setRgbIsHidden(false)}
+                    >
+                      Add an RGB Code
+                    </button>
+                  ) : (
+                    `RGB: ${paint.rgb}`
+                  )}
+                </div>
+                <div>
+                  <form>
+                    <input
+                      hidden={rgbIsHidden}
+                      type="text"
+                      value={updatedRgb}
+                      onChange={(e) => {
+                        setUpdatedRgb(e.target.value)
+                      }}
+                    />
+                    <button
+                      hidden={rgbIsHidden}
+                      className="test"
+                      onClick={handleUpdateRgb}
+                    >
+                      Submit
+                    </button>
+                  </form>
+                  <button
+                    hidden={rgbIsHidden}
+                    className="test"
+                    onClick={() => {
+                      setUpdatedRgb("")
+                      setRgbIsHidden(true)
+                    }}
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+              <div className="cmyk">
+                <div>
+                  {paint.cmyk == null ? (
+                    <button
+                      hidden={!cmykIsHidden}
+                      className="test"
+                      onClick={() => setCmykIsHidden(false)}
+                    >
+                      Add a CMYK Code
+                    </button>
+                  ) : (
+                    `CMYK: ${paint.cmyk}`
+                  )}
+                </div>
+                <div>
+                  <form>
+                    <input
+                      hidden={cmykIsHidden}
+                      type="text"
+                      value={updatedCmyk}
+                      onChange={(e) => {
+                        setUpdatedCmyk(e.target.value)
+                      }}
+                    />
+                    <button
+                      hidden={cmykIsHidden}
+                      className="test"
+                      onClick={handleUpdateCmyk}
+                    >
+                      Submit
+                    </button>
+                  </form>
+                  <button
+                    hidden={cmykIsHidden}
+                    className="test"
+                    onClick={() => {
+                      setUpdatedCmyk("")
+                      setCmykIsHidden(true)
+                    }}
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
             </div>
-            <div>
-              {paint.cmyk == null ? (
-                <button
-                  hidden={!cmykIsHidden}
-                  className="test"
-                  onClick={() => setCmykIsHidden(false)}
-                >
-                  Add a CMYK Code
-                </button>
-              ) : (
-                `CMYK: ${paint.cmyk}`
-              )}
-            </div>
-            <div className="flex flex-row">
-              <form>
-                <input
-                  hidden={cmykIsHidden}
-                  type="text"
-                  value={updatedCmyk}
-                  onChange={(e) => {
-                    setUpdatedCmyk(e.target.value)
-                  }}
-                />
-                <button
-                  hidden={cmykIsHidden}
-                  className="test"
-                  onClick={handleUpdateCmyk}
-                >
-                  Submit
-                </button>
-              </form>
-              <button
-                hidden={cmykIsHidden}
-                className="test"
-                onClick={() => {
-                  setUpdatedCmyk("")
-                  setCmykIsHidden(true)
-                }}
-              >
-                Cancel
-              </button>
-            </div>
+          </div>
+          <div className="test">
             <h3>Please choose a size...</h3>
             <select
               className="test"

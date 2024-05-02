@@ -67,7 +67,10 @@ export const Cart = () => {
         <div className="flex flex-row justify-center mt-5">
           <div>
             {cart.number_of_items > 0 && (
-              <button className="test" onClick={handleRemoveAllPaintsFromOrder}>
+              <button
+                className="flex mt-6 text-white bg-blue-700 border-0 py-4 px-8 focus:outline-none hover:bg-blue-500 rounded"
+                onClick={handleRemoveAllPaintsFromOrder}
+              >
                 Delete Order
               </button>
             )}
@@ -75,7 +78,7 @@ export const Cart = () => {
           <div>
             {cart.number_of_items > 0 && (
               <button
-                className="ml-16 test"
+                className="flex ml-24 mt-6 text-white bg-blue-700 border-0 py-4 px-8 focus:outline-none hover:bg-blue-500 rounded"
                 onClick={() => {
                   if (userPayments.length === 0) {
                     window.alert(

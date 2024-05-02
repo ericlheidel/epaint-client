@@ -11,7 +11,7 @@ export const CartItem = ({ paint, setCart }) => {
         <img
           src={paint.paint.image_one}
           alt="image of paint"
-          className="size-12 m-auto rounded-lg hover:cursor-pointer hover:scale-110 cursor-pointer"
+          className="size-44 m-auto rounded-lg hover:cursor-pointer hover:scale-110 cursor-pointer"
           onClick={() => {
             navigate(`/${paint.paint_type_id}/paints/${paint.paint.id}`)
           }}
@@ -23,7 +23,7 @@ export const CartItem = ({ paint, setCart }) => {
       <td>{paint.size.price}</td>
       <td>
         <button
-          className="test"
+          className="flex text-white bg-blue-700 border-0 py-2 px-5 focus:outline-none hover:bg-blue-500 rounded"
           onClick={() => {
             deleteOrderPaintById(paint.id).then(() => {
               getCart().then((res) => {
