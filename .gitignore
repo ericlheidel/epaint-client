@@ -26,4 +26,4 @@ dist-ssr
 src/media
 
 src/data/profile.jsx
-src/components/profile
+src/components/profile/Profile.jsx
