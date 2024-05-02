@@ -50,7 +50,7 @@ export const PaintsListAll = () => {
               setOrderBy={setOrderBy}
               handleSearchAndOrder={handleSearchAndOrder}
             />
-            <article className="flex flex-row flex-wrap gap-20 justify-evenly">
+            <article className="paints-container flex flex-row flex-wrap gap-20 justify-evenly">
               {allPaints.map((paint) => {
                 return <Paint key={paint.id} paint={paint} />
               })}

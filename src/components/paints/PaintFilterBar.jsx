@@ -5,7 +5,7 @@ export const PaintFilterBar = ({ setSearchText, setOrderBy }) => {
   const [selectValue, setSelectValue] = useState("")
 
   return (
-    <div className="flex flex-row justify-between mb-5">
+    <div className="filter-bar flex flex-row justify-between mb-5">
       <input
         type="text"
         placeholder="Search Paints..."
@@ -15,7 +15,7 @@ export const PaintFilterBar = ({ setSearchText, setOrderBy }) => {
           setSearchText(e.target.value)
         }}
       />
-      <div>
+      <div className="filter-options">
         {selectValue !== "" && (
           <button
             className="mr-2 test"

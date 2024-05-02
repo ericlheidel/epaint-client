@@ -46,7 +46,7 @@ export const PaintsList = () => {
   return (
     <div>
       {isLoading ? (
-        <div className="m-auto p-">
+        <div className="m-auto">
           <h1 className="text-5xl">Loading...</h1>
         </div>
       ) : (
@@ -68,7 +68,7 @@ export const PaintsList = () => {
               setOrderBy={setOrderBy}
               handleSearchAndOrder={handleSearchAndOrder}
             />
-            <article className="flex flex-row flex-wrap gap-20 justify-evenly">
+            <article className="paints-container flex flex-row flex-wrap gap-20 justify-evenly">
               {paints.map((paint) => {
                 return <Paint key={paint.id} paint={paint} />
               })}
