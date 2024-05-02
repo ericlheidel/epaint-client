@@ -1,0 +1,23 @@
+@media screen and (max-width: 768px) {
+  /* Adjust styles for smaller screens */
+  .paints-container {
+    flex-direction: column; /* Display paints in a single column */
+    align-items: center; /* Center align paints */
+  }
+
+  h1 {
+    font-size: 2rem; /* Decrease font size for smaller screens */
+  }
+
+  h2 {
+    font-size: 1.5rem; /* Decrease font size for smaller screens */
+  }
+
+  .filter-bar {
+    flex-direction: column; /* Display filter items in a single column */
+  }
+
+  .filter-options {
+    margin-top: 10px; /* Add margin to separate filter options on smaller screens */
+  }
+}

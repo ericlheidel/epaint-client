@@ -43,14 +43,19 @@ export const PaintsListAll = () => {
         </div>
       ) : (
         <>
-          <h2 className="w-fit ml-auto mr-auto text-5xl">{`All Montana Paints (${allPaints.length})`}</h2>
           <div>
-            <PaintFilterBar
-              setSearchText={setSearchText}
-              setOrderBy={setOrderBy}
-              handleSearchAndOrder={handleSearchAndOrder}
-            />
-            <article className="flex flex-row flex-wrap gap-20 justify-evenly">
+            <div className="test">
+              <h2 className="w-fit ml-auto mr-auto text-5xl">{`All Montana Paints (${allPaints.length})`}</h2>
+              <div>
+                <PaintFilterBar
+                  setSearchText={setSearchText}
+                  setOrderBy={setOrderBy}
+                  handleSearchAndOrder={handleSearchAndOrder}
+                />
+                <div className="bg-slate-200 h-10 mb-10 mt-10"></div>
+              </div>
+            </div>
+            <article className="paints-container flex flex-row flex-wrap gap-20 justify-evenly">
               {allPaints.map((paint) => {
                 return <Paint key={paint.id} paint={paint} />
               })}
