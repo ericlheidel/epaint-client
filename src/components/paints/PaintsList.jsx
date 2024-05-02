@@ -18,6 +18,7 @@ export const PaintsList = () => {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
+    setIsLoading(true)
     getPaintsByPaintTypeId(paintTypeId).then((res) => {
       setPaints(res)
     })
@@ -28,7 +29,7 @@ export const PaintsList = () => {
       setIsLoading(false)
     }, 1000)
     return () => clearTimeout(timer)
-  }, [])
+  }, [paintTypeId])
 
   const handleSearchAndOrder = () => {
     getPaintsBySearchAndOrder(searchText, orderBy, paintTypeId).then((res) => {
