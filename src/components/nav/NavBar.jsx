@@ -1,8 +1,23 @@
-// import { useEffect, useState } from "react"
-// import { getToken } from "../../utils.jsx"
-
 import { useEffect, useRef, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
+
+//++   /$$$$$$$  /$$$$$$  /$$$$$$  /$$   /$$ /$$$$$$$$
+//++  | $$__  $$|_  $$_/ /$$__  $$| $$  | $$|__  $$__/
+//++  | $$  \ $$  | $$  | $$  \__/| $$  | $$   | $$
+//++  | $$$$$$$/  | $$  | $$ /$$$$| $$$$$$$$   | $$
+//++  | $$__  $$  | $$  | $$|_  $$| $$__  $$   | $$
+//++  | $$  \ $$  | $$  | $$  \ $$| $$  | $$   | $$
+//++  | $$  | $$ /$$$$$$|  $$$$$$/| $$  | $$   | $$
+//++  |__/  |__/|______/ \______/ |__/  |__/   |__/
+
+//++    /$$$$$$  /$$$$$$ /$$$$$$$  /$$$$$$$$
+//++   /$$__  $$|_  $$_/| $$__  $$| $$_____/
+//++  | $$  \__/  | $$  | $$  \ $$| $$
+//++  |  $$$$$$   | $$  | $$  | $$| $$$$$
+//++   \____  $$  | $$  | $$  | $$| $$__/
+//++   /$$  \ $$  | $$  | $$  | $$| $$
+//++  |  $$$$$$/ /$$$$$$| $$$$$$$/| $$$$$$$$
+//++   \______/ |______/|_______/ |________/
 
 const NavBarRight = () => {
   const [showDropdown, setShowDropdown] = useState(false)
@@ -112,15 +127,27 @@ const NavBarRight = () => {
   )
 }
 
+//++   /$$       /$$$$$$$$ /$$$$$$$$ /$$$$$$$$
+//++  | $$      | $$_____/| $$_____/|__  $$__/
+//++  | $$      | $$      | $$         | $$
+//++  | $$      | $$$$$   | $$$$$      | $$
+//++  | $$      | $$__/   | $$__/      | $$
+//++  | $$      | $$      | $$         | $$
+//++  | $$$$$$$$| $$$$$$$$| $$         | $$
+//++  |________/|________/|__/         |__/
+
+//++    /$$$$$$  /$$$$$$ /$$$$$$$  /$$$$$$$$
+//++   /$$__  $$|_  $$_/| $$__  $$| $$_____/
+//++  | $$  \__/  | $$  | $$  \ $$| $$
+//++  |  $$$$$$   | $$  | $$  | $$| $$$$$
+//++   \____  $$  | $$  | $$  | $$| $$__/
+//++   /$$  \ $$  | $$  | $$  | $$| $$
+//++  |  $$$$$$/ /$$$$$$| $$$$$$$/| $$$$$$$$
+//++   \______/ |______/|_______/ |________/
+
 const NavBarLeft = () => {
   const [showDropdown, setShowDropdown] = useState(false)
-  // const navigate = useNavigate()
   const dropdownRef = useRef(null)
-
-  // const handleLogout = () => {
-  //   localStorage.removeItem("paint_token")
-  //   navigate("/login")
-  // }
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -213,7 +240,9 @@ export const NavBar = () => {
   return (
     <nav className="flex justify-between items-center bg-gray-800 text-white p-4 mb-5">
       <NavBarLeft />
-      <h1 className="text-3xl">Paintkillerz</h1>
+      <Link to="/">
+        <h1 className="text-3xl">Paintkillerz</h1>
+      </Link>
       <NavBarRight />
     </nav>
   )
