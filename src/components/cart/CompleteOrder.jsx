@@ -3,7 +3,7 @@ import { getUserPayments } from "../../data/payments.jsx"
 import PropTypes from "prop-types"
 import { closeOrder } from "../../data/orders.jsx"
 import { useNavigate } from "react-router-dom"
-import { getTodaysDate } from "../../utils.jsx"
+import { button, getTodaysDate, gradientOne } from "../../utils.jsx"
 
 export const CompleteOrder = ({ setIsCompleteHidden, cart }) => {
   const [userPayments, setUserPayments] = useState([])
@@ -33,11 +33,11 @@ export const CompleteOrder = ({ setIsCompleteHidden, cart }) => {
   return (
     <div>
       <div>
-        <button className="mr-5 test" onClick={handlePurchase}>
+        <button className={`${button}`} onClick={handlePurchase}>
           Purchase
         </button>
         <select
-          className="mt-5"
+          className={`${gradientOne} ml-20 mr-20 p-2 w-80 text-3xl rounded-full text-white outline outline-slate-700`}
           onChange={(e) => {
             setSelectedPayment(parseInt(e.target.value))
           }}
@@ -56,7 +56,7 @@ export const CompleteOrder = ({ setIsCompleteHidden, cart }) => {
           })}
         </select>
         <button
-          className="ml-5 test"
+          className={`${button}`}
           onClick={() => {
             setIsCompleteHidden(true)
           }}
