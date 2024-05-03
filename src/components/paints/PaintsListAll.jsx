@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { getAllPaints, getPaintsBySearchAndOrder } from "../../data/paints.jsx"
 import { PaintFilterBar } from "./PaintFilterBar.jsx"
 import { Paint } from "./Paint.jsx"
+import { gradient } from "../../utils.jsx"
 
 export const PaintsListAll = () => {
   const [allPaints, setAllPaints] = useState([])
@@ -39,14 +40,14 @@ export const PaintsListAll = () => {
     <div>
       {isLoading ? (
         <div className="m-auto p-">
-          <h1 className="bomber-urban text-9xl">Loading...</h1>
+          <h1 className="font-two text-9xl text-white">Loading...</h1>
         </div>
       ) : (
         <>
           <div>
             <div>
               <div>
-                <h2 className="bomber-urban mb-5 w-fit ml-auto mr-auto text-9xl">
+                <h2 className="font-two mb-5 w-fit ml-auto mr-auto text-9xl text-white">
                   All Montana Paints
                 </h2>
                 <PaintFilterBar
@@ -54,7 +55,7 @@ export const PaintsListAll = () => {
                   setOrderBy={setOrderBy}
                   handleSearchAndOrder={handleSearchAndOrder}
                 />
-                <div className="bg-slate-300 h-16 mb-10 mt-10"></div>
+                <div className={`${gradient} h-16 mb-10 mt-10`}></div>
               </div>
             </div>
             <article className="paints-container flex flex-row flex-wrap gap-20 justify-evenly">

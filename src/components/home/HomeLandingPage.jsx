@@ -4,7 +4,9 @@ export const HomeLandingPage = () => {
   const navigate = useNavigate()
   return (
     <div>
-      <h1 className="bomber-urban text-9xl mb-5">Welcome to Paintkillerz!</h1>
+      <h1 className="font-two text-9xl mb-5 text-white">
+        Welcome to Paintkillerz!
+      </h1>
       <div className="flex flex-row justify-around m-16">
         <div className="text-center shrink-0">
           <img
@@ -15,8 +17,10 @@ export const HomeLandingPage = () => {
               navigate("/1/paints")
             }}
           />
-          <h2 className="w-fit ml-auto mr-auto text-5xl mt-5">Montana</h2>
-          <h2 className="w-fit ml-auto mr-auto text-5xl">Black</h2>
+          <h2 className="w-fit ml-auto mr-auto text-5xl mt-5 text-white">
+            Montana
+          </h2>
+          <h2 className="w-fit ml-auto mr-auto text-5xl text-white">Black</h2>
         </div>
         <div className="text-cent shrink-0">
           <img
@@ -27,8 +31,10 @@ export const HomeLandingPage = () => {
               navigate("/2/paints")
             }}
           />
-          <h2 className="w-fit ml-auto mr-auto text-5xl mt-5">Montana</h2>
-          <h2 className="w-fit ml-auto mr-auto text-5xl">Gold</h2>
+          <h2 className="w-fit ml-auto mr-auto text-5xl mt-5 text-white">
+            Montana
+          </h2>
+          <h2 className="w-fit ml-auto mr-auto text-5xl text-white">Gold</h2>
         </div>
         <div className="text-cent shrink">
           <img
@@ -39,8 +45,10 @@ export const HomeLandingPage = () => {
               navigate("/3/paints")
             }}
           />
-          <h2 className="w-fit ml-auto mr-auto text-5xl mt-5">Montana</h2>
-          <h2 className="w-fit ml-auto mr-auto text-5xl">White</h2>
+          <h2 className="w-fit ml-auto mr-auto text-5xl mt-5 text-white">
+            Montana
+          </h2>
+          <h2 className="w-fit ml-auto mr-auto text-5xl text-white">White</h2>
         </div>
         <div className="text-cent shrink-0">
           <img
@@ -51,8 +59,10 @@ export const HomeLandingPage = () => {
               navigate("/4/paints")
             }}
           />
-          <h2 className="w-fit ml-auto mr-auto text-5xl mt-5">Montana</h2>
-          <h2 className="w-fit ml-auto mr-auto text-5xl">Special</h2>
+          <h2 className="w-fit ml-auto mr-auto text-5xl mt-5 text-white">
+            Montana
+          </h2>
+          <h2 className="w-fit ml-auto mr-auto text-5xl text-white">Special</h2>
         </div>
       </div>
       <div className="mt-20 text-3xl">
@@ -64,7 +74,9 @@ export const HomeLandingPage = () => {
             navigate("/paints")
           }}
         />
-        <h2 className="w-fit ml-auto mr-auto text-5xl mt-5">All Paints</h2>
+        <h2 className="w-fit ml-auto mr-auto text-5xl mt-5 text-white">
+          All Paints
+        </h2>
       </div>
     </div>
   )

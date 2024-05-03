@@ -6,6 +6,7 @@ import {
   updatePaint,
 } from "../../data/paints.jsx"
 import { getAllSizes, getSizeById } from "../../data/sizes.jsx"
+import { button } from "../../utils.jsx"
 
 export const PaintDetail = () => {
   const { paintId } = useParams()
@@ -105,21 +106,25 @@ export const PaintDetail = () => {
   return (
     <div>
       <div>
-        <h1 className="bomber-urban mb-10 text-9xl">
-          {paint.color} {paint.paint_number}
+        <h1 className="font-two mb-10 text-9xl">
+          {paint.color} - {paint.paint_number}
         </h1>
         <div className="flex flex-col items-center">
           <img
             src={paint.image_two}
             alt="image of front and back of paint can"
-            className="w-1/2"
+            className="w-1/3 border rounded-3xl"
           />
+          {/* HEX, RGB, CMYK div */}
+          {/* HEX, RGB, CMYK div */}
           <div className="flex flex-row">
+            {/* HEX div */}
+            {/* HEX div */}
             <div>
               {paint.hex == null ? (
                 <button
                   hidden={!hexIsHidden}
-                  className="test"
+                  className={`${button}`}
                   onClick={() => setHexIsHidden(false)}
                 >
                   Add a Hex Code
@@ -141,7 +146,7 @@ export const PaintDetail = () => {
                   />
                   <button
                     hidden={hexIsHidden}
-                    className="test button"
+                    className="test"
                     onClick={handleUpdateHex}
                   >
                     Submit
@@ -163,7 +168,7 @@ export const PaintDetail = () => {
                   {paint.rgb == null ? (
                     <button
                       hidden={!rgbIsHidden}
-                      className="test"
+                      className={`${button} ml-5`}
                       onClick={() => setRgbIsHidden(false)}
                     >
                       Add an RGB Code
@@ -207,7 +212,7 @@ export const PaintDetail = () => {
                   {paint.cmyk == null ? (
                     <button
                       hidden={!cmykIsHidden}
-                      className="test"
+                      className={`${button} ml-5`}
                       onClick={() => setCmykIsHidden(false)}
                     >
                       Add a CMYK Code

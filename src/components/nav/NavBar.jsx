@@ -1,24 +1,25 @@
 import { useEffect, useRef, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { getProfile } from "../../data/profile.jsx"
+import { gradient } from "../../utils.jsx"
 
-//++   /$$$$$$$  /$$$$$$  /$$$$$$  /$$   /$$ /$$$$$$$$
-//++  | $$__  $$|_  $$_/ /$$__  $$| $$  | $$|__  $$__/
-//++  | $$  \ $$  | $$  | $$  \__/| $$  | $$   | $$
-//++  | $$$$$$$/  | $$  | $$ /$$$$| $$$$$$$$   | $$
-//++  | $$__  $$  | $$  | $$|_  $$| $$__  $$   | $$
-//++  | $$  \ $$  | $$  | $$  \ $$| $$  | $$   | $$
-//++  | $$  | $$ /$$$$$$|  $$$$$$/| $$  | $$   | $$
-//++  |__/  |__/|______/ \______/ |__/  |__/   |__/
+//++   /$$$$$$$   /$$$$$$   /$$$$$$   /$$   /$$  /$$$$$$$$
+//++  | $$__  $$ |_  $$_/  /$$__  $$ | $$  | $$ |__  $$__/
+//++  | $$  \ $$   | $$   | $$  \__/ | $$  | $$    | $$
+//++  | $$$$$$$/   | $$   | $$ /$$$$ | $$$$$$$$    | $$
+//++  | $$__  $$   | $$   | $$|_  $$ | $$__  $$    | $$
+//++  | $$  \ $$   | $$   | $$  \ $$ | $$  | $$    | $$
+//++  | $$  | $$  /$$$$$$ |  $$$$$$/ | $$  | $$    | $$
+//++  |__/  |__/ |______/  \______/  |__/  |__/    |__/
 
-//++    /$$$$$$  /$$$$$$ /$$$$$$$  /$$$$$$$$
-//++   /$$__  $$|_  $$_/| $$__  $$| $$_____/
-//++  | $$  \__/  | $$  | $$  \ $$| $$
-//++  |  $$$$$$   | $$  | $$  | $$| $$$$$
-//++   \____  $$  | $$  | $$  | $$| $$__/
-//++   /$$  \ $$  | $$  | $$  | $$| $$
-//++  |  $$$$$$/ /$$$$$$| $$$$$$$/| $$$$$$$$
-//++   \______/ |______/|_______/ |________/
+//++    /$$$$$$   /$$$$$$  /$$$$$$$   /$$$$$$$$
+//++   /$$__  $$ |_  $$_/ | $$__  $$ | $$_____/
+//++  | $$  \__/   | $$   | $$  \ $$ | $$
+//++  |  $$$$$$    | $$   | $$  | $$ | $$$$$
+//++   \____  $$   | $$   | $$  | $$ | $$__/
+//++   /$$  \ $$   | $$   | $$  | $$ | $$
+//++  |  $$$$$$/  /$$$$$$ | $$$$$$$/ | $$$$$$$$
+//++   \______/  |______/ |_______/  |________/
 
 const NavBarRight = () => {
   const [showDropdown, setShowDropdown] = useState(false)
@@ -50,15 +51,15 @@ const NavBarRight = () => {
         onClick={() => setShowDropdown(!showDropdown)}
         className="text-3xl focus:outline-none"
       >
-        <i className="fa-solid fa-ellipsis mr-5 text-8xl text-slate-300"></i>
+        <i className="fa-solid fa-ellipsis mr-5 text-8xl text-white"></i>
       </button>
       {showDropdown && (
-        <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg">
+        <div className="absolute right-0 mt-2 w-64 text-2xl bg-white rounded-lg shadow-lg">
           <ul className="py-2">
             <li>
               <Link
                 to="/"
-                className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                className="block px-8 py-4 text-3xl text-gray-800 hover:bg-gray-200"
                 onClick={() => {
                   setShowDropdown(false)
                 }}
@@ -69,7 +70,7 @@ const NavBarRight = () => {
             <li>
               <Link
                 to="/cart"
-                className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                className="block px-8 py-4 text-3xl text-gray-800 hover:bg-gray-200"
                 onClick={() => {
                   setShowDropdown(false)
                 }}
@@ -80,7 +81,7 @@ const NavBarRight = () => {
             <li>
               <Link
                 to="/my-orders"
-                className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                className="block px-8 py-4 text-3xl text-gray-800 hover:bg-gray-200"
                 onClick={() => {
                   setShowDropdown(false)
                 }}
@@ -91,7 +92,7 @@ const NavBarRight = () => {
             <li>
               <Link
                 to="/payments"
-                className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                className="block px-8 py-4 text-3xl text-gray-800 hover:bg-gray-200"
                 onClick={() => {
                   setShowDropdown(false)
                 }}
@@ -116,7 +117,7 @@ const NavBarRight = () => {
                   handleLogout()
                   setShowDropdown(false)
                 }}
-                className="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200"
+                className="block w-full text-left px-8 py-4 text-3xl text-gray-800 hover:bg-gray-200"
               >
                 Logout
               </button>
@@ -128,23 +129,23 @@ const NavBarRight = () => {
   )
 }
 
-//++   /$$       /$$$$$$$$ /$$$$$$$$ /$$$$$$$$
-//++  | $$      | $$_____/| $$_____/|__  $$__/
-//++  | $$      | $$      | $$         | $$
-//++  | $$      | $$$$$   | $$$$$      | $$
-//++  | $$      | $$__/   | $$__/      | $$
-//++  | $$      | $$      | $$         | $$
-//++  | $$$$$$$$| $$$$$$$$| $$         | $$
-//++  |________/|________/|__/         |__/
+//++   /$$        /$$$$$$$$  /$$$$$$$$  /$$$$$$$$
+//++  | $$       | $$_____/ | $$_____/ |__  $$__/
+//++  | $$       | $$       | $$          | $$
+//++  | $$       | $$$$$    | $$$$$       | $$
+//++  | $$       | $$__/    | $$__/       | $$
+//++  | $$       | $$       | $$          | $$
+//++  | $$$$$$$$ | $$$$$$$$ | $$          | $$
+//++  |________/ |________/ |__/          |__/
 
-//++    /$$$$$$  /$$$$$$ /$$$$$$$  /$$$$$$$$
-//++   /$$__  $$|_  $$_/| $$__  $$| $$_____/
-//++  | $$  \__/  | $$  | $$  \ $$| $$
-//++  |  $$$$$$   | $$  | $$  | $$| $$$$$
-//++   \____  $$  | $$  | $$  | $$| $$__/
-//++   /$$  \ $$  | $$  | $$  | $$| $$
-//++  |  $$$$$$/ /$$$$$$| $$$$$$$/| $$$$$$$$
-//++   \______/ |______/|_______/ |________/
+//++    /$$$$$$   /$$$$$$  /$$$$$$$   /$$$$$$$$
+//++   /$$__  $$ |_  $$_/ | $$__  $$ | $$_____/
+//++  | $$  \__/   | $$   | $$  \ $$ | $$
+//++  |  $$$$$$    | $$   | $$  | $$ | $$$$$
+//++   \____  $$   | $$   | $$  | $$ | $$__/
+//++   /$$  \ $$   | $$   | $$  | $$ | $$
+//++  |  $$$$$$/  /$$$$$$ | $$$$$$$/ | $$$$$$$$
+//++   \______/  |______/ |_______/  |________/
 
 const NavBarLeft = () => {
   const [showDropdown, setShowDropdown] = useState(false)
@@ -179,19 +180,19 @@ const NavBarLeft = () => {
           onClick={() => setShowDropdown(!showDropdown)}
           className="text-3xl focus:outline-none"
         >
-          <i className="fa-solid fa-spray-can ml-5 text-8xl text-slate-300"></i>
+          <i className="fa-solid fa-spray-can ml-5 text-8xl text-white"></i>
         </button>
-        <h1 className="onedrips mt-10 ml-5 text-7xl text-slate-300">
-          {profile.user?.first_name}
+        <h1 className="font-one mt-10 ml-5 text-7xl text-white">
+          {profile.user?.first_name.toUpperCase()}
         </h1>
       </div>
       {showDropdown && (
-        <div className="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-lg">
+        <div className="absolute left-0 mt-2 w-80 bg-white rounded-lg shadow-lg">
           <ul className="py-2">
             <li>
               <Link
                 to="/paints"
-                className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                className="block px-8 py-4 text-3xl text-gray-800 hover:bg-gray-200"
                 onClick={() => {
                   setShowDropdown(false)
                 }}
@@ -199,10 +200,10 @@ const NavBarLeft = () => {
                 All Paints
               </Link>
             </li>
-            <li>
+            <li className="border-t border-gray-300 mt-2">
               <Link
                 to="/1/paints"
-                className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                className="block px-8 py-4 text-3xl text-gray-800 hover:bg-gray-200"
                 onClick={() => {
                   setShowDropdown(false)
                 }}
@@ -210,10 +211,10 @@ const NavBarLeft = () => {
                 Montana Black
               </Link>
             </li>
-            <li>
+            <li className="border-t border-gray-300 mt-2">
               <Link
                 to="/2/paints"
-                className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                className="block px-8 py-4 text-3xl text-gray-800 hover:bg-gray-200"
                 onClick={() => {
                   setShowDropdown(false)
                 }}
@@ -221,10 +222,10 @@ const NavBarLeft = () => {
                 Montana Gold
               </Link>
             </li>
-            <li>
+            <li className="border-t border-gray-300 mt-2">
               <Link
                 to="/3/paints"
-                className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                className="block px-8 py-4 text-3xl text-gray-800 hover:bg-gray-200"
                 onClick={() => {
                   setShowDropdown(false)
                 }}
@@ -232,10 +233,10 @@ const NavBarLeft = () => {
                 Montana White
               </Link>
             </li>
-            <li>
+            <li className="border-t border-gray-300 mt-2">
               <Link
                 to="/4/paints"
-                className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                className="block px-8 py-4 text-3xl text-gray-800 hover:bg-gray-200"
                 onClick={() => {
                   setShowDropdown(false)
                 }}
@@ -250,12 +251,32 @@ const NavBarLeft = () => {
   )
 }
 
+//++   /$$   /$$   /$$$$$$   /$$    /$$
+//++  | $$$ | $$  /$$__  $$ | $$   | $$
+//++  | $$$$| $$ | $$  \ $$ | $$   | $$
+//++  | $$ $$ $$ | $$$$$$$$ |  $$ / $$/
+//++  | $$  $$$$ | $$__  $$  \  $$ $$/
+//++  | $$\  $$$ | $$  | $$   \  $$$/
+//++  | $$ \  $$ | $$  | $$    \  $/
+//++  |__/  \__/ |__/  |__/     \_/
+
+//++   /$$$$$$$    /$$$$$$   /$$$$$$$
+//++  | $$__  $$  /$$__  $$ | $$__  $$
+//++  | $$  \ $$ | $$  \ $$ | $$  \ $$
+//++  | $$$$$$$  | $$$$$$$$ | $$$$$$$/
+//++  | $$__  $$ | $$__  $$ | $$__  $$
+//++  | $$  \ $$ | $$  | $$ | $$  \ $$
+//++  | $$$$$$$/ | $$  | $$ | $$  | $$
+//++  |_______/  |__/  |__/ |__/  |__/
+
 export const NavBar = () => {
   return (
-    <nav className="flex justify-between items-center bg-gray-800 text-white p-4 mb-5">
+    <nav
+      className={`flex justify-between items-center bg-gray-800 text-white p-4 mb-5 ${gradient}`}
+    >
       <NavBarLeft />
       <Link to="/">
-        <h1 className="onedrips text-9xl text-slate-300 mr-20 mt-8">
+        <h1 className="font-one text-9xl text-white mr-20 mt-8">
           Paintkillerz
         </h1>
       </Link>

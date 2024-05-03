@@ -19,13 +19,17 @@ html {
   border: 2px solid red;
 }
 
-.onedrips {
+.font-one {
   font-family: "OneDrips", sans-serif;
 }
 
-.bomber-urban {
+.font-two {
   font-family: "BomberUrban-Regular", sans-serif;
 }
+
+/* input: className="p-2 shrink w-2/3 text-xl rounded-full text-slate-900 placeholder-slate-900 outline-none" */
+
+/* button: className="flex mt-6 text-white bg-blue-700 border-0 py-4 px-8 focus:outline-none hover:bg-blue-500 rounded" */
 
 /* #root {
   max-width: 1280px;

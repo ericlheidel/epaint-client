@@ -6,6 +6,7 @@ import {
 } from "../../data/paints.jsx"
 import { Paint } from "./Paint.jsx"
 import { PaintFilterBar } from "./PaintFilterBar.jsx"
+import { gradient } from "../../utils.jsx"
 
 export const PaintsList = () => {
   const { paintTypeId } = useParams()
@@ -47,11 +48,11 @@ export const PaintsList = () => {
     <div>
       {isLoading ? (
         <div className="m-auto">
-          <h1 className="bomber-urban text-9xl">Loading...</h1>
+          <h1 className="text-white font-two text-9xl">Loading...</h1>
         </div>
       ) : (
         <div>
-          <h2 className="bomber-urban mb-5 w-fit ml-auto mr-auto text-9xl">
+          <h2 className="text-white font-two mb-5 w-fit ml-auto mr-auto text-9xl">
             {paintTypeId === "1"
               ? "Montana Black"
               : paintTypeId === "2"
@@ -68,7 +69,7 @@ export const PaintsList = () => {
               setOrderBy={setOrderBy}
               handleSearchAndOrder={handleSearchAndOrder}
             />
-            <div className="bg-slate-300 h-16 mb-10 mt-10"></div>
+            <div className={`${gradient} bg-slate-300 h-16 mb-10 mt-10`}></div>
             <article className="ml-10 mr-10 flex flex-row flex-wrap gap-20 justify-evenly">
               {paints.map((paint) => {
                 return <Paint key={paint.id} paint={paint} />
