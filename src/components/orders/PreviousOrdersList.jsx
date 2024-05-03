@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { getClosedOrders } from "../../data/orders.jsx"
 import { PreviousOrder } from "./PreviousOrder.jsx"
+import { gradientOne } from "../../utils.jsx"
 
 export const PreviousOrdersList = () => {
   const [closedOrders, setClosedOrders] = useState([])
@@ -13,16 +14,18 @@ export const PreviousOrdersList = () => {
 
   return (
     <div>
-      <div className="flex flex-col">
-        <h1 className="text-4xl mb-5">Previous Orders</h1>
+      <div
+        className={`${gradientOne} flex flex-col shrink-0 mt-36 ml-auto mr-auto w-3/4 p-12 rounded-3xl`}
+      >
+        <h1 className="font-three text-9xl mb-5 text-white">Previous Orders</h1>
         <table className="w-2/3 mx-auto">
           <thead>
             <tr>
-              <th>Order #</th>
-              <th>Number of Items</th>
-              <th>Purchase Date</th>
-              <th>Payment</th>
-              <th>Total</th>
+              <th className="text-5xl text-white p-4 pb-6">Order</th>
+              <th className="text-5xl text-white p-4 pb-6">Items</th>
+              <th className="text-5xl text-white p-4 pb-6">Purchase Date</th>
+              <th className="text-5xl text-white p-4 pb-6">Payment</th>
+              <th className="text-5xl text-white p-4 pb-6">Total</th>
             </tr>
           </thead>
           <tbody>

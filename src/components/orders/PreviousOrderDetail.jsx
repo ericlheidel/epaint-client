@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { getOrderById } from "../../data/orders.jsx"
 import { PaintInOrder } from "../paints/PaintInOrder.jsx"
+import { buttonNoMarginNoSize, gradientOne } from "../../utils.jsx"
 
 export const PreviousOrderDetail = () => {
   const { orderId } = useParams()
@@ -17,10 +18,41 @@ export const PreviousOrderDetail = () => {
   }, [orderId])
 
   return (
-    <div>
-      <div className="flex flex-col">
+    <div
+      className={`${gradientOne} flex flex-col shrink-0 mt-36 ml-auto mr-auto w-2/3 p-12 rounded-3xl`}
+    >
+      <h2 className="font-three text-9xl mb-5 text-white">
+        Order #{previousOrder.id}
+      </h2>
+      <table>
+        <thead>
+          <tr>
+            <th className="text-5xl text-white p-3 pb-6">Paint</th>
+            <th className="text-5xl text-white p-3 pl-6 pb-6">Color</th>
+            <th className="text-5xl text-white p-3 pl-6 pb-6">Number</th>
+            <th className="text-5xl text-white p-3 pl-6 pb-6">Size</th>
+            <th className="text-5xl text-white p-3 pl-6 pb-6">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          {previousOrder.items &&
+            previousOrder.items.map((paint) => {
+              return (
+                <tr key={paint.id}>
+                  <PaintInOrder key={paint.id} paint={paint} />
+                </tr>
+              )
+            })}
+        </tbody>
+      </table>
+      <div className="flex flex-col flex-wrap gap-20 justify-evenly">
+        <div className="text-4xl text-white p-3 pb-2 mt-6">
+          {previousOrder.total > 0 && `Total Price $${previousOrder.total}`}
+        </div>
+      </div>
+      <div className="flex flex-row justify-center mt-5">
         <button
-          className="test text-4xl mb-5 w-fit mx-auto"
+          className={`${buttonNoMarginNoSize} px-10 py-4 mr-12`}
           onClick={() => {
             navigate("/cart")
           }}
@@ -28,19 +60,13 @@ export const PreviousOrderDetail = () => {
           Back To Cart
         </button>
         <button
-          className="test text-4xl mb-5 w-fit mx-auto"
+          className={`${buttonNoMarginNoSize} px-10 py-4`}
           onClick={() => {
             navigate("/my-orders")
           }}
         >
           Back To My Orders
         </button>
-      </div>
-      <div className="flex flex-row flex-wrap gap-20 justify-evenly">
-        {previousOrder.items &&
-          previousOrder.items.map((paint) => {
-            return <PaintInOrder key={paint.id} paint={paint} />
-          })}
       </div>
     </div>
   )
