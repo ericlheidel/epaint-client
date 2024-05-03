@@ -5,7 +5,7 @@ import {
   button,
   buttonNoMarginNoSize,
   gradientOne,
-  input,
+  inputWhiteText,
 } from "../../../utils.jsx"
 
 export const HexEdit = ({ paint, paintId, getAndSetPaintAfterUpdate }) => {
@@ -69,7 +69,7 @@ export const HexEdit = ({ paint, paintId, getAndSetPaintAfterUpdate }) => {
             type="text"
             placeholder="Enter a Hex Code..."
             value={updatedHex}
-            className={`${input} ${gradientOne} mt-6`}
+            className={`${inputWhiteText} ${gradientOne} mt-6`}
             onChange={(e) => {
               setUpdatedHex(e.target.value)
             }}

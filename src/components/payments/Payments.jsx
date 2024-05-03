@@ -23,7 +23,7 @@ export const Payments = () => {
   return (
     <div className="flex flex-col">
       <div
-        className={`${gradientOne} flex flex-col shrink-0 mt-36 ml-auto mr-auto w-2/3 p-12 rounded-3xl`}
+        className={`${gradientOne} flex flex-col shrink-0 mt-36 ml-auto mr-auto w-3/4 p-12 rounded-3xl`}
       >
         <table className="w-2/3 mx-auto">
           <thead>
