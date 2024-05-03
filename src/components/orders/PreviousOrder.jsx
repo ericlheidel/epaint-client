@@ -1,19 +1,28 @@
 import PropTypes from "prop-types"
 import { useNavigate } from "react-router-dom"
+import { buttonNoMarginNoSize } from "../../utils.jsx"
 
 export const PreviousOrder = ({ order }) => {
   const navigate = useNavigate()
 
   return (
     <>
-      <td>{order.id}</td>
-      <td>{order.number_of_items}</td>
-      <td>{order.purchase_date}</td>
-      <td>{order.payment.name}</td>
-      <td>${order.total}</td>
+      <td className="text-4xl text-white font-bold align-middle pb-6">
+        #{order.id}
+      </td>
+      <td className="text-4xl text-white align-middle pb-6">
+        {order.number_of_items}
+      </td>
+      <td className="text-4xl text-white align-middle pb-6">
+        {order.purchase_date}
+      </td>
+      <td className="text-4xl text-white align-middle pb-6">
+        {order.payment.name}
+      </td>
+      <td className="text-4xl text-white align-middle pb-6">${order.total}</td>
       <td>
         <button
-          className="test mb-3"
+          className={`${buttonNoMarginNoSize} px-8 py-4 ml-12 w-64`}
           onClick={() => {
             navigate(`/my-orders/${order.id}`)
           }}

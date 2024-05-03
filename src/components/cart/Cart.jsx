@@ -45,15 +45,15 @@ export const Cart = () => {
       <div
         className={`${gradientOne} flex flex-col shrink-0 mt-36 ml-auto mr-auto w-2/3 p-12 rounded-3xl`}
       >
-        <h1 className="font-three text-9xl mb-5 text-white">Cart</h1>
+        <h2 className="font-three text-9xl mb-5 text-white">Cart</h2>
         <table className="w-2/3 mx-auto">
           <thead>
             <tr>
               <th className="text-5xl text-white p-3 pb-6">{"Image"}</th>
-              <th className="text-5xl text-white p-3 pb-6">{"Color"}</th>
-              <th className="text-5xl text-white p-3 pb-6">{"Number"}</th>
-              <th className="text-5xl text-white p-3 pb-6">{"Size"}</th>
-              <th className="text-5xl text-white p-3 pb-6">{"Price"}</th>
+              <th className="text-5xl text-white p-3 pl-6 pb-6">{"Color"}</th>
+              <th className="text-5xl text-white p-3 pl-6 pb-6">{"Number"}</th>
+              <th className="text-5xl text-white p-3 pl-6 pb-6">{"Size"}</th>
+              <th className="text-5xl text-white p-3 pl-6 pb-6">{"Price"}</th>
             </tr>
           </thead>
           <tbody>

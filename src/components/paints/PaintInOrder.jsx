@@ -1,32 +1,47 @@
 import PropTypes from "prop-types"
 import { addPaintToCart } from "../../data/paints.jsx"
+import { useNavigate } from "react-router-dom"
+import { buttonNoMarginNoSize } from "../../utils.jsx"
 
 export const PaintInOrder = ({ paint }) => {
+  const navigate = useNavigate()
+
   const handleAddPaintToCart = () => {
     addPaintToCart(paint.paint.id, paint.size.id)
   }
 
   return (
-    <div>
-      <div>
-        <img
-          src={paint.paint.image_one}
-          alt="image of paint can"
-          className="size-44 m-auto rounded-lg hover:cursor-pointer hover:scale-110"
-        />
-        <div>
-          <h3 className="text-2xl font-bold test">{paint.paint.color}</h3>
-          <h3 className="text-2xl font-bold test">
-            {paint.paint.paint_number}
-          </h3>
-          <h3 className="text-xl test">{paint.size.size}</h3>
-          <h3 className="text-xl test">${paint.size.price}</h3>
-          <button className="test" onClick={handleAddPaintToCart}>
-            Add To Cart
-          </button>
+    <>
+      <td className="pb-6">
+        <div className="p-2 border bg-slate-200 rounded-lg hover:cursor-pointer hover:scale-110 cursor-pointer  hover:border-x-4 hover:border-y-4 hover:rounded-lg">
+          <img
+            src={paint.paint.image_one}
+            alt="image of paint"
+            className="w-full m-auto rounded hover:cursor-pointer hover:scale-110 cursor-pointer hover:border-x-4 hover:border-y-4 hover:rounded-lg"
+            onClick={() => {
+              navigate(`/${paint.paint_type_id}/paints/${paint.paint.id}`)
+            }}
+          />
         </div>
-      </div>
-    </div>
+      </td>
+      <td className="text-4xl text-white align-middle pl-6 pb-6">
+        {paint.paint.color}
+      </td>
+      <td className="text-4xl text-white align-middle pl-6 pb-6">
+        {paint.paint.paint_number}
+      </td>
+      <td className="text-4xl text-white align-middle pl-6 pb-6">
+        {paint.size.size}
+      </td>
+      <td className="text-4xl text-white align-middle pl-6 pb-6">
+        ${paint.size.price}
+      </td>
+      <td className="align-middle pb-6">
+        <button className={`${buttonNoMarginNoSize} px-10 py-4 ml-12 w-56`}>
+          Add To Cart
+        </button>
+      </td>
+    </>
   )
 }
 
