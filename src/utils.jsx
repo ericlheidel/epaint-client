@@ -24,5 +24,8 @@ export const gradient =
 export const button =
   "mb-8 mt-6 text-2xl text-white bg-blue-700 border-0 py-4 px-12 focus:outline-none hover:bg-blue-500 rounded-lg shadow-lg"
 
+export const buttonNoMarginNoSize =
+  "text-2xl text-white bg-blue-700 border-0  focus:outline-none hover:bg-blue-500 rounded-lg shadow-lg"
+
 export const input =
-  "pt-2 pb-2 pl-5 shrink w-2/3 text-3xl rounded-full text-white placeholder-white outline-none focus:placeholder-opacity-0"
+  "pt-2 pb-2 pl-5 shrink text-3xl rounded-full text-white placeholder-white outline-none focus:placeholder-opacity-0"

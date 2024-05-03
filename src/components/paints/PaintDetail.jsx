@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-import {
-  addPaintToCart,
-  getPaintById,
-  updatePaint,
-} from "../../data/paints.jsx"
+import { addPaintToCart, getPaintById } from "../../data/paints.jsx"
 import { getAllSizes, getSizeById } from "../../data/sizes.jsx"
-import { button } from "../../utils.jsx"
+import { HexEdit } from "./color_edits/Hex.jsx"
+import { RgbEdit } from "./color_edits/Rgb.jsx"
+import { CmykEdit } from "./color_edits/Cmyk.jsx"
 
 export const PaintDetail = () => {
   const { paintId } = useParams()
@@ -14,12 +12,6 @@ export const PaintDetail = () => {
   const [sizes, setSizes] = useState([])
   const [selectedSize, setSelectedSize] = useState(1)
   const [correspondingPrice, setCorrespondingPrice] = useState(9.99)
-  const [hexIsHidden, setHexIsHidden] = useState(true)
-  const [rgbIsHidden, setRgbIsHidden] = useState(true)
-  const [cmykIsHidden, setCmykIsHidden] = useState(true)
-  const [updatedHex, setUpdatedHex] = useState("")
-  const [updatedRgb, setUpdatedRgb] = useState("")
-  const [updatedCmyk, setUpdatedCmyk] = useState("")
 
   const navigate = useNavigate()
 
@@ -42,54 +34,6 @@ export const PaintDetail = () => {
       setSizes(res)
     })
   }, [])
-
-  const updatedHexCode = {
-    id: paintId,
-    hex: updatedHex,
-  }
-
-  const updatedRgbCode = {
-    id: paintId,
-    rgb: updatedRgb,
-  }
-
-  const updatedCmykCode = {
-    id: paintId,
-    cmyk: updatedCmyk,
-  }
-
-  const handleUpdateHex = (e) => {
-    e.preventDefault()
-
-    if (updatedHex !== "") {
-      setHexIsHidden(true)
-      updatePaint(updatedHexCode).then(() => {
-        getAndSetPaintAfterUpdate(paintId)
-      })
-    }
-  }
-
-  const handleUpdateRgb = (e) => {
-    e.preventDefault()
-
-    if (updatedRgb !== "") {
-      setRgbIsHidden(true)
-      updatePaint(updatedRgbCode).then(() => {
-        getAndSetPaintAfterUpdate(paintId)
-      })
-    }
-  }
-
-  const handleUpdateCmyk = (e) => {
-    e.preventDefault()
-
-    if (updatedCmyk !== "") {
-      setCmykIsHidden(true)
-      updatePaint(updatedCmykCode).then(() => {
-        getAndSetPaintAfterUpdate(paintId)
-      })
-    }
-  }
 
   const handleAddPaintToCart = () => {
     addPaintToCart(paintId, selectedSize).then(navigate("/cart"))
@@ -115,143 +59,22 @@ export const PaintDetail = () => {
             alt="image of front and back of paint can"
             className="w-1/3 border rounded-3xl"
           />
-          {/* HEX, RGB, CMYK div */}
-          {/* HEX, RGB, CMYK div */}
-          <div className="flex flex-row">
-            {/* HEX div */}
-            {/* HEX div */}
-            <div>
-              {paint.hex == null ? (
-                <button
-                  hidden={!hexIsHidden}
-                  className={`${button}`}
-                  onClick={() => setHexIsHidden(false)}
-                >
-                  Add a Hex Code
-                </button>
-              ) : (
-                `Hex: ${paint.hex}`
-              )}
-            </div>
-            <div className="flex flex-row">
-              <div className="hex flex flex-col">
-                <form>
-                  <input
-                    hidden={hexIsHidden}
-                    type="text"
-                    value={updatedHex}
-                    onChange={(e) => {
-                      setUpdatedHex(e.target.value)
-                    }}
-                  />
-                  <button
-                    hidden={hexIsHidden}
-                    className="test"
-                    onClick={handleUpdateHex}
-                  >
-                    Submit
-                  </button>
-                </form>
-                <button
-                  hidden={hexIsHidden}
-                  className="test"
-                  onClick={() => {
-                    setUpdatedHex("")
-                    setHexIsHidden(true)
-                  }}
-                >
-                  Cancel
-                </button>
-              </div>
-              <div className="rgb">
-                <div className="rgb">
-                  {paint.rgb == null ? (
-                    <button
-                      hidden={!rgbIsHidden}
-                      className={`${button} ml-5`}
-                      onClick={() => setRgbIsHidden(false)}
-                    >
-                      Add an RGB Code
-                    </button>
-                  ) : (
-                    `RGB: ${paint.rgb}`
-                  )}
-                </div>
-                <div>
-                  <form>
-                    <input
-                      hidden={rgbIsHidden}
-                      type="text"
-                      value={updatedRgb}
-                      onChange={(e) => {
-                        setUpdatedRgb(e.target.value)
-                      }}
-                    />
-                    <button
-                      hidden={rgbIsHidden}
-                      className="test"
-                      onClick={handleUpdateRgb}
-                    >
-                      Submit
-                    </button>
-                  </form>
-                  <button
-                    hidden={rgbIsHidden}
-                    className="test"
-                    onClick={() => {
-                      setUpdatedRgb("")
-                      setRgbIsHidden(true)
-                    }}
-                  >
-                    Cancel
-                  </button>
-                </div>
-              </div>
-              <div className="cmyk">
-                <div>
-                  {paint.cmyk == null ? (
-                    <button
-                      hidden={!cmykIsHidden}
-                      className={`${button} ml-5`}
-                      onClick={() => setCmykIsHidden(false)}
-                    >
-                      Add a CMYK Code
-                    </button>
-                  ) : (
-                    `CMYK: ${paint.cmyk}`
-                  )}
-                </div>
-                <div>
-                  <form>
-                    <input
-                      hidden={cmykIsHidden}
-                      type="text"
-                      value={updatedCmyk}
-                      onChange={(e) => {
-                        setUpdatedCmyk(e.target.value)
-                      }}
-                    />
-                    <button
-                      hidden={cmykIsHidden}
-                      className="test"
-                      onClick={handleUpdateCmyk}
-                    >
-                      Submit
-                    </button>
-                  </form>
-                  <button
-                    hidden={cmykIsHidden}
-                    className="test"
-                    onClick={() => {
-                      setUpdatedCmyk("")
-                      setCmykIsHidden(true)
-                    }}
-                  >
-                    Cancel
-                  </button>
-                </div>
-              </div>
-            </div>
+          <div className="flex flex-row mb-10">
+            <HexEdit
+              paint={paint}
+              paintId={paintId}
+              getAndSetPaintAfterUpdate={getAndSetPaintAfterUpdate}
+            />
+            <RgbEdit
+              paint={paint}
+              paintId={paintId}
+              getAndSetPaintAfterUpdate={getAndSetPaintAfterUpdate}
+            />
+            <CmykEdit
+              paint={paint}
+              paintId={paintId}
+              getAndSetPaintAfterUpdate={getAndSetPaintAfterUpdate}
+            />
           </div>
           <div className="test">
             <h3>Please choose a size...</h3>
