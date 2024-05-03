@@ -5,6 +5,7 @@ import { getAllSizes, getSizeById } from "../../data/sizes.jsx"
 import { HexEdit } from "./color_edits/Hex.jsx"
 import { RgbEdit } from "./color_edits/Rgb.jsx"
 import { CmykEdit } from "./color_edits/Cmyk.jsx"
+import { buttonNoMarginNoSize, gradientOne } from "../../utils.jsx"
 
 export const PaintDetail = () => {
   const { paintId } = useParams()
@@ -76,25 +77,36 @@ export const PaintDetail = () => {
               getAndSetPaintAfterUpdate={getAndSetPaintAfterUpdate}
             />
           </div>
-          <div className="test">
-            <h3>Please choose a size...</h3>
+          <div className={`${gradientOne} p-12 rounded-xl shadow-2xl`}>
+            <h3 className="font-three text-8xl mb-6 text-white text-center">
+              Please choose a size...
+            </h3>
             <select
-              className="test"
+              className={`${gradientOne} ml-20 mr-20 p-2 w-80 text-3xl rounded-full text-white outline outline-black`}
               onChange={(e) => {
                 setSelectedSize(e.target.value)
               }}
             >
               {sizes.map((size) => {
                 return (
-                  <option key={size.id} value={size.id}>
+                  <option
+                    key={size.id}
+                    value={size.id}
+                    className="text-6xl mb-6 text-white text-center"
+                  >
                     {size.size}
                   </option>
                 )
               })}
             </select>
-            <div>${correspondingPrice}</div>
+            <div className="font-three text-6xl mb-6 mt-6 text-white text-center">
+              ${correspondingPrice}
+            </div>
             <div>
-              <button className="test" onClick={handleAddPaintToCart}>
+              <button
+                className={`${buttonNoMarginNoSize} pl-8 pr-8 pt-4 pb-4`}
+                onClick={handleAddPaintToCart}
+              >
                 Add To Cart
               </button>
             </div>
