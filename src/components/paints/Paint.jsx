@@ -4,7 +4,9 @@ import { gradientTwo } from "../../utils.jsx"
 
 export const Paint = ({ paint }) => {
   return (
-    <div className={`bg-slate-200 shadow-md rounded-lg p-4 ${gradientTwo}`}>
+    <div
+      className={`${gradientTwo} bg-slate-200 shadow-md rounded-lg p-4 hover:scale-110 cursor-pointer`}
+    >
       <Link to={`/${paint.paint_type_id}/paints/${paint.id}`}>
         <div className="flex flex-col items-center">
           <img

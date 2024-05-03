@@ -26,7 +26,7 @@ export const Login = () => {
 
   return (
     <main className="mt-36 flex justify-center items-center">
-      <section className={`${gradientOne} p-12 rounded-xl shadow-2xl`}>
+      <section className={`${gradientOne} p-12 rounded-3xl shadow-2xl`}>
         <form className="flex flex-col items-center" onSubmit={handleLogin}>
           <h2
             className="font-one text-8xl mb-6 text-white text-center"

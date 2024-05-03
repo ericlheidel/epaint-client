@@ -2,28 +2,39 @@ import PropTypes from "prop-types"
 import { deleteOrderPaintById } from "../../data/paints.jsx"
 import { getCart } from "../../data/carts.jsx"
 import { useNavigate } from "react-router-dom"
+import { buttonNoMarginNoSize } from "../../utils.jsx"
 
 export const CartItem = ({ paint, setCart }) => {
   const navigate = useNavigate()
   return (
     <>
-      <td>
-        <img
-          src={paint.paint.image_one}
-          alt="image of paint"
-          className="size-44 m-auto rounded-lg hover:cursor-pointer hover:scale-110 cursor-pointer"
-          onClick={() => {
-            navigate(`/${paint.paint_type_id}/paints/${paint.paint.id}`)
-          }}
-        />
+      <td className="pb-6">
+        <div className="border border-black rounded-lg border-x-4 border-y-4">
+          <img
+            src={paint.paint.image_one}
+            alt="image of paint"
+            className="size-44 m-auto rounded hover:cursor-pointer hover:scale-110 cursor-pointer hover:border hover:border-black hover:border-x-4 hover:border-y-4 hover:rounded-lg"
+            onClick={() => {
+              navigate(`/${paint.paint_type_id}/paints/${paint.paint.id}`)
+            }}
+          />
+        </div>
       </td>
-      <td>{paint.paint.color}</td>
-      <td>{paint.paint.paint_number}</td>
-      <td>{paint.size.size}</td>
-      <td>{paint.size.price}</td>
-      <td>
+      <td className="text-4xl text-white align-middle pb-6">
+        {paint.paint.color}
+      </td>
+      <td className="text-4xl text-white align-middle pb-6">
+        {paint.paint.paint_number}
+      </td>
+      <td className="text-4xl text-white align-middle pb-6">
+        {paint.size.size}
+      </td>
+      <td className="text-4xl text-white align-middle pb-6">
+        ${paint.size.price}
+      </td>
+      <td className="align-middle pb-6">
         <button
-          className="flex text-white bg-blue-700 border-0 py-2 px-5 focus:outline-none hover:bg-blue-500 rounded"
+          className={`${buttonNoMarginNoSize} px-10 py-4 ml-12`}
           onClick={() => {
             deleteOrderPaintById(paint.id).then(() => {
               getCart().then((res) => {

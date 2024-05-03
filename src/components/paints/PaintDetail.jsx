@@ -82,7 +82,7 @@ export const PaintDetail = () => {
               Please choose a size...
             </h3>
             <select
-              className={`${gradientOne} ml-20 mr-20 p-2 w-80 text-3xl rounded-full text-white outline outline-black`}
+              className={`${gradientOne} ml-20 mr-20 p-2 w-80 text-3xl rounded-full text-white outline outline-slate-700`}
               onChange={(e) => {
                 setSelectedSize(e.target.value)
               }}

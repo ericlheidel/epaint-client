@@ -5,6 +5,7 @@ import { CompleteOrder } from "./CompleteOrder.jsx"
 import { getUserPayments } from "../../data/payments.jsx"
 import { useNavigate } from "react-router-dom"
 import { CartItem } from "./CartItem.jsx"
+import { buttonNoMarginNoSize, gradientOne } from "../../utils.jsx"
 
 export const Cart = () => {
   const [cart, setCart] = useState({
@@ -40,17 +41,19 @@ export const Cart = () => {
   }
 
   return (
-    <div>
-      <div className="flex flex-col">
-        <h1 className="text-4xl mb-5">Cart</h1>
+    <div className="flex">
+      <div
+        className={`${gradientOne} flex flex-col shrink-0 mt-36 ml-auto mr-auto w-2/3 p-12 rounded-3xl`}
+      >
+        <h1 className="font-three text-9xl mb-5 text-white">Cart</h1>
         <table className="w-2/3 mx-auto">
           <thead>
             <tr>
-              <th>{"Image"}</th>
-              <th>{"Paint Color"}</th>
-              <th>{"Paint Number"}</th>
-              <th>{"Size"}</th>
-              <th>{"Price"}</th>
+              <th className="text-5xl text-white p-3 pb-6">{"Image"}</th>
+              <th className="text-5xl text-white p-3 pb-6">{"Color"}</th>
+              <th className="text-5xl text-white p-3 pb-6">{"Number"}</th>
+              <th className="text-5xl text-white p-3 pb-6">{"Size"}</th>
+              <th className="text-5xl text-white p-3 pb-6">{"Price"}</th>
             </tr>
           </thead>
           <tbody>
@@ -63,12 +66,14 @@ export const Cart = () => {
             })}
           </tbody>
         </table>
-        <div>{cart.total > 0 && `Total Price $${cart.total}`}</div>
+        <div className="text-4xl text-white p-3 pb-2 mt-6">
+          {cart.total > 0 && `Total Price $${cart.total}`}
+        </div>
         <div className="flex flex-row justify-center mt-5">
           <div>
             {cart.number_of_items > 0 && (
               <button
-                className="flex mt-6 text-white bg-blue-700 border-0 py-4 px-8 focus:outline-none hover:bg-blue-500 rounded"
+                className={`${buttonNoMarginNoSize} px-10 py-4 mr-12`}
                 onClick={handleRemoveAllPaintsFromOrder}
               >
                 Delete Order
@@ -78,7 +83,7 @@ export const Cart = () => {
           <div>
             {cart.number_of_items > 0 && (
               <button
-                className="flex ml-24 mt-6 text-white bg-blue-700 border-0 py-4 px-8 focus:outline-none hover:bg-blue-500 rounded"
+                className={`${buttonNoMarginNoSize} px-10 py-4`}
                 onClick={() => {
                   if (userPayments.length === 0) {
                     window.alert(
