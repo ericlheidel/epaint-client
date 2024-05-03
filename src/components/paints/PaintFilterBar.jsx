@@ -1,5 +1,6 @@
 import { useState } from "react"
 import PropTypes from "prop-types"
+import { gradient } from "../../utils.jsx"
 
 export const PaintFilterBar = ({ setSearchText, setOrderBy }) => {
   const [selectValue, setSelectValue] = useState("")
@@ -9,7 +10,7 @@ export const PaintFilterBar = ({ setSearchText, setOrderBy }) => {
       <input
         type="text"
         placeholder="Search Paints..."
-        className="ml-40 p-2 shrink w-2/3 text-xl rounded-full text-slate-900 placeholder-slate-900 outline-none"
+        className={`${gradient} ml-40 pt-2 pb-2 pl-5 shrink w-2/3 text-3xl rounded-full text-white placeholder-white outline-none focus:placeholder-opacity-0`}
         spellCheck={false}
         onChange={(e) => {
           setSearchText(e.target.value)
@@ -30,7 +31,7 @@ export const PaintFilterBar = ({ setSearchText, setOrderBy }) => {
 
         <select
           value={selectValue}
-          className="mr-12 p-2 w-52 text-xl rounded-full text-slate-900 outline-none"
+          className={`${gradient} mr-12 p-2 w-80 text-3xl rounded-full text-white outline-none`}
           onChange={(e) => {
             setSelectValue(e.target.value)
             setOrderBy(e.target.value)

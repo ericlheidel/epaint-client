@@ -1,13 +1,11 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { loginUser } from "../../data/auth.jsx"
-// import { useAppContext } from "../../context/UseContext.jsx"
+import { button, gradient } from "../../utils.jsx"
 
 export const Login = () => {
-  // const { setToken } = useAppContext()
-  const [username, setUsername] = useState("eric")
-  const [password, setPassword] = useState("eric")
-  // const existDialog = useRef()
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
 
   const navigate = useNavigate()
 
@@ -27,48 +25,64 @@ export const Login = () => {
   }
 
   return (
-    <main>
-      <section>
-        <form onSubmit={handleLogin}>
-          <h1>Paintkillerz</h1>
-          <h2>Please Sign In</h2>
-          <fieldset>
-            <label htmlFor="username"> Email Address </label>
-            <input
-              type="text"
-              id="username"
-              value={username}
-              placeholder="Email Address"
-              required
-              autoFocus
-              onChange={(e) => {
-                setUsername(e.target.value)
-              }}
-            />
+    <main className="mt-36 flex justify-center items-center">
+      <section className={`${gradient} p-12 rounded-xl shadow-2xl`}>
+        <form className="flex flex-col items-center" onSubmit={handleLogin}>
+          <h2
+            className="font-one text-8xl mb-6 text-white text-center"
+            onClick={() => {
+              setUsername("eric")
+              setPassword("eric")
+            }}
+          >
+            Paintkillerz
+          </h2>
+          <fieldset className="w-full mb-8">
+            <div className="flex flex-col">
+              <label htmlFor="username" className="text-4xl mb-2 text-white">
+                Username
+              </label>
+              <input
+                type="text"
+                id="username"
+                value={username}
+                required
+                // autoFocus
+                className="w-full p-4 text-3xl text-white bg-transparent border-b-2 border-white focus:outline-none focus:border-slate-400 transition duration-300 ease-in-out"
+                onChange={(e) => {
+                  setUsername(e.target.value)
+                }}
+              />
+            </div>
           </fieldset>
-          <fieldset>
-            <label htmlFor="password"> Password </label>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              placeholder="Password"
-              required
-              onChange={(e) => {
-                setPassword(e.target.value)
-              }}
-            />
+          <fieldset className="w-full mb-8">
+            <div className="flex flex-col">
+              <label htmlFor="password" className="text-4xl mb-2 text-white">
+                Password
+              </label>
+              <input
+                type="password"
+                id="password"
+                value={password}
+                required
+                className="w-full p-4 text-3xl text-white bg-transparent border-b-2 border-white focus:outline-none focus:border-slate-400 transition duration-300 ease-in-out"
+                onChange={(e) => {
+                  setPassword(e.target.value)
+                }}
+              />
+            </div>
           </fieldset>
-          <fieldset>
-            <button type="submit">Sign In</button>
-          </fieldset>
+          <button type="submit" className={`${button}`}>
+            Sign In
+          </button>
         </form>
+        <Link
+          to="/register"
+          className="mt-6 text-2xl text-white py-4 px-8 focus:outline-none hover:text-slate-400"
+        >
+          Join the community?
+        </Link>
       </section>
-      <div>
-        <section>
-          <Link to="/register">Join the community?</Link>
-        </section>
-      </div>
     </main>
   )
 }
