@@ -18,6 +18,8 @@ export const PreviousOrder = ({ order }) => {
       </td>
       <td className="text-4xl text-white align-middle pb-6">
         {order.payment.name}
+        {" ..."}
+        {order.payment.the_last_four_numbers}
       </td>
       <td className="text-4xl text-white align-middle pb-6">${order.total}</td>
       <td>
