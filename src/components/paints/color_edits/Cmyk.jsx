@@ -4,7 +4,7 @@ import { updatePaint } from "../../../data/paints.jsx"
 import {
   button,
   buttonNoMarginNoSize,
-  gradient,
+  gradientOne,
   input,
 } from "../../../utils.jsx"
 
@@ -51,7 +51,18 @@ export const CmykEdit = ({ paint, paintId, getAndSetPaintAfterUpdate }) => {
             Add a CMYK Code
           </button>
         ) : (
-          `CMYK: ${paint.cmyk}`
+          <button
+            hidden={!cmykIsHidden}
+            className={`${button} ml-5 mb-8 mt-6 ${gradientOne}`}
+            onClick={() => {
+              setCmykIsHidden(false)
+              if (paint.cmyk) {
+                setUpdatedCmyk(paint.cmyk)
+              }
+            }}
+          >
+            {`CMYK: ${paint.cmyk}`}
+          </button>
         )}
       </div>
       <div className="flex flex-col mr-5">
@@ -61,7 +72,7 @@ export const CmykEdit = ({ paint, paintId, getAndSetPaintAfterUpdate }) => {
             type="text"
             placeholder="Enter a CMYK Code..."
             value={updatedCmyk}
-            className={`${input} ${gradient} mt-6`}
+            className={`${input} ${gradientOne} mt-6`}
             onChange={(e) => {
               setUpdatedCmyk(e.target.value)
             }}

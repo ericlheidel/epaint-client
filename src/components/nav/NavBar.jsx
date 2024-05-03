@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { getProfile } from "../../data/profile.jsx"
-import { gradient } from "../../utils.jsx"
+import { gradientOne } from "../../utils.jsx"
 
 //++   /$$$$$$$   /$$$$$$   /$$$$$$   /$$   /$$  /$$$$$$$$
 //++  | $$__  $$ |_  $$_/  /$$__  $$ | $$  | $$ |__  $$__/
@@ -272,7 +272,7 @@ const NavBarLeft = () => {
 export const NavBar = () => {
   return (
     <nav
-      className={`flex justify-between items-center bg-gray-800 text-white p-4 mb-5 ${gradient}`}
+      className={`flex justify-between items-center bg-gray-800 text-white p-4 mb-5 ${gradientOne}`}
     >
       <NavBarLeft />
       <Link to="/">

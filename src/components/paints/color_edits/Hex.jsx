@@ -4,7 +4,7 @@ import { updatePaint } from "../../../data/paints.jsx"
 import {
   button,
   buttonNoMarginNoSize,
-  gradient,
+  gradientOne,
   input,
 } from "../../../utils.jsx"
 
@@ -48,7 +48,18 @@ export const HexEdit = ({ paint, paintId, getAndSetPaintAfterUpdate }) => {
             Add a Hex Code
           </button>
         ) : (
-          `Hex: ${paint.hex}`
+          <button
+            hidden={!hexIsHidden}
+            className={`${button} mb-8 mt-6 ${gradientOne}`}
+            onClick={() => {
+              setHexIsHidden(false)
+              if (paint.hex) {
+                setUpdatedHex(paint.hex)
+              }
+            }}
+          >
+            {`Hex: ${paint.hex}`}
+          </button>
         )}
       </div>
       <div className="flex flex-col mr-5">
@@ -58,7 +69,7 @@ export const HexEdit = ({ paint, paintId, getAndSetPaintAfterUpdate }) => {
             type="text"
             placeholder="Enter a Hex Code..."
             value={updatedHex}
-            className={`${input} ${gradient} mt-6`}
+            className={`${input} ${gradientOne} mt-6`}
             onChange={(e) => {
               setUpdatedHex(e.target.value)
             }}

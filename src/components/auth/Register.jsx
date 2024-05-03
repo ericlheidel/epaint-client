@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { registerUser } from "../../data/auth.jsx"
-import { button, gradient } from "../../utils.jsx"
+import { button, gradientOne } from "../../utils.jsx"
 
 export const Register = () => {
   const [username, setUsername] = useState("")
@@ -41,7 +41,7 @@ export const Register = () => {
 
   return (
     <main className="mt-36 flex justify-center items-center">
-      <section className={`${gradient} p-12 rounded-xl shadow-2xl`}>
+      <section className={`${gradientOne} p-12 rounded-xl shadow-2xl`}>
         <form className="flex flex-col items-center" onSubmit={handleRegister}>
           <h2 className="font-one text-8xl mb-6 text-white text-center">
             Paintkillerz

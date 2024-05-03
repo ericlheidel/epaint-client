@@ -4,7 +4,7 @@ import { updatePaint } from "../../../data/paints.jsx"
 import {
   button,
   buttonNoMarginNoSize,
-  gradient,
+  gradientOne,
   input,
 } from "../../../utils.jsx"
 
@@ -49,7 +49,18 @@ export const RgbEdit = ({ paint, paintId, getAndSetPaintAfterUpdate }) => {
             Add an RGB Code
           </button>
         ) : (
-          `RGB: ${paint.rgb}`
+          <button
+            hidden={!rgbIsHidden}
+            className={`${button} ml-5 mb-8 mt-6 ${gradientOne}`}
+            onClick={() => {
+              setRgbIsHidden(false)
+              if (paint.rgb) {
+                setUpdatedRgb(paint.rgb)
+              }
+            }}
+          >
+            {`RGB: ${paint.rgb}`}
+          </button>
         )}
       </div>
       <div className="flex flex-col mr-5">
@@ -59,7 +70,7 @@ export const RgbEdit = ({ paint, paintId, getAndSetPaintAfterUpdate }) => {
             type="text"
             placeholder="Enter an RGB Code..."
             value={updatedRgb}
-            className={`${input} ${gradient} mt-6`}
+            className={`${input} ${gradientOne} mt-6`}
             onChange={(e) => {
               setUpdatedRgb(e.target.value)
             }}

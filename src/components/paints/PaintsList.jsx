@@ -6,7 +6,7 @@ import {
 } from "../../data/paints.jsx"
 import { Paint } from "./Paint.jsx"
 import { PaintFilterBar } from "./PaintFilterBar.jsx"
-import { gradient } from "../../utils.jsx"
+import { gradientOne } from "../../utils.jsx"
 
 export const PaintsList = () => {
   const { paintTypeId } = useParams()
@@ -69,7 +69,9 @@ export const PaintsList = () => {
               setOrderBy={setOrderBy}
               handleSearchAndOrder={handleSearchAndOrder}
             />
-            <div className={`${gradient} bg-slate-300 h-16 mb-10 mt-10`}></div>
+            <div
+              className={`${gradientOne} bg-slate-300 h-16 mb-10 mt-10`}
+            ></div>
             <article className="ml-10 mr-10 flex flex-row flex-wrap gap-20 justify-evenly">
               {paints.map((paint) => {
                 return <Paint key={paint.id} paint={paint} />

@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { loginUser } from "../../data/auth.jsx"
-import { button, gradient } from "../../utils.jsx"
+import { button, gradientOne } from "../../utils.jsx"
 
 export const Login = () => {
   const [username, setUsername] = useState("")
@@ -26,7 +26,7 @@ export const Login = () => {
 
   return (
     <main className="mt-36 flex justify-center items-center">
-      <section className={`${gradient} p-12 rounded-xl shadow-2xl`}>
+      <section className={`${gradientOne} p-12 rounded-xl shadow-2xl`}>
         <form className="flex flex-col items-center" onSubmit={handleLogin}>
           <h2
             className="font-one text-8xl mb-6 text-white text-center"
