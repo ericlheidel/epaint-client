@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom"
 import PropTypes from "prop-types"
+import { gradientTwo } from "../../utils.jsx"
 
 export const Paint = ({ paint }) => {
   return (
-    <div className="bg-slate-200 shadow-md rounded-lg p-4">
+    <div className={`bg-slate-200 shadow-md rounded-lg p-4 ${gradientTwo}`}>
       <Link to={`/${paint.paint_type_id}/paints/${paint.id}`}>
         <div className="flex flex-col items-center">
           <img
