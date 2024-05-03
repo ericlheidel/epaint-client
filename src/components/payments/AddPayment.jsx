@@ -43,7 +43,7 @@ export const AddPayment = ({ refresh, isNewHidden, setIsNewHidden }) => {
   return (
     <div
       className="mt-36 flex justify-center items-center"
-      hidden={isNewHidden}
+      // hidden={isNewHidden}
     >
       <div className={`${gradientOne} p-12 rounded-3xl shadow-2xl`}>
         <form onSubmit={handleSubmit}>
