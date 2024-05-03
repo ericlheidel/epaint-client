@@ -10,6 +10,12 @@
   /* Add more src for different font weights/styles if available */
 }
 
+@font-face {
+  font-family: "Deardorf Demo";
+  src: url("./fonts/Deardorf Demo.otf") format("opentype");
+  /* Add more src for different font weights/styles if available */
+}
+
 html {
   margin: auto 0;
   text-align: center;
@@ -25,6 +31,10 @@ html {
 
 .font-two {
   font-family: "BomberUrban-Regular", sans-serif;
+}
+
+.font-three {
+  font-family: "Deardorf Demo", sans-serif;
 }
 
 /* #root {
