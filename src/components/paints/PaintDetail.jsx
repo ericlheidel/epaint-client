@@ -8,6 +8,7 @@ import { CmykEdit } from "./color_edits/Cmyk.jsx"
 import { buttonNoMarginNoSize, gradientOne } from "../../utils.jsx"
 import { SelectQuantity } from "../../elements/SelectQuantity.jsx"
 import { ButtonAddToCart } from "../../elements/ButtonAddToCart.jsx"
+import { getCart } from "../../data/carts.jsx"
 
 export const PaintDetail = () => {
   const { paintId } = useParams()
@@ -18,6 +19,10 @@ export const PaintDetail = () => {
   const [selectedQuantity, setSelectedQuantity] = useState(1)
 
   const navigate = useNavigate()
+
+  useEffect(() => {
+    getCart()
+  }, [])
 
   const getAndSetPaintAfterUpdate = () => {
     getPaintById(paintId).then((res) => {
