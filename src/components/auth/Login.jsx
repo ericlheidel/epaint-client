@@ -31,8 +31,8 @@ export const Login = () => {
           <h2
             className="font-one text-8xl mb-6 text-white text-center"
             onClick={() => {
-              setUsername("eric")
-              setPassword("eric")
+              setUsername("bob")
+              setPassword("bob")
             }}
           >
             Paintkillerz
@@ -47,7 +47,6 @@ export const Login = () => {
                 id="username"
                 value={username}
                 required
-                // autoFocus
                 className="w-full p-4 text-3xl text-white bg-transparent border-b-2 border-white focus:outline-none focus:border-slate-400 transition duration-300 ease-in-out"
                 onChange={(e) => {
                   setUsername(e.target.value)
