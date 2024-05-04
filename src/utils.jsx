@@ -66,5 +66,8 @@ export const button =
 export const buttonNoMarginNoSize =
   "text-2xl text-white bg-blue-700 border-0  focus:outline-none hover:bg-blue-500 rounded-lg shadow-lg"
 
-export const input =
+export const inputWhiteText =
   "pt-2 pb-2 pl-5 shrink text-3xl rounded-full text-white placeholder-white outline-none focus:placeholder-opacity-0"
+
+export const inputBlackText =
+  "pt-2 pb-2 pl-5 shrink text-3xl rounded-full text-black placeholder-white outline-none focus:placeholder-opacity-0"

@@ -10,7 +10,8 @@ export const PaintFilterBar = ({ setSearchText, setOrderBy }) => {
       <input
         type="text"
         placeholder="Search Paints..."
-        className={`${gradientOne} ml-40 pt-2 pb-2 pl-5 shrink w-2/3 text-3xl rounded-full text-white placeholder-white outline-none focus:placeholder-opacity-0`}
+        className={`${gradientOne} ml-40 pt-2 pb-2 pl-5 shrink w-2/3 text-3xl rounded-full text-white placeholder-white outline-none focus:placeholder-opacity-0
+        bg-gradient-to-r from-purple-500 via-pink-500 to-red-500`}
         spellCheck={false}
         onChange={(e) => {
           setSearchText(e.target.value)
@@ -31,7 +32,7 @@ export const PaintFilterBar = ({ setSearchText, setOrderBy }) => {
 
         <select
           value={selectValue}
-          className={`${gradientOne} mr-12 p-2 w-80 text-3xl rounded-full text-white outline-none`}
+          className={` mr-12 p-2 w-80 text-3xl rounded-full text-white outline-none bg-red-500`}
           onChange={(e) => {
             setSelectValue(e.target.value)
             setOrderBy(e.target.value)

@@ -5,7 +5,7 @@ import {
   button,
   buttonNoMarginNoSize,
   gradientOne,
-  input,
+  inputWhiteText,
 } from "../../../utils.jsx"
 
 export const RgbEdit = ({ paint, paintId, getAndSetPaintAfterUpdate }) => {
@@ -70,7 +70,7 @@ export const RgbEdit = ({ paint, paintId, getAndSetPaintAfterUpdate }) => {
             type="text"
             placeholder="Enter an RGB Code..."
             value={updatedRgb}
-            className={`${input} ${gradientOne} mt-6`}
+            className={`${inputWhiteText} ${gradientOne} mt-6`}
             onChange={(e) => {
               setUpdatedRgb(e.target.value)
             }}

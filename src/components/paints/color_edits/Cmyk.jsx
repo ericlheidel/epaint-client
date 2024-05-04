@@ -5,7 +5,7 @@ import {
   button,
   buttonNoMarginNoSize,
   gradientOne,
-  input,
+  inputWhiteText,
 } from "../../../utils.jsx"
 
 export const CmykEdit = ({ paint, paintId, getAndSetPaintAfterUpdate }) => {
@@ -72,7 +72,7 @@ export const CmykEdit = ({ paint, paintId, getAndSetPaintAfterUpdate }) => {
             type="text"
             placeholder="Enter a CMYK Code..."
             value={updatedCmyk}
-            className={`${input} ${gradientOne} mt-6`}
+            className={`${inputWhiteText} ${gradientOne} mt-6`}
             onChange={(e) => {
               setUpdatedCmyk(e.target.value)
             }}

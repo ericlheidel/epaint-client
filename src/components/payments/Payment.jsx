@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { deleteUserPayment, updateUserPayment } from "../../data/payments.jsx"
 import PropTypes from "prop-types"
+import { buttonNoMarginNoSize, inputBlackText } from "../../utils.jsx"
 
 export const Payment = ({ payment, refresh }) => {
   const [isUpdateHidden, setIsUpdateHidden] = useState(true)
@@ -52,36 +53,52 @@ export const Payment = ({ payment, refresh }) => {
 
   return (
     <tr key={payment.id}>
-      <td hidden={!isUpdateHidden}>{payment.name}</td>
-      <td hidden={isUpdateHidden}>
+      <td
+        className="text-4xl text-white align-middle pl-6 pb-6"
+        hidden={!isUpdateHidden}
+      >
+        {payment.name}
+      </td>
+      <td className="pb-5" hidden={isUpdateHidden}>
         <input
           id="paymentName"
           type="test"
           value={updatedPaymentName}
+          className={`${inputBlackText}`}
           onChange={(e) => {
             setUpdatedPaymentNamed(e.target.value)
           }}
         />
       </td>
-      <td hidden={!isUpdateHidden}>{payment.acct_number}</td>
+      <td
+        className="text-4xl text-white align-middle pl-6 pb-6"
+        hidden={!isUpdateHidden}
+      >
+        {payment.acct_number}
+      </td>
       <td hidden={isUpdateHidden}>
         <input
           id="accountNumber"
           type="test"
           value={updatedAcctNumber}
-          className="ml-3"
+          className={`${inputBlackText} ml-3`}
           onChange={(e) => {
             setUpdatedAcctNumber(e.target.value)
           }}
         />
       </td>
-      <td hidden={!isUpdateHidden}>{payment.ex_date}</td>
+      <td
+        className="text-4xl text-white align-middle pl-6 pb-6"
+        hidden={!isUpdateHidden}
+      >
+        {payment.ex_date}
+      </td>
       <td hidden={isUpdateHidden}>
         <input
           id="expirationDate"
           type="test"
           value={updatedExDate}
-          className="ml-3"
+          className={`${inputBlackText} ml-3`}
           onChange={(e) => {
             setUpdatedExDate(e.target.value)
           }}
@@ -89,7 +106,7 @@ export const Payment = ({ payment, refresh }) => {
       </td>
       <td>
         <button
-          className="ml-3"
+          className={`${buttonNoMarginNoSize} px-4 py-2 ml-3`}
           onClick={() => handleDeletePayment(payment.id)}
         >
           <i className="fa-solid fa-trash"></i>
@@ -97,7 +114,7 @@ export const Payment = ({ payment, refresh }) => {
       </td>
       <td>
         <button
-          className="ml-3"
+          className={`${buttonNoMarginNoSize} px-4 py-2 ml-4`}
           onClick={() => {
             setIsUpdateHidden(false)
           }}
@@ -107,7 +124,7 @@ export const Payment = ({ payment, refresh }) => {
       </td>
       <td>
         <button
-          className="ml-3"
+          className={`${buttonNoMarginNoSize} px-4 py-2 ml-4`}
           hidden={isUpdateHidden}
           onClick={() => {
             handleUpdatePayment(payment.id)
@@ -118,7 +135,7 @@ export const Payment = ({ payment, refresh }) => {
       </td>
       <td>
         <button
-          className="ml-3"
+          className={`${buttonNoMarginNoSize} px-4 py-2 ml-4`}
           hidden={isUpdateHidden}
           onClick={() => setIsUpdateHidden(true)}
         >
