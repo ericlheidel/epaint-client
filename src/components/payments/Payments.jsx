@@ -7,6 +7,7 @@ import { button, buttonNoMarginNoSize, gradientOne } from "../../utils.jsx"
 export const Payments = () => {
   const [userPayments, setUserPayments] = useState([])
   const [isNewHidden, setIsNewHidden] = useState(true)
+  const [isDisabled, setIsDisabled] = useState(false)
 
   const refresh = () => {
     getUserPayments().then((res) => {
@@ -48,6 +49,16 @@ export const Payments = () => {
         <button
           className={`${buttonNoMarginNoSize} px-8 py-4 ml-auto mr-auto w-fit`}
           hidden={!isNewHidden}
+          onClick={() => {
+            setIsNewHidden(false)
+          }}
+        >
+          Add Payment
+        </button>
+        <button
+          className={`${buttonNoMarginNoSize} px-8 py-4 ml-auto mr-auto w-fit pointer-events-none opacity-50 bg-gray-600 text-gray-200`}
+          disabled
+          hidden={isNewHidden}
           onClick={() => {
             setIsNewHidden(false)
           }}

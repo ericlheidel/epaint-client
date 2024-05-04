@@ -37,6 +37,11 @@ html {
   font-family: "Deardorf Demo", sans-serif;
 }
 
+.not-allowed:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 /* #root {
   max-width: 1280px;
   margin: 0 auto;

@@ -3,7 +3,7 @@ import { addNewPayment } from "../../data/payments.jsx"
 import PropTypes from "prop-types"
 import { button, gradientOne } from "../../utils.jsx"
 
-export const AddPayment = ({ refresh, isNewHidden, setIsNewHidden }) => {
+export const AddPayment = ({ refresh, setIsNewHidden, setIsDisabled }) => {
   const [newPaymentName, setNewPaymentName] = useState("")
   const [newAcctNumber, setNewAcctNumber] = useState("")
   const [newExDate, setNewExDate] = useState("")
@@ -104,6 +104,7 @@ export const AddPayment = ({ refresh, isNewHidden, setIsNewHidden }) => {
                 onClick={(e) => {
                   e.preventDefault()
                   setIsNewHidden(true)
+                  setIsDisabled(false)
                 }}
               >
                 Cancel
@@ -120,4 +121,5 @@ AddPayment.propTypes = {
   refresh: PropTypes.func.isRequired,
   isNewHidden: PropTypes.bool.isRequired,
   setIsNewHidden: PropTypes.func.isRequired,
+  setIsDisabled: PropTypes.func.isRequired,
 }

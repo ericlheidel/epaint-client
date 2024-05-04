@@ -70,4 +70,4 @@ export const inputWhiteText =
   "pt-2 pb-2 pl-5 shrink text-3xl rounded-full text-white placeholder-white outline-none focus:placeholder-opacity-0"
 
 export const inputBlackText =
-  "pt-2 pb-2 pl-5 shrink text-3xl rounded-full text-white placeholder-white outline-none focus:placeholder-opacity-0"
+  "pt-2 pb-2 pl-5 shrink text-3xl rounded-full text-black placeholder-white outline-none focus:placeholder-opacity-0"
