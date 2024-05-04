@@ -1,18 +1,21 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-import { addPaintToCart, getPaintById } from "../../data/paints.jsx"
+import { getPaintById } from "../../data/paints.jsx"
 import { getAllSizes, getSizeById } from "../../data/sizes.jsx"
 import { HexEdit } from "./color_edits/Hex.jsx"
 import { RgbEdit } from "./color_edits/Rgb.jsx"
 import { CmykEdit } from "./color_edits/Cmyk.jsx"
 import { buttonNoMarginNoSize, gradientOne } from "../../utils.jsx"
+import { SelectQuantity } from "../../elements/SelectQuantity.jsx"
+import { ButtonAddToCart } from "../../elements/ButtonAddToCart.jsx"
 
 export const PaintDetail = () => {
   const { paintId } = useParams()
   const [paint, setPaint] = useState({})
   const [sizes, setSizes] = useState([])
-  const [selectedSize, setSelectedSize] = useState(1)
+  const [selectedSize, setSelectedSize] = useState("1")
   const [correspondingPrice, setCorrespondingPrice] = useState(9.99)
+  const [selectedQuantity, setSelectedQuantity] = useState(1)
 
   const navigate = useNavigate()
 
@@ -35,10 +38,6 @@ export const PaintDetail = () => {
       setSizes(res)
     })
   }, [])
-
-  const handleAddPaintToCart = () => {
-    addPaintToCart(paintId, selectedSize).then(navigate("/cart"))
-  }
 
   useEffect(() => {
     if (selectedSize !== 0) {
@@ -102,12 +101,21 @@ export const PaintDetail = () => {
             <div className="font-three text-6xl mb-6 mt-6 text-white text-center">
               ${correspondingPrice}
             </div>
-            <div>
+            <div className="flex flex-col">
+              <ButtonAddToCart
+                paint={paint}
+                paintId={paintId}
+                selectedSize={selectedSize}
+                selectedQuantity={selectedQuantity}
+              />
+              <SelectQuantity setSelectedQuantity={setSelectedQuantity} />
               <button
-                className={`${buttonNoMarginNoSize} pl-8 pr-8 pt-4 pb-4`}
-                onClick={handleAddPaintToCart}
+                className={`${buttonNoMarginNoSize} px-10 py-4 mt-4 mx-auto w-56`}
+                onClick={() => {
+                  navigate("/cart")
+                }}
               >
-                Add To Cart
+                Cart
               </button>
             </div>
           </div>
