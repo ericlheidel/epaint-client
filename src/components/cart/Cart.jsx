@@ -8,10 +8,7 @@ import { CartItem } from "./CartItem.jsx"
 import { buttonNoMarginNoSize, gradientOne } from "../../utils.jsx"
 
 export const Cart = () => {
-  const [cart, setCart] = useState({
-    total: 0,
-    number_of_items: 0,
-  })
+  const [cart, setCart] = useState({})
   const [isCompleteHidden, setIsCompleteHidden] = useState(true)
   const [userPayments, setUserPayments] = useState([])
 

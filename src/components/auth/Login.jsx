@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { loginUser } from "../../data/auth.jsx"
 import { button, gradientOne } from "../../utils.jsx"
+import { getCart } from "../../data/carts.jsx"
 
 export const Login = () => {
   const [username, setUsername] = useState("")
@@ -17,6 +18,7 @@ export const Login = () => {
       .then((authInfo) => {
         if (authInfo.token) {
           localStorage.setItem("paint_token", JSON.stringify(authInfo))
+          getCart()
           navigate("/")
         } else {
           window.alert("Incorrect Log In Information")
