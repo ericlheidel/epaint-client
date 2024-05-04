@@ -2,11 +2,19 @@ import PropTypes from "prop-types"
 import { addPaintToCart } from "../../data/paints.jsx"
 import { useNavigate } from "react-router-dom"
 import { buttonNoMarginNoSize } from "../../utils.jsx"
+import { useState } from "react"
 
 export const PaintInOrder = ({ paint }) => {
+  const [showMessage, setShowMessage] = useState(false)
+
   const navigate = useNavigate()
 
   const handleAddPaintToCart = () => {
+    setShowMessage(true)
+
+    setTimeout(() => {
+      setShowMessage(false)
+    }, 500)
     addPaintToCart(paint.paint.id, paint.size.id)
   }
 
@@ -37,8 +45,12 @@ export const PaintInOrder = ({ paint }) => {
         ${paint.size.price}
       </td>
       <td className="align-middle pb-6">
-        <button className={`${buttonNoMarginNoSize} px-10 py-4 ml-12 w-56`}>
+        <button
+          className={`${buttonNoMarginNoSize} px-10 py-4 ml-12 w-56 cart-button`}
+          onClick={handleAddPaintToCart}
+        >
           Add To Cart
+          {showMessage && <span className="added-to-cart">Added To Cart</span>}
         </button>
       </td>
     </>

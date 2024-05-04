@@ -57,7 +57,7 @@ export const PreviousOrderDetail = () => {
             navigate("/cart")
           }}
         >
-          Back To Cart
+          Cart
         </button>
         <button
           className={`${buttonNoMarginNoSize} px-10 py-4`}
@@ -65,7 +65,7 @@ export const PreviousOrderDetail = () => {
             navigate("/my-orders")
           }}
         >
-          Back To My Orders
+          My Orders
         </button>
       </div>
     </div>
