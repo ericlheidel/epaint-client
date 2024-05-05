@@ -6,7 +6,7 @@ import { getUserPayments } from "../../data/payments.jsx"
 import { useNavigate } from "react-router-dom"
 import { CartItem } from "./CartItem.jsx"
 import { buttonNoMarginNoSize, gradientOne } from "../../utils.jsx"
-import { ModalMustAddPayment } from "../../elements/ModalMustAddPayment.jsx"
+import { ModalMustAddPayment } from "../../elements/modals/ModalMustAddPayment.jsx"
 
 export const Cart = () => {
   const [cart, setCart] = useState({})
@@ -102,7 +102,7 @@ export const Cart = () => {
               </button>
             )}
             {showModalMustAddPayment && (
-              <ModalMustAddPayment onClose={handleCloseModal} />
+              <ModalMustAddPayment handleCloseModal={handleCloseModal} />
             )}
           </div>
         </div>

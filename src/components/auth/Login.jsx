@@ -3,12 +3,19 @@ import { Link, useNavigate } from "react-router-dom"
 import { loginUser } from "../../data/auth.jsx"
 import { button, gradientOne } from "../../utils.jsx"
 import { getCart } from "../../data/carts.jsx"
+import { ModalLoginIncorrect } from "../../elements/modals/ModalLoginIncorrect.jsx"
 
 export const Login = () => {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
 
+  const [showModalLoginIncorrect, setShowModalLoginIncorrect] = useState(false)
+
   const navigate = useNavigate()
+
+  const handleCloseModal = () => {
+    setShowModalLoginIncorrect(false)
+  }
 
   const handleLogin = (e) => {
     e.preventDefault()
@@ -21,27 +28,37 @@ export const Login = () => {
           getCart()
           navigate("/")
         } else {
-          window.alert("Incorrect Log In Information")
+          setShowModalLoginIncorrect(true)
         }
       })
   }
 
   return (
     <main className="mt-36 flex justify-center items-center">
+      {showModalLoginIncorrect && (
+        <ModalLoginIncorrect handleCloseModal={handleCloseModal} />
+      )}
       <section className={`${gradientOne} p-12 rounded-3xl shadow-2xl`}>
         <form className="flex flex-col items-center" onSubmit={handleLogin}>
           <h2
             className="font-one text-8xl mb-6 text-white text-center"
             onClick={() => {
               setUsername("bob")
-              setPassword("bob")
+              setPassword("ThisIsMyPassword1234554321!!")
             }}
           >
             Paintkillerz
           </h2>
           <fieldset className="w-full mb-8">
             <div className="flex flex-col">
-              <label htmlFor="username" className="text-4xl mb-2 text-white">
+              <label
+                htmlFor="username"
+                className="text-4xl mb-2 text-white"
+                onClick={() => {
+                  setUsername("tom")
+                  setPassword("ThisIsMyPassword1234554321!!")
+                }}
+              >
                 Username
               </label>
               <input
@@ -53,16 +70,19 @@ export const Login = () => {
                 onChange={(e) => {
                   setUsername(e.target.value)
                 }}
-                onClick={() => {
-                  setUsername("tom")
-                  setPassword("tom")
-                }}
               />
             </div>
           </fieldset>
           <fieldset className="w-full mb-8">
             <div className="flex flex-col">
-              <label htmlFor="password" className="text-4xl mb-2 text-white">
+              <label
+                htmlFor="password"
+                className="text-4xl mb-2 text-white"
+                onClick={() => {
+                  setUsername("tim")
+                  setPassword("ThisIsMyPassword1234554321!!")
+                }}
+              >
                 Password
               </label>
               <input
@@ -73,10 +93,6 @@ export const Login = () => {
                 className="w-full p-4 text-3xl text-white bg-transparent border-b-2 border-white focus:outline-none focus:border-slate-400 transition duration-300 ease-in-out"
                 onChange={(e) => {
                   setPassword(e.target.value)
-                }}
-                onClick={() => {
-                  setUsername("tim")
-                  setPassword("tim")
                 }}
               />
             </div>

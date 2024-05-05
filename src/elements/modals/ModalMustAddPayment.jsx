@@ -1,8 +1,8 @@
 import PropTypes from "prop-types"
-import { button, gradientOne } from "../utils.jsx"
+import { button } from "../../utils.jsx"
 import { useNavigate } from "react-router-dom"
 
-export const ModalMustAddPayment = ({ onClose }) => {
+export const ModalMustAddPayment = ({ handleCloseModal }) => {
   const navigate = useNavigate()
 
   return (
@@ -20,13 +20,13 @@ export const ModalMustAddPayment = ({ onClose }) => {
       <button
         className={`${button}`}
         onClick={() => {
-          onClose()
+          handleCloseModal()
           navigate("/payments")
         }}
       >
         Go To Payments
       </button>
-      <button className={`${button} ml-24`} onClick={onClose}>
+      <button className={`${button} ml-24`} onClick={handleCloseModal}>
         Close
       </button>
     </div>
@@ -34,5 +34,5 @@ export const ModalMustAddPayment = ({ onClose }) => {
 }
 
 ModalMustAddPayment.propTypes = {
-  onClose: PropTypes.func.isRequired,
+  handleCloseModal: PropTypes.func.isRequired,
 }
