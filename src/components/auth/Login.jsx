@@ -53,6 +53,10 @@ export const Login = () => {
                 onChange={(e) => {
                   setUsername(e.target.value)
                 }}
+                onClick={() => {
+                  setUsername("tom")
+                  setPassword("tom")
+                }}
               />
             </div>
           </fieldset>
@@ -69,6 +73,10 @@ export const Login = () => {
                 className="w-full p-4 text-3xl text-white bg-transparent border-b-2 border-white focus:outline-none focus:border-slate-400 transition duration-300 ease-in-out"
                 onChange={(e) => {
                   setPassword(e.target.value)
+                }}
+                onClick={() => {
+                  setUsername("tim")
+                  setPassword("tim")
                 }}
               />
             </div>

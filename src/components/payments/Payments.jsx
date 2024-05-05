@@ -2,12 +2,11 @@ import { useEffect, useState } from "react"
 import { getUserPayments } from "../../data/payments.jsx"
 import { AddPayment } from "./AddPayment.jsx"
 import { Payment } from "./Payment.jsx"
-import { button, buttonNoMarginNoSize, gradientOne } from "../../utils.jsx"
+import { buttonNoMarginNoSize, gradientOne } from "../../utils.jsx"
 
 export const Payments = () => {
   const [userPayments, setUserPayments] = useState([])
   const [isNewHidden, setIsNewHidden] = useState(true)
-  const [isDisabled, setIsDisabled] = useState(false)
 
   const refresh = () => {
     getUserPayments().then((res) => {
@@ -26,6 +25,7 @@ export const Payments = () => {
       <div
         className={`${gradientOne} flex flex-col shrink-0 mt-36 ml-auto mr-auto w-3/4 p-12 rounded-3xl`}
       >
+        <h2 className="font-three text-9xl mb-5 text-white">Payments</h2>
         <table className="w-2/3 mx-auto">
           <thead>
             <tr>

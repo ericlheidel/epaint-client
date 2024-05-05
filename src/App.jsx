@@ -1,7 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import "./App.css"
 import "./index.css"
-// import "./responsive.css"
 import { Login } from "./components/auth/Login.jsx"
 import { Authorized } from "./components/auth/Authorized.jsx"
 import { HomeLandingPage } from "./components/home/HomeLandingPage.jsx"
@@ -14,6 +13,7 @@ import { PaintsListAll } from "./components/paints/PaintsListAll.jsx"
 import { PreviousOrdersList } from "./components/orders/PreviousOrdersList.jsx"
 import { PreviousOrderDetail } from "./components/orders/PreviousOrderDetail.jsx"
 import { Profile } from "./components/profile/Profile.jsx"
+import { ModalMustAddPayment } from "./elements/ModalMustAddPayment.jsx"
 
 function App() {
   return (
@@ -34,6 +34,7 @@ function App() {
           <Route path="/my-orders" element={<PreviousOrdersList />} />
           <Route path="/my-orders/:orderId" element={<PreviousOrderDetail />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/temp" element={<ModalMustAddPayment />} />
         </Route>
       </Routes>
     </BrowserRouter>
