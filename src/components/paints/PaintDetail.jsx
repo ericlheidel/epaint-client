@@ -115,7 +115,7 @@ export const PaintDetail = () => {
                   navigate("/cart")
                 }}
               >
-                Cart
+                View Cart
               </button>
             </div>
           </div>

@@ -19,6 +19,8 @@
 html {
   margin: auto 0;
   text-align: center;
+  box-sizing: border-box;
+  overflow: auto;
 }
 
 .test {
