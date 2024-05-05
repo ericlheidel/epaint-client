@@ -34,7 +34,7 @@ export const Register = () => {
           localStorage.setItem("paint_token", JSON.stringify(authInfo))
           navigate("/")
         } else {
-          window.alert("Please Fill Out All Info")
+          window.alert("User already exists")
         }
       })
   }
