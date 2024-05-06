@@ -1,7 +1,5 @@
 import PropTypes from "prop-types"
-// import { addPaintToCart } from "../../data/paints.jsx"
 import { useNavigate } from "react-router-dom"
-// import { buttonNoMarginNoSize } from "../../utils.jsx"
 import { useState } from "react"
 import { SelectQuantity } from "../../elements/SelectQuantity.jsx"
 import { ButtonAddToCart } from "../../elements/ButtonAddToCart.jsx"
@@ -40,7 +38,7 @@ export const PaintInOrder = ({ paint }) => {
       <td className="align-middle pb-6">
         <div className="ml-4">
           <ButtonAddToCart paint={paint} selectedQuantity={selectedQuantity} />
-          {/* <SelectQuantity setSelectedQuantity={setSelectedQuantity} /> */}
+          <SelectQuantity setSelectedQuantity={setSelectedQuantity} />
         </div>
       </td>
     </>
