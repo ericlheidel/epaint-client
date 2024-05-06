@@ -40,6 +40,12 @@ export const AddPayment = ({ refresh, setIsNewHidden, setIsDisabled }) => {
     }
   }
 
+  const fillOutForm = () => {
+    setNewPaymentName("Discover")
+    setNewAcctNumber("1111-2222-3333-4444")
+    setNewExDate("2030-08-08")
+  }
+
   return (
     <div
       className="mt-36 flex justify-center items-center"
@@ -58,6 +64,7 @@ export const AddPayment = ({ refresh, setIsNewHidden, setIsDisabled }) => {
                 onChange={(e) => {
                   setNewPaymentName(e.target.value)
                 }}
+                onClick={fillOutForm}
               />
             </label>
           </fieldset>

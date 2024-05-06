@@ -21,6 +21,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/temp" element={<ModalRegisterInfo />} />
         <Route element={<Authorized />}>
           <Route path="/" element={<HomeLandingPage />} />
           <Route path="/paints" element={<PaintsListAll />} />
@@ -34,7 +35,6 @@ function App() {
           <Route path="/my-orders" element={<PreviousOrdersList />} />
           <Route path="/my-orders/:orderId" element={<PreviousOrderDetail />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/temp" element={<ModalRegisterInfo />} />
         </Route>
       </Routes>
     </BrowserRouter>

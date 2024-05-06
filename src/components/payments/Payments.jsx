@@ -3,10 +3,13 @@ import { getUserPayments } from "../../data/payments.jsx"
 import { AddPayment } from "./AddPayment.jsx"
 import { Payment } from "./Payment.jsx"
 import { buttonNoMarginNoSize, gradientOne } from "../../utils.jsx"
+import { useNavigate } from "react-router-dom"
 
 export const Payments = () => {
   const [userPayments, setUserPayments] = useState([])
   const [isNewHidden, setIsNewHidden] = useState(true)
+
+  const navigate = useNavigate()
 
   const refresh = () => {
     getUserPayments().then((res) => {
@@ -46,25 +49,35 @@ export const Payments = () => {
             })}
           </tbody>
         </table>
-        <button
-          className={`${buttonNoMarginNoSize} px-8 py-4 ml-auto mr-auto w-fit`}
-          hidden={!isNewHidden}
-          onClick={() => {
-            setIsNewHidden(false)
-          }}
-        >
-          Add Payment
-        </button>
-        <button
-          className={`${buttonNoMarginNoSize} px-8 py-4 ml-auto mr-auto w-fit pointer-events-none opacity-50 bg-gray-600 text-gray-200`}
-          disabled
-          hidden={isNewHidden}
-          onClick={() => {
-            setIsNewHidden(false)
-          }}
-        >
-          Add Payment
-        </button>
+        <div>
+          <button
+            className={`${buttonNoMarginNoSize} px-8 py-4 ml-auto mr-auto w-fit`}
+            hidden={!isNewHidden}
+            onClick={() => {
+              setIsNewHidden(false)
+            }}
+          >
+            Add Payment
+          </button>
+          <button
+            className={`${buttonNoMarginNoSize} px-8 py-4 ml-auto mr-auto w-fit pointer-events-none opacity-50 bg-gray-600 text-gray-200`}
+            disabled
+            hidden={isNewHidden}
+            onClick={() => {
+              setIsNewHidden(false)
+            }}
+          >
+            Add Payment
+          </button>
+          <button
+            className={`${buttonNoMarginNoSize} px-8 py-4 ml-20 mr-auto w-fit`}
+            onClick={() => {
+              navigate("/cart")
+            }}
+          >
+            Cart
+          </button>
+        </div>
       </div>
       <div>
         <div hidden={isNewHidden}>
