@@ -2,6 +2,8 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { registerUser } from "../../data/auth.jsx"
 import { button, gradientOne } from "../../utils.jsx"
+import { ModalRegisterInfo } from "../../elements/modals/ModalRegisterInfo.jsx"
+import { getCart } from "../../data/carts.jsx"
 
 export const Register = () => {
   const [username, setUsername] = useState("")
@@ -11,6 +13,9 @@ export const Register = () => {
   const [lastName, setLastName] = useState("")
   const [address, setAddress] = useState("")
   const [phoneNumber, setPhoneNumber] = useState("")
+
+  const [showModalRegisterInfo, setShowModalRegisterInfo] = useState(false)
+  const [modalRegisterInfoMessage, setModalRegisterMessage] = useState("")
 
   const navigate = useNavigate()
 
@@ -31,15 +36,18 @@ export const Register = () => {
       if (res.ok) {
         return res.json().then((authInfo) => {
           localStorage.setItem("paint_token", JSON.stringify(authInfo))
+          getCart()
           navigate("/")
         })
       } else {
         return res.json().then((data) => {
           if (data.message === "Email already exists") {
-            window.alert("Email already exists")
+            setModalRegisterMessage("Email already exists")
+            setShowModalRegisterInfo(true)
           } else {
             if (data.message === "Username already exists") {
-              window.alert("Username already exists")
+              setModalRegisterMessage("Username already exists")
+              setShowModalRegisterInfo(true)
             }
           }
         })
@@ -47,7 +55,11 @@ export const Register = () => {
     })
   }
 
-  const fillOutForm = () => {
+  const handleCloseModal = () => {
+    setShowModalRegisterInfo(false)
+  }
+
+  const fillOutFormError = () => {
     setUsername("bob")
     setPassword("ThisIsMyPassword1234554321!!")
     setEmail("bob@bobbibby.com")
@@ -57,16 +69,35 @@ export const Register = () => {
     setPhoneNumber("423-555-9985")
   }
 
+  const fillOutFormNoError = () => {
+    setUsername("eric")
+    setPassword("ThisIsMyPassword1234554321!!")
+    setEmail("eric@ericheidel.com")
+    setFirstName("Eric")
+    setLastName("Heidel")
+    setAddress("999999 This Way, Nashville, TN 37377")
+    setPhoneNumber("533-908-5109")
+  }
+
   return (
     <main className="mt-36 flex justify-center items-center">
+      {showModalRegisterInfo && (
+        <ModalRegisterInfo
+          modalRegisterInfoMessage={modalRegisterInfoMessage}
+          handleCloseModal={handleCloseModal}
+        />
+      )}
       <section className={`${gradientOne} p-12 rounded-3xl shadow-2xl`}>
         <form className="flex flex-col items-center" onSubmit={handleRegister}>
-          <h2 className="font-one text-8xl mb-6 text-white text-center">
+          <h2
+            className="font-one text-8xl mb-6 text-white text-center"
+            onClick={fillOutFormError}
+          >
             Paintkillerz
           </h2>
           <h3
             className="text-5xl mb-6 text-white text-center"
-            onClick={fillOutForm}
+            onClick={fillOutFormNoError}
           >
             Register Your Account
           </h3>
@@ -207,9 +238,19 @@ export const Register = () => {
               </div>
             </fieldset>
           </div>
-          <button type="submit" className={`${button}`}>
-            Register
-          </button>
+          <div className="flex flex-row">
+            <button type="submit" className={`${button}`}>
+              Register
+            </button>
+            <button
+              className={`${button} ml-20`}
+              onClick={() => {
+                navigate("/login")
+              }}
+            >
+              Back To Login
+            </button>
+          </div>
         </form>
       </section>
     </main>

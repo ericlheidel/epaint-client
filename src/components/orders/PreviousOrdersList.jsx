@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { getClosedOrders } from "../../data/orders.jsx"
 import { PreviousOrder } from "./PreviousOrder.jsx"
 import { gradientOne } from "../../utils.jsx"
+import { getCart } from "../../data/carts.jsx"
 
 export const PreviousOrdersList = () => {
   const [closedOrders, setClosedOrders] = useState([])
@@ -10,6 +11,10 @@ export const PreviousOrdersList = () => {
     getClosedOrders().then((res) => {
       setClosedOrders(res)
     })
+  }, [])
+
+  useEffect(() => {
+    getCart()
   }, [])
 
   return (

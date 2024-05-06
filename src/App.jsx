@@ -13,7 +13,7 @@ import { PaintsListAll } from "./components/paints/PaintsListAll.jsx"
 import { PreviousOrdersList } from "./components/orders/PreviousOrdersList.jsx"
 import { PreviousOrderDetail } from "./components/orders/PreviousOrderDetail.jsx"
 import { Profile } from "./components/profile/Profile.jsx"
-import { ModalLoginIncorrect } from "./elements/modals/ModalLoginIncorrect.jsx"
+import { ModalRegisterInfo } from "./elements/modals/ModalRegisterInfo.jsx"
 
 function App() {
   return (
@@ -21,6 +21,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/temp" element={<ModalRegisterInfo />} />
         <Route element={<Authorized />}>
           <Route path="/" element={<HomeLandingPage />} />
           <Route path="/paints" element={<PaintsListAll />} />
@@ -34,7 +35,6 @@ function App() {
           <Route path="/my-orders" element={<PreviousOrdersList />} />
           <Route path="/my-orders/:orderId" element={<PreviousOrderDetail />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/temp" element={<ModalLoginIncorrect />} />
         </Route>
       </Routes>
     </BrowserRouter>

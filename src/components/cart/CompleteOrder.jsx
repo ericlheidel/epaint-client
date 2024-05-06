@@ -4,7 +4,6 @@ import PropTypes from "prop-types"
 import { closeOrder } from "../../data/orders.jsx"
 import { useNavigate } from "react-router-dom"
 import { button, getTodaysDate, gradientOne } from "../../utils.jsx"
-import { getCart } from "../../data/carts.jsx"
 
 export const CompleteOrder = ({ setIsCompleteHidden, cart }) => {
   const [userPayments, setUserPayments] = useState([])
@@ -26,9 +25,7 @@ export const CompleteOrder = ({ setIsCompleteHidden, cart }) => {
         payment_type_id: selectedPayment,
         purchase_date: getTodaysDate(),
       }
-      closeOrder(closedOrder, parseInt(cart.id))
-        .then(navigate("/my-orders"))
-        .then(getCart())
+      closeOrder(closedOrder, parseInt(cart.id)).then(navigate("/my-orders"))
     }
   }
 
