@@ -28,5 +28,5 @@ export const SelectQuantity = ({ setSelectedQuantity }) => {
 }
 
 SelectQuantity.propTypes = {
-  setSelectedQuantity: PropTypes.func.isRequired,
+  setSelectedQuantity: PropTypes.func,
 }

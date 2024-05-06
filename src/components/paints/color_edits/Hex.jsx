@@ -101,7 +101,7 @@ export const HexEdit = ({ paint, paintId, getAndSetPaintAfterUpdate }) => {
 }
 
 HexEdit.propTypes = {
-  paint: PropTypes.object.isRequired,
-  paintId: PropTypes.string.isRequired,
-  getAndSetPaintAfterUpdate: PropTypes.func.isRequired,
+  paint: PropTypes.object,
+  paintId: PropTypes.string,
+  getAndSetPaintAfterUpdate: PropTypes.func,
 }

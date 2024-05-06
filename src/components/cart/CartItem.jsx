@@ -51,6 +51,6 @@ export const CartItem = ({ paint, setCart }) => {
 }
 
 CartItem.propTypes = {
-  paint: PropTypes.object.isRequired,
-  setCart: PropTypes.func.isRequired,
+  paint: PropTypes.object,
+  setCart: PropTypes.func,
 }

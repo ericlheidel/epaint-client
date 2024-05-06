@@ -3,10 +3,10 @@ import { getCart } from "../../data/carts.jsx"
 import { deleteOrderPaintById } from "../../data/paints.jsx"
 import { CompleteOrder } from "./CompleteOrder.jsx"
 import { getUserPayments } from "../../data/payments.jsx"
-import { useNavigate } from "react-router-dom"
 import { CartItem } from "./CartItem.jsx"
 import { buttonNoMarginNoSize, gradientOne } from "../../utils.jsx"
 import { ModalMustAddPayment } from "../../elements/modals/ModalMustAddPayment.jsx"
+import { Backdrop } from "../../elements/Backdrop.jsx"
 
 export const Cart = () => {
   const [cart, setCart] = useState({
@@ -16,9 +16,9 @@ export const Cart = () => {
   const [isCompleteHidden, setIsCompleteHidden] = useState(true)
   const [userPayments, setUserPayments] = useState([])
 
-  const [showModalMustAddPayment, setShowModalMustAddPayment] = useState(false)
+  // const [showModalMustAddPayment, setShowModalMustAddPayment] = useState(false)
 
-  const navigate = useNavigate()
+  const [showModal, setShowModal] = useState(false)
 
   const refreshCart = () => {
     getCart().then((res) => {
@@ -44,7 +44,7 @@ export const Cart = () => {
   }
 
   const handleCloseModal = () => {
-    setShowModalMustAddPayment(false)
+    setShowModal(false)
   }
 
   return (
@@ -93,11 +93,7 @@ export const Cart = () => {
                 className={`${buttonNoMarginNoSize} px-10 py-4`}
                 onClick={() => {
                   if (userPayments.length === 0) {
-                    setShowModalMustAddPayment(true)
-                    // window.alert(
-                    //   "Please add a payment method to your account..."
-                    // )
-                    // navigate("/payments")
+                    setShowModal(true)
                   } else {
                     setIsCompleteHidden(false)
                   }
@@ -107,9 +103,10 @@ export const Cart = () => {
               </button>
             )}
           </div>
-          {showModalMustAddPayment && (
+          {showModal && (
             <ModalMustAddPayment handleCloseModal={handleCloseModal} />
           )}
+          {showModal && <Backdrop />}
         </div>
         <div hidden={isCompleteHidden}>
           <CompleteOrder

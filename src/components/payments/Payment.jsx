@@ -147,6 +147,6 @@ export const Payment = ({ payment, refresh }) => {
 }
 
 Payment.propTypes = {
-  payment: PropTypes.object.isRequired,
-  refresh: PropTypes.func.isRequired,
+  payment: PropTypes.object,
+  refresh: PropTypes.func,
 }

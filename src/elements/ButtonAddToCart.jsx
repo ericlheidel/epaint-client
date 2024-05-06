@@ -48,8 +48,8 @@ export const ButtonAddToCart = ({
 }
 
 ButtonAddToCart.propTypes = {
-  paint: PropTypes.object.isRequired,
-  paintId: PropTypes.string.isRequired,
-  selectedSize: PropTypes.string.isRequired,
-  selectedQuantity: PropTypes.number.isRequired,
+  paint: PropTypes.object,
+  paintId: PropTypes.string,
+  selectedSize: PropTypes.string,
+  selectedQuantity: PropTypes.number,
 }

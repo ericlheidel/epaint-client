@@ -54,6 +54,6 @@ export const PaintFilterBar = ({ setSearchText, setOrderBy }) => {
 }
 
 PaintFilterBar.propTypes = {
-  setSearchText: PropTypes.func.isRequired,
-  setOrderBy: PropTypes.func.isRequired,
+  setSearchText: PropTypes.func,
+  setOrderBy: PropTypes.func,
 }

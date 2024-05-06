@@ -4,17 +4,18 @@ import { loginUser } from "../../data/auth.jsx"
 import { button, gradientOne } from "../../utils.jsx"
 import { getCart } from "../../data/carts.jsx"
 import { ModalLoginIncorrect } from "../../elements/modals/ModalLoginIncorrect.jsx"
+import { Backdrop } from "../../elements/Backdrop.jsx"
 
 export const Login = () => {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
 
-  const [showModalLoginIncorrect, setShowModalLoginIncorrect] = useState(false)
+  const [showModal, setShowModal] = useState(false)
 
   const navigate = useNavigate()
 
   const handleCloseModal = () => {
-    setShowModalLoginIncorrect(false)
+    setShowModal(false)
   }
 
   const handleLogin = (e) => {
@@ -28,16 +29,15 @@ export const Login = () => {
           getCart()
           navigate("/")
         } else {
-          setShowModalLoginIncorrect(true)
+          setShowModal(true)
         }
       })
   }
 
   return (
     <main className="mt-36 flex justify-center items-center">
-      {showModalLoginIncorrect && (
-        <ModalLoginIncorrect handleCloseModal={handleCloseModal} />
-      )}
+      {showModal && <ModalLoginIncorrect handleCloseModal={handleCloseModal} />}
+      {showModal && <Backdrop />}
       <section className={`${gradientOne} p-12 rounded-3xl shadow-2xl`}>
         <form className="flex flex-col items-center" onSubmit={handleLogin}>
           <h2

@@ -27,5 +27,5 @@ export const Paint = ({ paint }) => {
 }
 
 Paint.propTypes = {
-  paint: PropTypes.object.isRequired,
+  paint: PropTypes.object,
 }
