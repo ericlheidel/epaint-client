@@ -25,7 +25,11 @@ export const ModalMustAddPayment = ({ handleCloseModal }) => {
       >
         Go To Payments
       </button>
-      <button className={`${button} ml-24`} onClick={handleCloseModal}>
+      <button
+        autoFocus
+        className={`${button} ml-24`}
+        onClick={handleCloseModal}
+      >
         Close
       </button>
     </div>

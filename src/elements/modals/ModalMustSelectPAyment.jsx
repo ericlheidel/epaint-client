@@ -10,7 +10,7 @@ export const ModalMustSelectPayment = ({ handleCloseModal }) => {
       <p className="text-white text-3xl mb-4">
         Please select a payment method.
       </p>
-      <button className={`${button}`} onClick={handleCloseModal}>
+      <button autoFocus className={`${button}`} onClick={handleCloseModal}>
         Ok
       </button>
     </div>
