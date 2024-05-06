@@ -6,6 +6,7 @@ import { getUserPayments } from "../../data/payments.jsx"
 import { useNavigate } from "react-router-dom"
 import { CartItem } from "./CartItem.jsx"
 import { buttonNoMarginNoSize, gradientOne } from "../../utils.jsx"
+import { ModalMustAddPayment } from "../../elements/modals/ModalMustAddPayment.jsx"
 
 export const Cart = () => {
   const [cart, setCart] = useState({
@@ -14,6 +15,8 @@ export const Cart = () => {
   })
   const [isCompleteHidden, setIsCompleteHidden] = useState(true)
   const [userPayments, setUserPayments] = useState([])
+
+  const [showModalMustAddPayment, setShowModalMustAddPayment] = useState(false)
 
   const navigate = useNavigate()
 
@@ -38,6 +41,10 @@ export const Cart = () => {
     cart.items.map((item) => {
       deleteOrderPaintById(item.id).then(refreshCart())
     })
+  }
+
+  const handleCloseModal = () => {
+    setShowModalMustAddPayment(false)
   }
 
   return (
@@ -86,10 +93,11 @@ export const Cart = () => {
                 className={`${buttonNoMarginNoSize} px-10 py-4`}
                 onClick={() => {
                   if (userPayments.length === 0) {
-                    window.alert(
-                      "Please add a payment method to your account..."
-                    )
-                    navigate("/payments")
+                    setShowModalMustAddPayment(true)
+                    // window.alert(
+                    //   "Please add a payment method to your account..."
+                    // )
+                    // navigate("/payments")
                   } else {
                     setIsCompleteHidden(false)
                   }
@@ -99,6 +107,9 @@ export const Cart = () => {
               </button>
             )}
           </div>
+          {showModalMustAddPayment && (
+            <ModalMustAddPayment handleCloseModal={handleCloseModal} />
+          )}
         </div>
         <div hidden={isCompleteHidden}>
           <CompleteOrder
