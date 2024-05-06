@@ -43,6 +43,7 @@ export const Payments = () => {
         />
       )}
       {showModal && <Backdrop />}
+
       <div
         className={`${gradientOne} flex flex-col shrink-0 mt-36 ml-auto mr-auto w-3/4 p-12 rounded-3xl`}
       >
