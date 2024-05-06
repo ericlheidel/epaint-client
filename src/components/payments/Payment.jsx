@@ -3,7 +3,13 @@ import { deleteUserPayment, updateUserPayment } from "../../data/payments.jsx"
 import PropTypes from "prop-types"
 import { buttonNoMarginNoSize, inputBlackText } from "../../utils.jsx"
 
-export const Payment = ({ payment, refresh }) => {
+export const Payment = ({
+  payment,
+  refresh,
+  setTitle,
+  setModalMessage,
+  setShowModal,
+}) => {
   const [isUpdateHidden, setIsUpdateHidden] = useState(true)
   const [updatedPaymentName, setUpdatedPaymentNamed] = useState(payment.name)
   const [updatedAcctNumber, setUpdatedAcctNumber] = useState(
@@ -34,20 +40,22 @@ export const Payment = ({ payment, refresh }) => {
     const exDateFormat = /^\d{4}-\d{2}-\d{2}$/
 
     if (updatedPaymentName === "") {
-      window.alert("Please include a Payment Name")
+      setTitle("Payments")
+      setModalMessage("Please include a Payment Name")
+      setShowModal(true)
+    } else if (!acctNumberFormat.test(updatedAcctNumber)) {
+      setTitle("Payments")
+      setModalMessage('Please use card number  format: "####-####-####-####"')
+      setShowModal(true)
+    } else if (!exDateFormat.test(updatedExDate)) {
+      setTitle("Payments")
+      setModalMessage('Please use date format: "YYYY-MM-DD"')
+      setShowModal(true)
     } else {
-      if (!acctNumberFormat.test(updatedAcctNumber)) {
-        window.alert('Please use card number  format: "####-####-####-####"')
-      } else {
-        if (!exDateFormat.test(updatedExDate)) {
-          window.alert('Please use date format: "YYYY-MM-DD"')
-        } else {
-          updateUserPayment(paymentId, updatedPayment).then(() => {
-            refresh()
-            setIsUpdateHidden(true)
-          })
-        }
-      }
+      updateUserPayment(paymentId, updatedPayment).then(() => {
+        refresh()
+        setIsUpdateHidden(true)
+      })
     }
   }
 
@@ -149,4 +157,7 @@ export const Payment = ({ payment, refresh }) => {
 Payment.propTypes = {
   payment: PropTypes.object,
   refresh: PropTypes.func,
+  setTitle: PropTypes.func,
+  setModalMessage: PropTypes.func,
+  setShowModal: PropTypes.func,
 }
