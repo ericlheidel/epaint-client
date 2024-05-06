@@ -27,16 +27,24 @@ export const Register = () => {
   const handleRegister = (e) => {
     e.preventDefault()
 
-    registerUser(user)
-      .then((res) => res.json())
-      .then((authInfo) => {
-        if (authInfo.token) {
+    registerUser(user).then((res) => {
+      if (res.ok) {
+        return res.json().then((authInfo) => {
           localStorage.setItem("paint_token", JSON.stringify(authInfo))
           navigate("/")
-        } else {
-          window.alert("Please Fill Out All Info")
-        }
-      })
+        })
+      } else {
+        return res.json().then((data) => {
+          if (data.message === "Username already exists") {
+            window.alert("Username already exists")
+          } else {
+            if (data.message === "Email already exists") {
+              window.alert("Email already exists")
+            }
+          }
+        })
+      }
+    })
   }
 
   return (
