@@ -8,7 +8,7 @@ export const ModalColorEdits = ({ code, modalMessage, handleCloseModal }) => {
     >
       <h2 className={`font-three text-8xl text-white mb-8`}>{code}</h2>
       <p className="text-white text-3xl mb-4">{modalMessage}</p>
-      <button className={`${button}`} onClick={handleCloseModal}>
+      <button autoFocus className={`${button}`} onClick={handleCloseModal}>
         Ok
       </button>
     </div>

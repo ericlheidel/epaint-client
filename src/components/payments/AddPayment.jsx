@@ -2,11 +2,17 @@ import { useState } from "react"
 import { addNewPayment } from "../../data/payments.jsx"
 import PropTypes from "prop-types"
 import { button, gradientOne } from "../../utils.jsx"
+import { ModalDefaultError } from "../../elements/modals/ModalDefaultError.jsx"
+import { Backdrop } from "../../elements/Backdrop.jsx"
 
 export const AddPayment = ({ refresh, setIsNewHidden, setIsDisabled }) => {
   const [newPaymentName, setNewPaymentName] = useState("")
   const [newAcctNumber, setNewAcctNumber] = useState("")
   const [newExDate, setNewExDate] = useState("")
+
+  const [showModal, setShowModal] = useState(false)
+  const [title, setTitle] = useState("")
+  const [modalMessage, setModalMessage] = useState("")
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -20,24 +26,59 @@ export const AddPayment = ({ refresh, setIsNewHidden, setIsDisabled }) => {
     const exDateFormat = /^\d{4}-\d{2}-\d{2}$/
 
     if (newPaymentName === "") {
-      window.alert("Please include a Payment Name")
+      setTitle("Payments")
+      setModalMessage("Please include a Payment Name")
+      setShowModal(true)
+    } else if (!acctNumberFormat.test(newAcctNumber)) {
+      setTitle("Payments")
+      setModalMessage('Please use card number formatted: "####-####-####-####"')
+      setShowModal(true)
+    } else if (!exDateFormat.test(newExDate)) {
+      setTitle("Payments")
+      setModalMessage('Please use date format: "YYYY-MM-DD"')
+      setShowModal(true)
     } else {
-      if (!acctNumberFormat.test(newAcctNumber)) {
-        window.alert('Please use card number  format: "####-####-####-####"')
-      } else {
-        if (!exDateFormat.test(newExDate)) {
-          window.alert('Please use date format: "YYYY-MM-DD"')
-        } else {
-          addNewPayment(newPayment).then(() => {
-            refresh()
-            setNewPaymentName("")
-            setNewAcctNumber("")
-            setNewExDate("")
-            setIsNewHidden(true)
-          })
-        }
-      }
+      addNewPayment(newPayment).then(() => {
+        refresh()
+        setNewPaymentName("")
+        setNewAcctNumber("")
+        setNewExDate("")
+        setIsNewHidden(true)
+      })
     }
+  }
+
+  //   if (newPaymentName === "") {
+  //     setTitle("Payments")
+  //     setModalMessage("Please include a Payment Name")
+  //     setShowModal(true)
+  //   } else {
+  //     if (!acctNumberFormat.test(newAcctNumber) || newAcctNumber === "") {
+  //       setTitle("Payments")
+  //       setModalMessage(
+  //         'Please use card number in format: "####-####-####-####"'
+  //       )
+  //       showModal(true)
+  //     } else {
+  //       if (!exDateFormat.test(newExDate)) {
+  //         setTitle("Payments")
+  //         setModalMessage('Please use date format: "YYYY-MM-DD"')
+  //         setShowModal(true)
+  //       } else {
+  //         addNewPayment(newPayment).then(() => {
+  //           refresh()
+  //           setNewPaymentName("")
+  //           setNewAcctNumber("")
+  //           setNewExDate("")
+  //           setIsNewHidden(true)
+  //         })
+  //       }
+  //     }
+  //   }
+  // }
+
+  const handleCloseModal = () => {
+    setShowModal(false)
   }
 
   const fillOutForm = () => {
@@ -47,12 +88,23 @@ export const AddPayment = ({ refresh, setIsNewHidden, setIsDisabled }) => {
   }
 
   return (
-    <div
-      className="mt-36 flex justify-center items-center"
-      // hidden={isNewHidden}
-    >
+    <div className="mt-36 flex justify-center items-center">
+      {showModal && (
+        <ModalDefaultError
+          title={title}
+          modalMessage={modalMessage}
+          handleCloseModal={handleCloseModal}
+        />
+      )}
+      {showModal && <Backdrop />}
       <div className={`${gradientOne} p-12 rounded-3xl shadow-2xl`}>
         <form onSubmit={handleSubmit}>
+          <h2
+            className="font-three text-9xl mb-5 text-white"
+            onClick={fillOutForm}
+          >
+            Add a Payment
+          </h2>
           <fieldset className="w-full mb-8">
             <label htmlFor="paymentName" className="text-4xl mb-2 text-white">
               Payment Name:{" "}
@@ -64,7 +116,6 @@ export const AddPayment = ({ refresh, setIsNewHidden, setIsDisabled }) => {
                 onChange={(e) => {
                   setNewPaymentName(e.target.value)
                 }}
-                onClick={fillOutForm}
               />
             </label>
           </fieldset>

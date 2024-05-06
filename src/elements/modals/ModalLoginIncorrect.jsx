@@ -11,6 +11,7 @@ export const ModalLoginIncorrect = ({ handleCloseModal }) => {
         Username or password incorrect
       </p>
       <button
+        autoFocus
         className={`${button}`}
         onClick={() => {
           handleCloseModal()
