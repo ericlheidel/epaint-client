@@ -55,7 +55,7 @@ export const Login = () => {
                 htmlFor="username"
                 className="text-4xl mb-2 text-white"
                 onClick={() => {
-                  setUsername("tom")
+                  setUsername("tim")
                   setPassword("ThisIsMyPassword1234554321!!")
                 }}
               >
@@ -79,7 +79,7 @@ export const Login = () => {
                 htmlFor="password"
                 className="text-4xl mb-2 text-white"
                 onClick={() => {
-                  setUsername("tim")
+                  setUsername("tom")
                   setPassword("ThisIsMyPassword1234554321!!")
                 }}
               >

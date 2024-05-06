@@ -27,16 +27,34 @@ export const Register = () => {
   const handleRegister = (e) => {
     e.preventDefault()
 
-    registerUser(user)
-      .then((res) => res.json())
-      .then((authInfo) => {
-        if (authInfo.token) {
+    registerUser(user).then((res) => {
+      if (res.ok) {
+        return res.json().then((authInfo) => {
           localStorage.setItem("paint_token", JSON.stringify(authInfo))
           navigate("/")
-        } else {
-          window.alert("User already exists")
-        }
-      })
+        })
+      } else {
+        return res.json().then((data) => {
+          if (data.message === "Email already exists") {
+            window.alert("Email already exists")
+          } else {
+            if (data.message === "Username already exists") {
+              window.alert("Username already exists")
+            }
+          }
+        })
+      }
+    })
+  }
+
+  const fillOutForm = () => {
+    setUsername("bob")
+    setPassword("ThisIsMyPassword1234554321!!")
+    setEmail("bob@bobbibby.com")
+    setFirstName("Bob")
+    setLastName("Bibby")
+    setAddress("901 1st Ave., Nashville, TN 37377")
+    setPhoneNumber("423-555-9985")
   }
 
   return (
@@ -46,7 +64,10 @@ export const Register = () => {
           <h2 className="font-one text-8xl mb-6 text-white text-center">
             Paintkillerz
           </h2>
-          <h3 className="text-5xl mb-6 text-white text-center">
+          <h3
+            className="text-5xl mb-6 text-white text-center"
+            onClick={fillOutForm}
+          >
             Register Your Account
           </h3>
           {/* First Name and Last Name */}
