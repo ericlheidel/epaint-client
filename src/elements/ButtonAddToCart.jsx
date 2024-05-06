@@ -3,7 +3,6 @@ import PropTypes from "prop-types"
 import { useState } from "react"
 import { buttonNoMarginNoSize } from "../utils.jsx"
 import { addPaintToCart } from "../data/paints.jsx"
-import { Backdrop } from "./Backdrop.jsx"
 
 export const ButtonAddToCart = ({
   paint,

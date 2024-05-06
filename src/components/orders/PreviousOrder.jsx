@@ -10,18 +10,20 @@ export const PreviousOrder = ({ order }) => {
       <td className="text-4xl text-white font-bold align-middle pb-6">
         #{order.id}
       </td>
-      <td className="text-4xl text-white align-middle pb-6">
+      <td className="text-4xl text-white align-middle pl-6 pb-6">
         {order.number_of_items}
       </td>
-      <td className="text-4xl text-white align-middle pb-6">
+      <td className="text-4xl text-white align-middle pl-6 pb-6">
         {order.purchase_date}
       </td>
-      <td className="text-4xl text-white align-middle pb-6">
+      <td className="text-4xl text-white align-middle pl-6 pb-6">
         {order.payment.name}
         {" ..."}
         {order.payment.the_last_four_numbers}
       </td>
-      <td className="text-4xl text-white align-middle pb-6">${order.total}</td>
+      <td className="text-4xl text-white align-middle pl-6 pb-6">
+        ${order.total}
+      </td>
       <td>
         <button
           className={`${buttonNoMarginNoSize} px-8 py-4 ml-12 w-64`}
