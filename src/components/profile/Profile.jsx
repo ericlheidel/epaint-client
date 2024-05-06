@@ -57,7 +57,7 @@ export const Profile = () => {
   return (
     <div className="flex flex-col">
       <div className="mr-auto ml-5">
-        {userImage != null ? (
+        {userImage == null ? (
           <>
             <img
               src={userImage?.image_path}
