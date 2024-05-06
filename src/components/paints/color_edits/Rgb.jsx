@@ -8,7 +8,14 @@ import {
   inputWhiteText,
 } from "../../../utils.jsx"
 
-export const RgbEdit = ({ paint, paintId, getAndSetPaintAfterUpdate }) => {
+export const RgbEdit = ({
+  paint,
+  paintId,
+  getAndSetPaintAfterUpdate,
+  setShowModal,
+  setCode,
+  setModalMessage,
+}) => {
   const [rgbIsHidden, setRgbIsHidden] = useState(true)
   const [updatedRgb, setUpdatedRgb] = useState("")
 
@@ -24,10 +31,16 @@ export const RgbEdit = ({ paint, paintId, getAndSetPaintAfterUpdate }) => {
     }
 
     if (updatedRgb === "") {
-      window.alert("Please enter an RGB code...")
+      setCode("RGB")
+      setModalMessage("Please enter an RGB code...")
+      setShowModal(true)
     } else {
       if (!rgbCodeFormat.test(updatedRgb)) {
-        window.alert("Please enter a valid RGB code...\ni.e. R255 G255 B255")
+        setCode("RGB")
+        setModalMessage(
+          "Please enter a valid RGB code: R(1-255) G(1-255) B(1-255)"
+        )
+        setShowModal(true)
       } else {
         setRgbIsHidden(true)
         updatePaint(updatedRgbCode).then(() => {
@@ -105,4 +118,7 @@ RgbEdit.propTypes = {
   paint: PropTypes.object,
   paintId: PropTypes.string,
   getAndSetPaintAfterUpdate: PropTypes.func,
+  setShowModal: PropTypes.func,
+  setCode: PropTypes.func,
+  setModalMessage: PropTypes.func,
 }

@@ -13,8 +13,7 @@ import { PaintsListAll } from "./components/paints/PaintsListAll.jsx"
 import { PreviousOrdersList } from "./components/orders/PreviousOrdersList.jsx"
 import { PreviousOrderDetail } from "./components/orders/PreviousOrderDetail.jsx"
 import { Profile } from "./components/profile/Profile.jsx"
-import { ModalMustSelectPayment } from "./elements/modals/ModalMustSelectPAyment.jsx"
-import { Backdrop } from "./elements/Backdrop.jsx"
+import { ModalColorEdits } from "./elements/modals/ModalColorEdits.jsx"
 
 function App() {
   return (
@@ -22,8 +21,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/temp" element={<ModalMustSelectPayment />} />
-        <Route path="/temp1" element={<Backdrop />} />
+        <Route path="/temp" element={<ModalColorEdits />} />
         <Route element={<Authorized />}>
           <Route path="/" element={<HomeLandingPage />} />
           <Route path="/paints" element={<PaintsListAll />} />

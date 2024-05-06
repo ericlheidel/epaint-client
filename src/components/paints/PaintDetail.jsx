@@ -8,6 +8,8 @@ import { CmykEdit } from "./color_edits/Cmyk.jsx"
 import { buttonNoMarginNoSize, gradientOne } from "../../utils.jsx"
 import { SelectQuantity } from "../../elements/SelectQuantity.jsx"
 import { ButtonAddToCart } from "../../elements/ButtonAddToCart.jsx"
+import { ModalColorEdits } from "../../elements/modals/ModalColorEdits.jsx"
+import { Backdrop } from "../../elements/Backdrop.jsx"
 
 export const PaintDetail = () => {
   const { paintId } = useParams()
@@ -16,6 +18,10 @@ export const PaintDetail = () => {
   const [selectedSize, setSelectedSize] = useState("1")
   const [correspondingPrice, setCorrespondingPrice] = useState(9.99)
   const [selectedQuantity, setSelectedQuantity] = useState(1)
+
+  const [showModal, setShowModal] = useState(false)
+  const [modalMessage, setModalMessage] = useState("")
+  const [code, setCode] = useState("")
 
   const navigate = useNavigate()
 
@@ -47,8 +53,20 @@ export const PaintDetail = () => {
     }
   }, [selectedSize])
 
+  const handleCloseModal = () => {
+    setShowModal(false)
+  }
+
   return (
     <div>
+      {showModal && (
+        <ModalColorEdits
+          code={code}
+          handleCloseModal={handleCloseModal}
+          modalMessage={modalMessage}
+        />
+      )}
+      {showModal && <Backdrop />}
       <div>
         <h1 className="font-two mb-10 text-9xl">
           {paint.color} - {paint.paint_number}
@@ -64,16 +82,25 @@ export const PaintDetail = () => {
               paint={paint}
               paintId={paintId}
               getAndSetPaintAfterUpdate={getAndSetPaintAfterUpdate}
+              setShowModal={setShowModal}
+              setModalMessage={setModalMessage}
+              setCode={setCode}
             />
             <RgbEdit
               paint={paint}
               paintId={paintId}
               getAndSetPaintAfterUpdate={getAndSetPaintAfterUpdate}
+              setShowModal={setShowModal}
+              setModalMessage={setModalMessage}
+              setCode={setCode}
             />
             <CmykEdit
               paint={paint}
               paintId={paintId}
               getAndSetPaintAfterUpdate={getAndSetPaintAfterUpdate}
+              setShowModal={setShowModal}
+              setModalMessage={setModalMessage}
+              setCode={setCode}
             />
           </div>
           <div className={`${gradientOne} p-12 rounded-xl shadow-2xl`}>
@@ -101,12 +128,14 @@ export const PaintDetail = () => {
             <div className="font-three text-6xl mb-6 mt-6 text-white text-center">
               ${correspondingPrice}
             </div>
+            {showModal && <Backdrop />}
             <div className="flex flex-col">
               <ButtonAddToCart
                 paint={paint}
                 paintId={paintId}
                 selectedSize={selectedSize}
                 selectedQuantity={selectedQuantity}
+                showModal={showModal}
               />
               <SelectQuantity setSelectedQuantity={setSelectedQuantity} />
               <button
