@@ -48,35 +48,6 @@ export const AddPayment = ({ refresh, setIsNewHidden, setIsDisabled }) => {
     }
   }
 
-  //   if (newPaymentName === "") {
-  //     setTitle("Payments")
-  //     setModalMessage("Please include a Payment Name")
-  //     setShowModal(true)
-  //   } else {
-  //     if (!acctNumberFormat.test(newAcctNumber) || newAcctNumber === "") {
-  //       setTitle("Payments")
-  //       setModalMessage(
-  //         'Please use card number in format: "####-####-####-####"'
-  //       )
-  //       showModal(true)
-  //     } else {
-  //       if (!exDateFormat.test(newExDate)) {
-  //         setTitle("Payments")
-  //         setModalMessage('Please use date format: "YYYY-MM-DD"')
-  //         setShowModal(true)
-  //       } else {
-  //         addNewPayment(newPayment).then(() => {
-  //           refresh()
-  //           setNewPaymentName("")
-  //           setNewAcctNumber("")
-  //           setNewExDate("")
-  //           setIsNewHidden(true)
-  //         })
-  //       }
-  //     }
-  //   }
-  // }
-
   const handleCloseModal = () => {
     setShowModal(false)
   }
