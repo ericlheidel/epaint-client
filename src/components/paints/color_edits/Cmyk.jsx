@@ -8,7 +8,14 @@ import {
   inputWhiteText,
 } from "../../../utils.jsx"
 
-export const CmykEdit = ({ paint, paintId, getAndSetPaintAfterUpdate }) => {
+export const CmykEdit = ({
+  paint,
+  paintId,
+  getAndSetPaintAfterUpdate,
+  setShowModal,
+  setCode,
+  setModalMessage,
+}) => {
   const [cmykIsHidden, setCmykIsHidden] = useState(true)
   const [updatedCmyk, setUpdatedCmyk] = useState("")
 
@@ -24,12 +31,16 @@ export const CmykEdit = ({ paint, paintId, getAndSetPaintAfterUpdate }) => {
     }
 
     if (updatedCmyk === "") {
-      window.alert("Please enter a CMYK code...")
+      setCode("CMYK")
+      setModalMessage("Please enter a CMYK code...")
+      setShowModal(true)
     } else {
       if (!cmykCodeFormat.test(updatedCmyk)) {
-        window.alert(
-          "Please enter a valid CMYK code...\ni.e. C100 M100 Y100 K100"
+        setCode("CMYK")
+        setModalMessage(
+          "Please enter a valid CMYK code: C(1-100) M(1-100) Y(1-100) K(1-100)"
         )
+        setShowModal(true)
       } else {
         setCmykIsHidden(true)
         updatePaint(updatedCmykCode).then(() => {
@@ -107,4 +118,7 @@ CmykEdit.propTypes = {
   paint: PropTypes.object,
   paintId: PropTypes.string,
   getAndSetPaintAfterUpdate: PropTypes.func,
+  setShowModal: PropTypes.func,
+  setCode: PropTypes.func,
+  setModalMessage: PropTypes.func,
 }

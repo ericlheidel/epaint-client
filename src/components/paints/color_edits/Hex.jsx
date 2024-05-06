@@ -8,7 +8,14 @@ import {
   inputWhiteText,
 } from "../../../utils.jsx"
 
-export const HexEdit = ({ paint, paintId, getAndSetPaintAfterUpdate }) => {
+export const HexEdit = ({
+  paint,
+  paintId,
+  getAndSetPaintAfterUpdate,
+  setShowModal,
+  setCode,
+  setModalMessage,
+}) => {
   const [hexIsHidden, setHexIsHidden] = useState(true)
   const [updatedHex, setUpdatedHex] = useState("")
 
@@ -23,10 +30,14 @@ export const HexEdit = ({ paint, paintId, getAndSetPaintAfterUpdate }) => {
     }
 
     if (updatedHex === "") {
-      window.alert("Please enter a Hex Code ...")
+      setCode("Hex")
+      setModalMessage("Please enter a Hex Code...")
+      setShowModal(true)
     } else {
       if (!hexCodeFormat.test(updatedHex)) {
-        window.alert("Please enter a valid Hex code...\ni.e. #FFFFFF")
+        setCode("Hex")
+        setModalMessage("Please enter a valid Hex code: #FFFFFF")
+        setShowModal(true)
       } else {
         setHexIsHidden(true)
         updatePaint(updatedHexCode).then(() => {
@@ -104,4 +115,7 @@ HexEdit.propTypes = {
   paint: PropTypes.object,
   paintId: PropTypes.string,
   getAndSetPaintAfterUpdate: PropTypes.func,
+  setShowModal: PropTypes.func,
+  setCode: PropTypes.func,
+  setModalMessage: PropTypes.func,
 }
