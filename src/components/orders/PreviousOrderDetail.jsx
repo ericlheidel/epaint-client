@@ -2,8 +2,7 @@ import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { getOrderById } from "../../data/orders.jsx"
 import { PaintInOrder } from "../paints/PaintInOrder.jsx"
-import { button, buttonNoMarginNoSize, gradientOne } from "../../utils.jsx"
-import { addPaintToCart } from "../../data/paints.jsx"
+import { buttonNoMarginNoSize, gradientOne } from "../../utils.jsx"
 
 export const PreviousOrderDetail = () => {
   const { orderId } = useParams()
@@ -46,20 +45,6 @@ export const PreviousOrderDetail = () => {
             })}
         </tbody>
       </table>
-      <button
-        className={`${buttonNoMarginNoSize} h-16 w-72 mx-auto`}
-        onClick={() => {
-          previousOrder.items.map((paint) => {
-            addPaintToCart(paint.paint.id, paint.size.id).then(() => {
-              getOrderById(orderId).then((res) => {
-                setPreviousOrder(res)
-              })
-            })
-          })
-        }}
-      >
-        Add All To Order
-      </button>
       <div className="flex flex-col flex-wrap gap-20 justify-evenly">
         <div className="text-4xl text-white p-3 pb-2 mt-6">
           {previousOrder.total > 0 && `Total Price $${previousOrder.total}`}

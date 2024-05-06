@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { getClosedOrders } from "../../data/orders.jsx"
 import { PreviousOrder } from "./PreviousOrder.jsx"
-import { button, gradientOne } from "../../utils.jsx"
+import { gradientOne } from "../../utils.jsx"
 import { getCart } from "../../data/carts.jsx"
 
 export const PreviousOrdersList = () => {
