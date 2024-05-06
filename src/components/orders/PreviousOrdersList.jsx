@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { getClosedOrders } from "../../data/orders.jsx"
 import { PreviousOrder } from "./PreviousOrder.jsx"
-import { gradientOne } from "../../utils.jsx"
+import { button, gradientOne } from "../../utils.jsx"
 import { getCart } from "../../data/carts.jsx"
 
 export const PreviousOrdersList = () => {
@@ -26,11 +26,13 @@ export const PreviousOrdersList = () => {
         <table className="w-2/3 mx-auto">
           <thead>
             <tr>
-              <th className="text-5xl text-white p-4 pb-6">Order</th>
-              <th className="text-5xl text-white p-4 pb-6">Items</th>
-              <th className="text-5xl text-white p-4 pb-6">Purchase Date</th>
-              <th className="text-5xl text-white p-4 pb-6">Payment</th>
-              <th className="text-5xl text-white p-4 pb-6">Total</th>
+              <th className="text-5xl text-white p-3 pb-6">Order</th>
+              <th className="text-5xl text-white p-3 pl-6 pb-6">Items</th>
+              <th className="text-5xl text-white p-3 pl-6 pb-6">
+                Purchase Date
+              </th>
+              <th className="text-5xl text-white p-3 pl-6 pb-6">Payment</th>
+              <th className="text-5xl text-white p-3 pl-6 pb-6">Total</th>
             </tr>
           </thead>
           <tbody>

@@ -16,8 +16,6 @@ export const Cart = () => {
   const [isCompleteHidden, setIsCompleteHidden] = useState(true)
   const [userPayments, setUserPayments] = useState([])
 
-  // const [showModalMustAddPayment, setShowModalMustAddPayment] = useState(false)
-
   const [showModal, setShowModal] = useState(false)
 
   const refreshCart = () => {
@@ -56,7 +54,7 @@ export const Cart = () => {
         <table className="w-2/3 mx-auto">
           <thead>
             <tr>
-              <th className="text-5xl text-white p-3 pb-6">{"Image"}</th>
+              <th className="text-5xl text-white p-3 pb-6">{"Paint"}</th>
               <th className="text-5xl text-white p-3 pl-6 pb-6">{"Color"}</th>
               <th className="text-5xl text-white p-3 pl-6 pb-6">{"Number"}</th>
               <th className="text-5xl text-white p-3 pl-6 pb-6">{"Size"}</th>

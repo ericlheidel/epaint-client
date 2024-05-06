@@ -40,7 +40,7 @@ export const PaintInOrder = ({ paint }) => {
       <td className="align-middle pb-6">
         <div className="ml-4">
           <ButtonAddToCart paint={paint} selectedQuantity={selectedQuantity} />
-          <SelectQuantity setSelectedQuantity={setSelectedQuantity} />
+          {/* <SelectQuantity setSelectedQuantity={setSelectedQuantity} /> */}
         </div>
       </td>
     </>
