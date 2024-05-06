@@ -48,5 +48,5 @@ export const PaintInOrder = ({ paint }) => {
 }
 
 PaintInOrder.propTypes = {
-  paint: PropTypes.object.isRequired,
+  paint: PropTypes.object,
 }

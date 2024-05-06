@@ -37,5 +37,5 @@ export const PreviousOrder = ({ order }) => {
 }
 
 PreviousOrder.propTypes = {
-  order: PropTypes.object.isRequired,
+  order: PropTypes.object,
 }

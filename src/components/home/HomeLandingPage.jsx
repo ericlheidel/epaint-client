@@ -36,11 +36,11 @@ export const HomeLandingPage = () => {
           </h2>
           <h2 className="w-fit ml-auto mr-auto text-5xl text-white">Gold</h2>
         </div>
-        <div className="text-cent shrink">
+        <div className="text-cent shrink-0">
           <img
             src="src/media/WHITE/b_52_2.jpg"
             alt="white logo"
-            className="size-80 m-auto rounded-lg hover:cursor-pointer hover:scale-110 hover:opacity-80"
+            className="w-80 m-auto rounded-lg hover:cursor-pointer hover:scale-110 hover:opacity-80"
             onClick={() => {
               navigate("/3/paints")
             }}

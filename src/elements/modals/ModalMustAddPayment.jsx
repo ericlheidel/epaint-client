@@ -16,7 +16,6 @@ export const ModalMustAddPayment = ({ handleCloseModal }) => {
         Please add a payment method to your account before completing your
         order.
       </p>
-      <p className="text-white text-3xl mt-6">Thank You!</p>
       <button
         className={`${button}`}
         onClick={() => {
@@ -34,5 +33,5 @@ export const ModalMustAddPayment = ({ handleCloseModal }) => {
 }
 
 ModalMustAddPayment.propTypes = {
-  handleCloseModal: PropTypes.func.isRequired,
+  handleCloseModal: PropTypes.func,
 }

@@ -23,5 +23,5 @@ export const ModalLoginIncorrect = ({ handleCloseModal }) => {
 }
 
 ModalLoginIncorrect.propTypes = {
-  handleCloseModal: PropTypes.func.isRequired,
+  handleCloseModal: PropTypes.func,
 }

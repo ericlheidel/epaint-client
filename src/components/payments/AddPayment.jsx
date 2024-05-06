@@ -125,8 +125,8 @@ export const AddPayment = ({ refresh, setIsNewHidden, setIsDisabled }) => {
 }
 
 AddPayment.propTypes = {
-  refresh: PropTypes.func.isRequired,
-  isNewHidden: PropTypes.bool.isRequired,
-  setIsNewHidden: PropTypes.func.isRequired,
-  setIsDisabled: PropTypes.func.isRequired,
+  refresh: PropTypes.func,
+  isNewHidden: PropTypes.bool,
+  setIsNewHidden: PropTypes.func,
+  setIsDisabled: PropTypes.func,
 }

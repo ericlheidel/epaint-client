@@ -4,10 +4,14 @@ import PropTypes from "prop-types"
 import { closeOrder } from "../../data/orders.jsx"
 import { useNavigate } from "react-router-dom"
 import { button, getTodaysDate, gradientOne } from "../../utils.jsx"
+import { ModalMustSelectPayment } from "../../elements/modals/ModalMustSelectPAyment.jsx"
+import { Backdrop } from "../../elements/Backdrop.jsx"
 
 export const CompleteOrder = ({ setIsCompleteHidden, cart }) => {
   const [userPayments, setUserPayments] = useState([])
   const [selectedPayment, setSelectedPayment] = useState(0)
+
+  const [showModal, setShowModal] = useState(false)
 
   const navigate = useNavigate()
 
@@ -19,7 +23,7 @@ export const CompleteOrder = ({ setIsCompleteHidden, cart }) => {
 
   const handlePurchase = () => {
     if (!selectedPayment) {
-      window.alert("Please select a payment method")
+      setShowModal(true)
     } else {
       const closedOrder = {
         payment_type_id: selectedPayment,
@@ -29,8 +33,16 @@ export const CompleteOrder = ({ setIsCompleteHidden, cart }) => {
     }
   }
 
+  const handleCloseModal = () => {
+    setShowModal(false)
+  }
+
   return (
     <div>
+      {showModal && (
+        <ModalMustSelectPayment handleCloseModal={handleCloseModal} />
+      )}
+      {showModal && <Backdrop />}
       <div>
         <button className={`${button}`} onClick={handlePurchase}>
           Purchase
@@ -68,6 +80,6 @@ export const CompleteOrder = ({ setIsCompleteHidden, cart }) => {
 }
 
 CompleteOrder.propTypes = {
-  setIsCompleteHidden: PropTypes.func.isRequired,
-  cart: PropTypes.object.isRequired,
+  setIsCompleteHidden: PropTypes.func,
+  cart: PropTypes.object,
 }

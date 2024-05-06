@@ -4,6 +4,7 @@ import { registerUser } from "../../data/auth.jsx"
 import { button, gradientOne } from "../../utils.jsx"
 import { ModalRegisterInfo } from "../../elements/modals/ModalRegisterInfo.jsx"
 import { getCart } from "../../data/carts.jsx"
+import { Backdrop } from "../../elements/Backdrop.jsx"
 
 export const Register = () => {
   const [username, setUsername] = useState("")
@@ -14,8 +15,8 @@ export const Register = () => {
   const [address, setAddress] = useState("")
   const [phoneNumber, setPhoneNumber] = useState("")
 
-  const [showModalRegisterInfo, setShowModalRegisterInfo] = useState(false)
-  const [modalRegisterInfoMessage, setModalRegisterMessage] = useState("")
+  const [showModal, setShowModal] = useState(false)
+  const [modalMessage, setModalMessage] = useState("")
 
   const navigate = useNavigate()
 
@@ -42,12 +43,12 @@ export const Register = () => {
       } else {
         return res.json().then((data) => {
           if (data.message === "Email already exists") {
-            setModalRegisterMessage("Email already exists")
-            setShowModalRegisterInfo(true)
+            setModalMessage("Email already exists")
+            setShowModal(true)
           } else {
             if (data.message === "Username already exists") {
-              setModalRegisterMessage("Username already exists")
-              setShowModalRegisterInfo(true)
+              setModalMessage("Username already exists")
+              setShowModal(true)
             }
           }
         })
@@ -56,7 +57,7 @@ export const Register = () => {
   }
 
   const handleCloseModal = () => {
-    setShowModalRegisterInfo(false)
+    setShowModal(false)
   }
 
   const fillOutFormError = () => {
@@ -81,12 +82,13 @@ export const Register = () => {
 
   return (
     <main className="mt-36 flex justify-center items-center">
-      {showModalRegisterInfo && (
+      {showModal && (
         <ModalRegisterInfo
-          modalRegisterInfoMessage={modalRegisterInfoMessage}
+          modalMessage={modalMessage}
           handleCloseModal={handleCloseModal}
         />
       )}
+      {showModal && <Backdrop />}
       <section className={`${gradientOne} p-12 rounded-3xl shadow-2xl`}>
         <form className="flex flex-col items-center" onSubmit={handleRegister}>
           <h2
