@@ -13,6 +13,7 @@ export const CartItem = ({ paint, setCart }) => {
           <img
             src={paint.paint.image_one}
             alt="image of paint"
+            draggable="false"
             className="w-44 m-auto rounded-lg hover:cursor-pointer hover:scale-110 cursor-pointer  hover:border-x-4 hover:border-y-4 hover:rounded-lg"
             onClick={() => {
               navigate(`/${paint.paint_type_id}/paints/${paint.paint.id}`)

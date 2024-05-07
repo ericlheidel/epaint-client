@@ -12,6 +12,7 @@ export const HomeLandingPage = () => {
           <img
             src="src/media/BLACK/black_2.jpg"
             alt="black logo"
+            draggable="false"
             className="w-80 m-auto rounded-lg hover:cursor-pointer hover:scale-110 hover:opacity-80"
             onClick={() => {
               navigate("/1/paints")
@@ -26,6 +27,7 @@ export const HomeLandingPage = () => {
           <img
             src="src/media/GOLD/coke_2.jpg"
             alt="gold logo"
+            draggable="false"
             className="w-80 m-auto rounded-lg hover:cursor-pointer hover:scale-110 hover:opacity-80"
             onClick={() => {
               navigate("/2/paints")
@@ -40,6 +42,7 @@ export const HomeLandingPage = () => {
           <img
             src="src/media/WHITE/b_52_2.jpg"
             alt="white logo"
+            draggable="false"
             className="w-80 m-auto rounded-lg hover:cursor-pointer hover:scale-110 hover:opacity-80"
             onClick={() => {
               navigate("/3/paints")
@@ -54,6 +57,7 @@ export const HomeLandingPage = () => {
           <img
             src="src/media/SPECIAL/vintage_1.jpg"
             alt="special logo"
+            draggable="false"
             className="size-80 m-auto rounded-lg hover:cursor-pointer hover:scale-110 hover:opacity-80"
             onClick={() => {
               navigate("/4/paints")
@@ -69,6 +73,7 @@ export const HomeLandingPage = () => {
         <img
           src="src/media/montana.jpg"
           alt="image of logo"
+          draggable="false"
           className="size-80 m-auto rounded-lg hover:cursor-pointer hover:scale-110 hover:opacity-80"
           onClick={() => {
             navigate("/paints")

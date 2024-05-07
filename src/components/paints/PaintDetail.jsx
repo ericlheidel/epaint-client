@@ -75,6 +75,7 @@ export const PaintDetail = () => {
           <img
             src={paint.image_two}
             alt="image of front and back of paint can"
+            draggable="false"
             className="w-1/3 border rounded-3xl"
           />
           <div className="flex flex-row mb-10">

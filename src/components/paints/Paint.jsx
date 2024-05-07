@@ -12,6 +12,7 @@ export const Paint = ({ paint }) => {
           <img
             src={paint.image_one}
             alt="image of paint can"
+            draggable="false"
             className="w-80 h-80 object-cover rounded-lg mb-4"
           />
           <div className="text-center">
