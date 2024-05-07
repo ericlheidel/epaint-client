@@ -65,6 +65,7 @@ export const Profile = () => {
             <img
               src={userImage?.image_path}
               alt="user avatar"
+              draggable="false"
               className="size-56"
             />
           </>
