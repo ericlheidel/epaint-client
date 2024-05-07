@@ -60,7 +60,7 @@ export const CompleteOrder = ({ setIsCompleteHidden, cart }) => {
             return (
               <option key={payment.id} value={payment.id}>
                 {payment.name}
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"..."}
+                {" ..."}
                 {payment.acct_number.slice(-4)}
               </option>
             )

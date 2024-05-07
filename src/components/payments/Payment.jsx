@@ -17,6 +17,7 @@ export const Payment = ({
   )
   const [updatedExDate, setUpdatedExDate] = useState(payment.ex_date)
   const [isConfirmHidden, setIsConfirmHidden] = useState(true)
+  const [isDisabled, setIsDisabled] = useState(false)
 
   const handleDeletePayment = (paymentId) => {
     deleteUserPayment(paymentId).then(() => {
@@ -58,7 +59,7 @@ export const Payment = ({
     <>
       <tr key={payment.id}>
         <td
-          className="text-4xl text-white align-middle pl-6 pb-6"
+          className="text-4xl text-white align-middle pl-6 pb-6 "
           hidden={!isUpdateHidden}
         >
           {payment.name}
@@ -111,6 +112,7 @@ export const Payment = ({
         <td>
           <button
             hidden={!isConfirmHidden}
+            disabled={isDisabled}
             className={`${buttonNoMarginNoSize} px-4 py-2 ml-3`}
             onClick={() => {
               setIsConfirmHidden(false)
@@ -118,46 +120,65 @@ export const Payment = ({
           >
             <i className="fa-solid fa-trash"></i>
           </button>
-          <button
-            hidden={isConfirmHidden}
-            className={`${buttonNoMarginNoSize} px-4 py-2 ml-3`}
-            onClick={() => {
-              setIsConfirmHidden(true)
-              handleDeletePayment(payment.id)
-            }}
-          >
-            Confirm
-          </button>
+          <div className="flex flex-col">
+            <button
+              hidden={isConfirmHidden}
+              className={`${buttonNoMarginNoSize} px-4 py-2 ml-3`}
+              onClick={() => {
+                setIsConfirmHidden(true)
+                handleDeletePayment(payment.id)
+              }}
+            >
+              <i className="fa-solid fa-check"></i>
+            </button>
+            <button
+              hidden={isConfirmHidden}
+              className={`${buttonNoMarginNoSize} px-4 py-2 ml-3 mt-3`}
+              onClick={() => {
+                setIsConfirmHidden(true)
+              }}
+            >
+              X
+            </button>
+          </div>
         </td>
         <td>
-          <button
-            className={`${buttonNoMarginNoSize} px-4 py-2 ml-4`}
-            onClick={() => {
-              setIsUpdateHidden(false)
-            }}
-          >
-            <i className="fa-solid fa-pen-to-square"></i>
-          </button>
-        </td>
-        <td>
-          <button
-            className={`${buttonNoMarginNoSize} px-4 py-2 ml-4`}
-            hidden={isUpdateHidden}
-            onClick={() => {
-              handleUpdatePayment(payment.id)
-            }}
-          >
-            <i className="fa-solid fa-check"></i>
-          </button>
-        </td>
-        <td>
-          <button
-            className={`${buttonNoMarginNoSize} px-4 py-2 ml-4`}
-            hidden={isUpdateHidden}
-            onClick={() => setIsUpdateHidden(true)}
-          >
-            <i className="fa-solid fa-xmark"></i>
-          </button>
+          <div className="flex flex-col">
+            <button
+              hidden={!isUpdateHidden}
+              className={`${buttonNoMarginNoSize} px-4 py-2 ml-4`}
+              onClick={() => {
+                setIsDisabled(true)
+                setIsUpdateHidden(false)
+              }}
+            >
+              <i className="fa-solid fa-pen-to-square"></i>
+            </button>
+            {/* </td>
+        <td> */}
+            <button
+              className={`${buttonNoMarginNoSize} px-4 py-2 ml-4`}
+              hidden={isUpdateHidden}
+              onClick={() => {
+                setIsDisabled(false)
+                handleUpdatePayment(payment.id)
+              }}
+            >
+              <i className="fa-solid fa-check"></i>
+            </button>
+            {/* </td>
+        <td> */}
+            <button
+              className={`${buttonNoMarginNoSize} px-4 py-2 ml-4 my-3`}
+              hidden={isUpdateHidden}
+              onClick={() => {
+                setIsDisabled(false)
+                setIsUpdateHidden(true)
+              }}
+            >
+              <i className="fa-solid fa-xmark"></i>
+            </button>
+          </div>
         </td>
       </tr>
     </>
