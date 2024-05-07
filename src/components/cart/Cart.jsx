@@ -45,6 +45,17 @@ export const Cart = () => {
     setShowModal(false)
   }
 
+  useEffect(() => {
+    scrollToBottom()
+  }, [isCompleteHidden])
+
+  const scrollToBottom = () => {
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: "smooth",
+    })
+  }
+
   return (
     <div className="flex">
       <div
@@ -94,6 +105,7 @@ export const Cart = () => {
                     setShowModal(true)
                   } else {
                     setIsCompleteHidden(false)
+                    scrollToBottom()
                   }
                 }}
               >

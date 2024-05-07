@@ -24,8 +24,9 @@ export const Profile = () => {
 
   const handleUploadUserImage = () => {
     const userImageToUpload = {
-      image_path: base64String,
-      user_token: getToken(),
+      base64String,
+      // image_path: base64String,
+      // user_token: getToken(),
     }
     console.log(userImageToUpload)
 
@@ -49,8 +50,10 @@ export const Profile = () => {
 
   const createUserImageString = (e) => {
     getBase64(e.target.files[0], (base64ImageString) => {
+      // console.log(e.target.files[0])
       console.log("Base64 of file is", base64ImageString)
       setBase64String(base64ImageString)
+      // console.log(base64String)
     })
   }
 
@@ -73,7 +76,7 @@ export const Profile = () => {
               id="user_image"
               onChange={createUserImageString}
             />
-            <input type="hidden" id="user_imd" value={profile.user_id} />
+            <input type="hidden" id="user_imd" value={profile?.user_id} />
             <button className="test w-fit" onClick={handleUploadUserImage}>
               Save Image
             </button>
