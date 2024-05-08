@@ -16,12 +16,22 @@ export const getUserImage = () => {
   }).then((res) => res.json())
 }
 
-export const postUserImage = () => {
+export const postUserImage = (userImage) => {
   return fetch(`${apiUrl}/userimages`, {
     method: "POST",
     headers: {
       Authorization: `Token ${getToken()}`,
       "Content-Type": "application/json",
+    },
+    body: JSON.stringify(userImage),
+  })
+}
+
+export const deleteUserImage = (userImageId) => {
+  return fetch(`${apiUrl}/userimages/${userImageId}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Token ${getToken()}`,
     },
   })
 }

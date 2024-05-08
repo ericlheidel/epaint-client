@@ -1,16 +1,19 @@
 import { useEffect, useState } from "react"
 import { getProfile, getUserImage, postUserImage } from "../../data/profile.jsx"
-import { getToken } from "../../utils.jsx"
+import { buttonNoMarginNoSize, getToken, gradientOne } from "../../utils.jsx"
 
 export const Profile = () => {
   const [profile, setProfile] = useState({})
   const [userImage, setUserImage] = useState(null)
   const [base64String, setBase64String] = useState(null)
   const [refresh, setRefresh] = useState(false)
+  const [fileName, setFileName] = useState("")
 
   useEffect(() => {
     getProfile().then((res) => {
-      setProfile(res)
+      if (res) {
+        setProfile(res)
+      }
     })
   }, [refresh])
 
@@ -23,16 +26,14 @@ export const Profile = () => {
   }, [refresh])
 
   const handleUploadUserImage = () => {
-    const userImageToUpload = {
-      base64String,
-      // image_path: base64String,
-      // user_token: getToken(),
-    }
-    console.log(userImageToUpload)
-
-    if (base64String === "") {
+    if (base64String === null) {
       window.alert("Please choose an image")
     } else {
+      setFileName("")
+      const userImageToUpload = {
+        image_path: base64String,
+        user_token: getToken(),
+      }
       postUserImage(userImageToUpload).then(() => {
         getUserImage().then((res) => {
           setUserImage(res)
@@ -50,41 +51,75 @@ export const Profile = () => {
 
   const createUserImageString = (e) => {
     getBase64(e.target.files[0], (base64ImageString) => {
-      // console.log(e.target.files[0])
-      console.log("Base64 of file is", base64ImageString)
       setBase64String(base64ImageString)
-      // console.log(base64String)
     })
   }
 
+  useEffect(() => {
+    const fileInput = document.getElementById("fileInput")
+    const customFileButton = document.getElementById("customFileButton")
+
+    const handleCustomFileButtonClick = () => {
+      fileInput.click()
+    }
+
+    const handleFileInputChange = () => {
+      setFileName(fileInput.files[0].name)
+    }
+
+    customFileButton?.addEventListener("click", handleCustomFileButtonClick)
+    fileInput?.addEventListener("change", handleFileInputChange)
+
+    return () => {
+      customFileButton?.removeEventListener(
+        "click",
+        handleCustomFileButtonClick
+      )
+      fileInput?.removeEventListener("change", handleFileInputChange)
+    }
+  }, [])
+
   return (
-    <div className="flex flex-col">
-      <div className="mr-auto ml-5">
-        {userImage == null ? (
+    <div className="mt-36 flex justify-center items-center">
+      <div className={`${gradientOne} p-12 rounded-3xl shadow-2xl w-1/4`}>
+        {userImage != null ? (
           <>
             <img
               src={userImage?.image_path}
               alt="user avatar"
               draggable="false"
-              className="size-56"
+              className="size-56 rounded-xl"
             />
           </>
         ) : (
           <div className="flex flex-col">
-            <h2>Add a image of yourself</h2>
+            <h2 className="text-4xl mb-2 text-white">Add a image</h2>
+            <h2 className="text-4xl mb-5 text-white">of yourself</h2>
             <input
               type="file"
-              id="user_image"
+              id="fileInput"
+              hidden
+              className={`text-4xl mb-5 text-white`}
               onChange={createUserImageString}
             />
-            <input type="hidden" id="user_imd" value={profile?.user_id} />
-            <button className="test w-fit" onClick={handleUploadUserImage}>
+            <input type="hidden" id="user_img" value={profile?.user_id || ""} />
+            <button
+              id="customFileButton"
+              className={`${buttonNoMarginNoSize} w-48 h-16 mb-5`}
+            >
+              Choose Image
+            </button>
+            <div className="text-4xl mb-5 text-white mr-auto">{fileName}</div>
+            <button
+              className={`${buttonNoMarginNoSize} w-48 h-16 mb-5`}
+              onClick={handleUploadUserImage}
+            >
               Save Image
             </button>
           </div>
         )}
         <div>
-          <div className="mr-auto ml-5 w-fit">
+          <div className="text-4xl mb-2 text-left mt-5 text-white">
             {profile.user?.first_name} {profile.user?.last_name}
           </div>
         </div>
