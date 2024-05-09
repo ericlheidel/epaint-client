@@ -1,12 +1,7 @@
 import { useEffect, useState } from "react"
-import {
-  deleteUserImage,
-  getProfile,
-  getUserImage,
-  postUserImage,
-} from "../../data/profile.jsx"
+import { getProfile, getUserImage, postUserImage } from "../../data/profile.jsx"
 import { buttonNoMarginNoSize, getToken, gradientOne } from "../../utils.jsx"
-import { UserArt } from "./UserArt.jsx"
+import { UserArt } from "./ProfileUserArt.jsx"
 
 export const Profile = () => {
   const [profile, setProfile] = useState({})
@@ -50,16 +45,16 @@ export const Profile = () => {
     }
   }
 
-  const handleDeleteUserImage = () => {
-    setRefresh(false)
-    if (userImage) {
-      deleteUserImage(userImage.id).then(() => {
-        setUserImage(null)
-        setBase64String(null)
-        setRefresh(true)
-      })
-    }
-  }
+  // const handleDeleteUserImage = () => {
+  //   setRefresh(false)
+  //   if (userImage) {
+  //     deleteUserImage(userImage.id).then(() => {
+  //       setUserImage(null)
+  //       setBase64String(null)
+  //       setRefresh(true)
+  //     })
+  //   }
+  // }
 
   const getBase64 = (file, callback) => {
     const reader = new FileReader()

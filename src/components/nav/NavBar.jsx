@@ -24,6 +24,8 @@ import { gradientOne } from "../../utils.jsx"
 const NavBarRight = () => {
   const [showDropdown, setShowDropdown] = useState(false)
   const navigate = useNavigate()
+  const [profile, setProfile] = useState({})
+
   const dropdownRef = useRef(null)
 
   const handleLogout = () => {
@@ -45,6 +47,12 @@ const NavBarRight = () => {
     }
   }, [])
 
+  useEffect(() => {
+    getProfile().then((res) => {
+      setProfile(res)
+    })
+  }, [])
+
   return (
     <div className="relative" ref={dropdownRef}>
       <button
@@ -56,6 +64,17 @@ const NavBarRight = () => {
       {showDropdown && (
         <div className="absolute right-0 mt-2 w-64 text-2xl bg-white rounded-lg shadow-lg">
           <ul className="py-2">
+            <li>
+              <Link
+                to="/profile"
+                className="block px-8 py-4 text-3xl text-gray-800 hover:bg-gray-200 border-b border-gray-300"
+                onClick={() => {
+                  setShowDropdown(false)
+                }}
+              >
+                {profile.user?.first_name.toUpperCase()}
+              </Link>
+            </li>
             <li>
               <Link
                 to="/"
@@ -111,6 +130,17 @@ const NavBarRight = () => {
                 Profile
               </Link>
             </li>
+            {/* <li>
+              <Link
+                to="/profile"
+                className="block px-8 py-4 text-3xl text-gray-800 hover:bg-gray-200"
+                onClick={() => {
+                  setShowDropdown(false)
+                }}
+              >
+                User Art
+              </Link>
+            </li> */}
             <li className="border-t border-gray-300 mt-2">
               <button
                 onClick={() => {
@@ -151,8 +181,6 @@ const NavBarLeft = () => {
   const [showDropdown, setShowDropdown] = useState(false)
   const dropdownRef = useRef(null)
 
-  const [profile, setProfile] = useState({})
-
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -167,12 +195,6 @@ const NavBarLeft = () => {
     }
   }, [])
 
-  useEffect(() => {
-    getProfile().then((res) => {
-      setProfile(res)
-    })
-  }, [])
-
   return (
     <div className="relative" ref={dropdownRef}>
       <div className="flex flex-row">
@@ -182,9 +204,6 @@ const NavBarLeft = () => {
         >
           <i className="fa-solid fa-spray-can ml-5 text-8xl text-white"></i>
         </button>
-        <h1 className="font-one mt-10 ml-5 text-7xl text-white">
-          {profile.user?.first_name.toUpperCase()}
-        </h1>
       </div>
       {showDropdown && (
         <div className="absolute left-0 mt-2 w-80 bg-white rounded-lg shadow-lg">
@@ -276,7 +295,7 @@ export const NavBar = () => {
     >
       <NavBarLeft />
       <Link to="/">
-        <h1 className="font-one text-9xl text-white mr-20 mt-8">
+        <h1 className="font-one text-9xl  text-white justify mt-8">
           Paintkillerz
         </h1>
       </Link>

@@ -1,12 +1,7 @@
 import PropTypes from "prop-types"
 import { useEffect, useState } from "react"
 import { getUserArtImages, postUserArtImage } from "../../data/profile.jsx"
-import {
-  buttonNoMarginNoSize,
-  getToken,
-  gradientOne,
-  gradientTwo,
-} from "../../utils.jsx"
+import { buttonNoMarginNoSize, getToken, gradientOne } from "../../utils.jsx"
 
 export const UserArt = ({ profile }) => {
   const [userArtImages, setUserArtImages] = useState([])
