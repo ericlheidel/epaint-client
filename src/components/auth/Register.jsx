@@ -71,11 +71,11 @@ export const Register = () => {
   }
 
   const fillOutFormNoError = () => {
-    setUsername("dennis")
+    setUsername("jerry")
     setPassword("ThisIsMyPassword1234554321!!")
-    setEmail("dennis@dennis.com")
-    setFirstName("Dennis")
-    setLastName("Reynolds")
+    setEmail("jerry@jerry.com")
+    setFirstName("Jerry")
+    setLastName("Seinfeld")
     setAddress("400 Other Way, Nashville, TN 37377")
     setPhoneNumber("533-908-5109")
   }
