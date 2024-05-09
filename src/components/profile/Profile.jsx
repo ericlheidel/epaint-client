@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react"
-import { getProfile, getUserImage, postUserImage } from "../../data/profile.jsx"
 import {
-  buttonNoMarginNoSize,
-  getToken,
-  gradientOne,
-  gradientTwo,
-} from "../../utils.jsx"
+  deleteUserImage,
+  getProfile,
+  getUserImage,
+  postUserImage,
+} from "../../data/profile.jsx"
+import { buttonNoMarginNoSize, getToken, gradientOne } from "../../utils.jsx"
 import { UserArt } from "./UserArt.jsx"
 
 export const Profile = () => {
@@ -32,6 +32,7 @@ export const Profile = () => {
   }, [refresh])
 
   const handleUploadUserImage = () => {
+    setRefresh(false)
     if (base64String === null) {
       window.alert("Please choose an image")
     } else {
@@ -46,6 +47,17 @@ export const Profile = () => {
         })
       })
       setRefresh(true)
+    }
+  }
+
+  const handleDeleteUserImage = () => {
+    setRefresh(false)
+    if (userImage) {
+      deleteUserImage(userImage.id).then(() => {
+        setUserImage(null)
+        setBase64String(null)
+        setRefresh(true)
+      })
     }
   }
 
@@ -90,13 +102,23 @@ export const Profile = () => {
       <div className={`${gradientOne} px-12 py-4 rounded-3xl shadow-2xl w-fit`}>
         <h2 className="font-two mb-8 text-9xl text-white">Profile</h2>
         {userImage != null ? (
-          <div className={`bg-slate-200 p-4 rounded-xl w-80`}>
+          <div
+            className={`flex flex-col bg-slate-200 p-4 rounded-xl w-80 mx-auto`}
+          >
             <img
               src={userImage?.image_path}
               alt="user avatar"
               draggable="false"
               className="size-full rounded-xl"
             />
+            {/* {userImage && (
+              <button
+                className={`${buttonNoMarginNoSize} p-2 mt-3`}
+                onClick={handleDeleteUserImage}
+              >
+                Remove Pic
+              </button>
+            )} */}
           </div>
         ) : (
           <div className="flex flex-col">
@@ -112,13 +134,14 @@ export const Profile = () => {
             {/* <input type="hidden" id="user_img" value={profile?.user_id || ""} /> */}
             <button
               id="customFileButton"
-              className={`${buttonNoMarginNoSize} w-48 h-16 mb-5`}
+              className={`${buttonNoMarginNoSize} w-48 h-16 mx-auto mb-5`}
             >
               Choose Image
             </button>
-            <div className="text-4xl mb-5 text-white mr-auto">{fileName}</div>
+            <div className="text-4xl mb-5 text-white mx-auto">File:</div>
+            <div className="text-4xl mb-5 text-white mx-auto">{fileName}</div>
             <button
-              className={`${buttonNoMarginNoSize} w-48 h-16 mb-5`}
+              className={`${buttonNoMarginNoSize} w-48 h-16 mx-auto mb-5`}
               onClick={handleUploadUserImage}
             >
               Upload Image
@@ -126,8 +149,12 @@ export const Profile = () => {
           </div>
         )}
         <div>
-          <div className="font-one text-5xl mb-2 text-left mt-5 text-white">
-            {profile.user?.first_name} {profile.user?.last_name}
+          <div className=" flex flex-row mb-2 text-left mt-5 text-white">
+            <h2 className="font-one text-5xl mx-auto">
+              {profile.user?.first_name === profile.user?.last_name
+                ? profile.user?.first_name
+                : profile.user?.first_name + " " + profile.user?.last_name}
+            </h2>
           </div>
         </div>
       </div>

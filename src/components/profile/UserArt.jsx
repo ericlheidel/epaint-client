@@ -124,7 +124,7 @@ export const UserArt = ({ profile }) => {
       </div>
       <div className={`${gradientOne} w-3/4 h-3/4 p-12 rounded-3xl`}>
         <h2 className="font-three text-9xl mb-5 text-white">My Art</h2>
-        <div className="flex flex-row flex-wrap justify-between">
+        <div className="flex flex-row flex-wrap justify-evenly">
           {userArtImages.map((image) => {
             return (
               <div
@@ -134,7 +134,7 @@ export const UserArt = ({ profile }) => {
                 <img
                   src={image.image_path}
                   alt="image of art"
-                  className="size-60 rounded-xl"
+                  className="size-60 rounded-xl w-fit"
                 />
               </div>
             )
