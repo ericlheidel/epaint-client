@@ -5,12 +5,21 @@ import { gradientOne } from "../../utils.jsx"
 export const UserArtList = () => {
   const [otherUsersArt, setOtherUsersArt] = useState([])
 
+  const [isLoading, setIsLoading] = useState(true)
+
   useEffect(() => {
     getOtherUsersArt().then((res) => {
       if (res) {
         setOtherUsersArt(res)
       }
     })
+  }, [])
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false)
+    }, 2500)
+    return () => clearTimeout(timer)
   }, [])
 
   const randomSort = (a, b) => {
@@ -21,7 +30,11 @@ export const UserArtList = () => {
 
   return (
     <div>
-      {otherUsersArt !== null && (
+      {isLoading ? (
+        <div className="m-auto">
+          <h1 className="text-white font-two text-9xl">Loading...</h1>
+        </div>
+      ) : (
         <div className="mt-16 mx-36">
           <div className="flex flex-col">
             <div
@@ -30,7 +43,7 @@ export const UserArtList = () => {
               <h2 className="font-three text-9xl mb-5 text-white">
                 {"User's Art"}
               </h2>
-              <div className="flex flex-row flex-wrap justify-evenly">
+              <div className="flex flex-row flex-wrap gap-10 justify-evenly">
                 {randomizedArray.map((image) => {
                   return (
                     <div
