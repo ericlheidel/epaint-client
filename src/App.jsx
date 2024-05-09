@@ -13,7 +13,7 @@ import { PaintsListAll } from "./components/paints/PaintsListAll.jsx"
 import { PreviousOrdersList } from "./components/orders/PreviousOrdersList.jsx"
 import { PreviousOrderDetail } from "./components/orders/PreviousOrderDetail.jsx"
 import { Profile } from "./components/profile/Profile.jsx"
-import { UserArt } from "./components/profile/UserArt.jsx"
+import { UserArt } from "./components/profile/ProfileUserArt.jsx"
 
 function App() {
   return (
