@@ -33,6 +33,17 @@ export const Payments = () => {
     setShowModal(false)
   }
 
+  useEffect(() => {
+    scrollToBottom()
+  }, [isNewHidden])
+
+  const scrollToBottom = () => {
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: "smooth",
+    })
+  }
+
   return (
     <div className="flex flex-col">
       {showModal && (
@@ -91,6 +102,7 @@ export const Payments = () => {
             hidden={isNewHidden}
             onClick={() => {
               setIsNewHidden(false)
+              scrollToBottom()
             }}
           >
             Add Payment
