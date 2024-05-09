@@ -30,7 +30,7 @@ export const PaintsList = () => {
       setIsLoading(false)
     }, 1000)
     return () => clearTimeout(timer)
-  }, [paintTypeId])
+  }, [paintTypeId, isLoading])
 
   const handleSearchAndOrder = () => {
     getPaintsBySearchAndOrder(searchText, orderBy, paintTypeId).then((res) => {

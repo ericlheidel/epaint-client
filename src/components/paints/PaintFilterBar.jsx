@@ -18,9 +18,9 @@ export const PaintFilterBar = ({ setSearchText, setOrderBy }) => {
         }}
       />
       <div className="filter-options">
-        {selectValue !== "" && (
+        {/* {selectValue !== "" && (
           <button
-            className="mr-2 test"
+            className={`mr-5 p-3 bg-red-500 text-white rounded-xl text-3xl`}
             onClick={() => {
               setSelectValue("")
               setOrderBy("")
@@ -28,7 +28,7 @@ export const PaintFilterBar = ({ setSearchText, setOrderBy }) => {
           >
             X
           </button>
-        )}
+        )} */}
 
         <select
           value={selectValue}
