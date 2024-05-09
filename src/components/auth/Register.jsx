@@ -61,10 +61,10 @@ export const Register = () => {
   }
 
   const fillOutFormError = () => {
-    setUsername("eric")
+    setUsername("heidel")
     setPassword("ThisIsMyPassword1234554321!!")
-    setEmail("eric@eric.com")
-    setFirstName("Eric")
+    setEmail("heidel@heidel.com")
+    setFirstName("Heidel")
     setLastName("Heidel")
     setAddress("200 Wrong Way., Nashville, TN 37377")
     setPhoneNumber("423-555-9985")
