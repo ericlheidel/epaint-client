@@ -22,6 +22,7 @@ export const UserArtList = () => {
     return () => clearTimeout(timer)
   }, [])
 
+  // eslint-disable-next-line no-unused-vars
   const randomSort = (a, b) => {
     return Math.random() - 0.5
   }
