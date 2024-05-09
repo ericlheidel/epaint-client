@@ -100,17 +100,17 @@ const NavBarRight = () => {
                 Payments
               </Link>
             </li>
-            {/* <li>
+            <li>
               <Link
                 to="/profile"
-                className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                className="block px-8 py-4 text-3xl text-gray-800 hover:bg-gray-200"
                 onClick={() => {
                   setShowDropdown(false)
                 }}
               >
                 Profile
               </Link>
-            </li> */}
+            </li>
             <li className="border-t border-gray-300 mt-2">
               <button
                 onClick={() => {
