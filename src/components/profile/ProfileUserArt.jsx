@@ -117,25 +117,27 @@ export const UserArt = ({ profile }) => {
           </div>
         </div>
       </div>
-      <div className={`${gradientOne} w-3/4 h-3/4 p-12 rounded-3xl`}>
-        <h2 className="font-three text-9xl mb-5 text-white">My Art</h2>
-        <div className="flex flex-row flex-wrap justify-evenly">
-          {userArtImages.map((image) => {
-            return (
-              <div
-                key={image.id}
-                className={`bg-slate-200 p-4 rounded-xl w-fit mb-12`}
-              >
-                <img
-                  src={image.image_path}
-                  alt="image of art"
-                  className="size-60 rounded-xl w-fit"
-                />
-              </div>
-            )
-          })}
+      {userArtImages !== null && (
+        <div className={`${gradientOne} w-3/4 h-3/4 p-12 rounded-3xl`}>
+          <h2 className="font-three text-9xl mb-5 text-white">My Art</h2>
+          <div className="flex flex-row flex-wrap justify-evenly">
+            {userArtImages.map((image) => {
+              return (
+                <div
+                  key={image.id}
+                  className={`bg-slate-200 p-4 rounded-xl w-fit mb-12`}
+                >
+                  <img
+                    src={image.image_path}
+                    alt="image of art"
+                    className="size-60 rounded-xl w-fit"
+                  />
+                </div>
+              )
+            })}
+          </div>
         </div>
-      </div>
+      )}
     </>
   )
 }

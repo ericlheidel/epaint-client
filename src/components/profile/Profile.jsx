@@ -93,20 +93,23 @@ export const Profile = () => {
   }, [])
 
   return (
-    <div className="mt-8 flex flex-col justify-center items-center">
-      <div className={`${gradientOne} px-12 py-4 rounded-3xl shadow-2xl w-fit`}>
-        <h2 className="font-two mb-8 text-9xl text-white">Profile</h2>
-        {userImage != null ? (
-          <div
-            className={`flex flex-col bg-slate-200 p-4 rounded-xl w-80 mx-auto`}
-          >
-            <img
-              src={userImage?.image_path}
-              alt="user avatar"
-              draggable="false"
-              className="size-full rounded-xl"
-            />
-            {/* {userImage && (
+    <>
+      <div className="mt-8 flex flex-col justify-center items-center">
+        <div
+          className={`${gradientOne} px-12 py-4 rounded-3xl shadow-2xl w-fit`}
+        >
+          <h2 className="font-two mb-8 text-9xl text-white">Profile</h2>
+          {userImage != null ? (
+            <div
+              className={`flex flex-col bg-slate-200 p-4 rounded-xl w-80 mx-auto`}
+            >
+              <img
+                src={userImage?.image_path}
+                alt="user avatar"
+                draggable="false"
+                className="size-full rounded-xl"
+              />
+              {/* {userImage && (
               <button
                 className={`${buttonNoMarginNoSize} p-2 mt-3`}
                 onClick={handleDeleteUserImage}
@@ -114,46 +117,47 @@ export const Profile = () => {
                 Remove Pic
               </button>
             )} */}
-          </div>
-        ) : (
-          <div className="flex flex-col">
-            <h2 className="text-4xl mb-2 text-white">Add an image</h2>
-            <h2 className="text-4xl mb-5 text-white">of yourself</h2>
-            <input
-              type="file"
-              id="fileInput"
-              hidden
-              className={`text-4xl mb-5 text-white`}
-              onChange={createUserImageString}
-            />
-            {/* <input type="hidden" id="user_img" value={profile?.user_id || ""} /> */}
-            <button
-              id="customFileButton"
-              className={`${buttonNoMarginNoSize} w-48 h-16 mx-auto mb-5`}
-            >
-              Choose Image
-            </button>
-            <div className="text-4xl mb-5 text-white mx-auto">File:</div>
-            <div className="text-4xl mb-5 text-white mx-auto">{fileName}</div>
-            <button
-              className={`${buttonNoMarginNoSize} w-48 h-16 mx-auto mb-5`}
-              onClick={handleUploadUserImage}
-            >
-              Upload Image
-            </button>
-          </div>
-        )}
-        <div>
-          <div className=" flex flex-row mb-2 text-left mt-5 text-white">
-            <h2 className="font-one text-5xl mx-auto">
-              {profile.user?.first_name === profile.user?.last_name
-                ? profile.user?.first_name
-                : profile.user?.first_name + " " + profile.user?.last_name}
-            </h2>
+            </div>
+          ) : (
+            <div className="flex flex-col">
+              <h2 className="text-4xl mb-2 text-white">Add an image</h2>
+              <h2 className="text-4xl mb-5 text-white">of yourself</h2>
+              <input
+                type="file"
+                id="fileInput"
+                hidden
+                className={`text-4xl mb-5 text-white`}
+                onChange={createUserImageString}
+              />
+              {/* <input type="hidden" id="user_img" value={profile?.user_id || ""} /> */}
+              <button
+                id="customFileButton"
+                className={`${buttonNoMarginNoSize} w-48 h-16 mx-auto mb-5`}
+              >
+                Choose Image
+              </button>
+              <div className="text-4xl mb-5 text-white mx-auto">File:</div>
+              <div className="text-4xl mb-5 text-white mx-auto">{fileName}</div>
+              <button
+                className={`${buttonNoMarginNoSize} w-48 h-16 mx-auto mb-5`}
+                onClick={handleUploadUserImage}
+              >
+                Upload Image
+              </button>
+            </div>
+          )}
+          <div>
+            <div className=" flex flex-row mb-2 text-left mt-5 text-white">
+              <h2 className="font-one text-5xl mx-auto">
+                {profile.user?.first_name === profile.user?.last_name
+                  ? profile.user?.first_name
+                  : profile.user?.first_name + " " + profile.user?.last_name}
+              </h2>
+            </div>
           </div>
         </div>
+        <UserArt profile={profile} />
       </div>
-      <UserArt profile={profile} />
-    </div>
+    </>
   )
 }

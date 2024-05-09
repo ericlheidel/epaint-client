@@ -130,9 +130,9 @@ const NavBarRight = () => {
                 Profile
               </Link>
             </li>
-            {/* <li>
+            <li>
               <Link
-                to="/profile"
+                to="/user-art"
                 className="block px-8 py-4 text-3xl text-gray-800 hover:bg-gray-200"
                 onClick={() => {
                   setShowDropdown(false)
@@ -140,7 +140,7 @@ const NavBarRight = () => {
               >
                 User Art
               </Link>
-            </li> */}
+            </li>
             <li className="border-t border-gray-300 mt-2">
               <button
                 onClick={() => {
