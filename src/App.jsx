@@ -13,7 +13,7 @@ import { PaintsListAll } from "./components/paints/PaintsListAll.jsx"
 import { PreviousOrdersList } from "./components/orders/PreviousOrdersList.jsx"
 import { PreviousOrderDetail } from "./components/orders/PreviousOrderDetail.jsx"
 import { Profile } from "./components/profile/Profile.jsx"
-import { UserArt } from "./components/profile/ProfileUserArt.jsx"
+import { UserArtList } from "./components/art/UserArtList.jsx"
 
 function App() {
   return (
@@ -34,7 +34,7 @@ function App() {
           <Route path="/my-orders" element={<PreviousOrdersList />} />
           <Route path="/my-orders/:orderId" element={<PreviousOrderDetail />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/user-art" element={<UserArt />} />
+          <Route path="/user-art" element={<UserArtList />} />
         </Route>
       </Routes>
     </BrowserRouter>
