@@ -23,7 +23,7 @@ export const RgbEdit = ({
     e.preventDefault()
 
     const rgbCodeFormat =
-      /^R(25[0-5]|2[0-4]\d|1\d{2}|[1-9]\d?)\sG(25[0-5]|2[0-4]\d|1\d{2}|[1-9]\d?)\sB(25[0-5]|2[0-4]\d|1\d{2}|[1-9]\d?)$/
+      /^R(25[0-5]|2[0-4]\d|1\d{2}|[0-9]\d?)\sG(25[0-5]|2[0-4]\d|1\d{2}|[0-9]\d?)\sB(25[0-5]|2[0-4]\d|1\d{2}|[0-9]\d?)$/
 
     const updatedRgbCode = {
       id: paintId,
