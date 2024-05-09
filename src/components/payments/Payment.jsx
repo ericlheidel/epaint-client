@@ -11,7 +11,7 @@ export const Payment = ({
   setShowModal,
 }) => {
   const [isUpdateHidden, setIsUpdateHidden] = useState(true)
-  const [updatedPaymentName, setUpdatedPaymentNamed] = useState(payment.name)
+  const [updatedPaymentName, setUpdatedPaymentName] = useState(payment.name)
   const [updatedAcctNumber, setUpdatedAcctNumber] = useState(
     payment.acct_number
   )
@@ -67,11 +67,11 @@ export const Payment = ({
         <td className="pb-5" hidden={isUpdateHidden}>
           <input
             id="paymentName"
-            type="test"
+            type="text"
             value={updatedPaymentName}
             className={`${inputBlackText}`}
             onChange={(e) => {
-              setUpdatedPaymentNamed(e.target.value)
+              setUpdatedPaymentName(e.target.value)
             }}
           />
         </td>
@@ -84,7 +84,7 @@ export const Payment = ({
         <td hidden={isUpdateHidden}>
           <input
             id="accountNumber"
-            type="test"
+            type="text"
             value={updatedAcctNumber}
             className={`${inputBlackText} ml-3`}
             onChange={(e) => {
@@ -101,7 +101,7 @@ export const Payment = ({
         <td hidden={isUpdateHidden}>
           <input
             id="expirationDate"
-            type="test"
+            type="text"
             value={updatedExDate}
             className={`${inputBlackText} ml-3`}
             onChange={(e) => {
@@ -120,7 +120,7 @@ export const Payment = ({
           >
             <i className="fa-solid fa-trash"></i>
           </button>
-          <div className="flex flex-col">
+          <div className="flex flex-col h-4">
             <button
               hidden={isConfirmHidden}
               className={`${buttonNoMarginNoSize} px-4 py-2 ml-3`}

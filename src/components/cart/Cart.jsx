@@ -61,7 +61,9 @@ export const Cart = () => {
       <div
         className={`${gradientOne} flex flex-col shrink-0 mt-36 ml-auto mr-auto w-2/3 p-12 rounded-3xl`}
       >
-        <h2 className="font-three text-9xl mb-5 text-white">Cart</h2>
+        <h2 className="font-three text-9xl mb-5 text-white">
+          Cart - {cart.number_of_items} items
+        </h2>
         <table className="w-2/3 mx-auto">
           <thead>
             <tr>

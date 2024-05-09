@@ -1,6 +1,12 @@
 import { useEffect, useState } from "react"
 import { getProfile, getUserImage, postUserImage } from "../../data/profile.jsx"
-import { buttonNoMarginNoSize, getToken, gradientOne } from "../../utils.jsx"
+import {
+  buttonNoMarginNoSize,
+  getToken,
+  gradientOne,
+  gradientTwo,
+} from "../../utils.jsx"
+import { UserArt } from "./UserArt.jsx"
 
 export const Profile = () => {
   const [profile, setProfile] = useState({})
@@ -80,20 +86,21 @@ export const Profile = () => {
   }, [])
 
   return (
-    <div className="mt-36 flex justify-center items-center">
-      <div className={`${gradientOne} p-12 rounded-3xl shadow-2xl w-1/4`}>
+    <div className="mt-8 flex flex-col justify-center items-center">
+      <div className={`${gradientOne} px-12 py-4 rounded-3xl shadow-2xl w-fit`}>
+        <h2 className="font-two mb-8 text-9xl text-white">Profile</h2>
         {userImage != null ? (
-          <>
+          <div className={`bg-slate-200 p-4 rounded-xl w-80`}>
             <img
               src={userImage?.image_path}
               alt="user avatar"
               draggable="false"
-              className="size-56 rounded-xl"
+              className="size-full rounded-xl"
             />
-          </>
+          </div>
         ) : (
           <div className="flex flex-col">
-            <h2 className="text-4xl mb-2 text-white">Add a image</h2>
+            <h2 className="text-4xl mb-2 text-white">Add an image</h2>
             <h2 className="text-4xl mb-5 text-white">of yourself</h2>
             <input
               type="file"
@@ -102,7 +109,7 @@ export const Profile = () => {
               className={`text-4xl mb-5 text-white`}
               onChange={createUserImageString}
             />
-            <input type="hidden" id="user_img" value={profile?.user_id || ""} />
+            {/* <input type="hidden" id="user_img" value={profile?.user_id || ""} /> */}
             <button
               id="customFileButton"
               className={`${buttonNoMarginNoSize} w-48 h-16 mb-5`}
@@ -114,16 +121,17 @@ export const Profile = () => {
               className={`${buttonNoMarginNoSize} w-48 h-16 mb-5`}
               onClick={handleUploadUserImage}
             >
-              Save Image
+              Upload Image
             </button>
           </div>
         )}
         <div>
-          <div className="text-4xl mb-2 text-left mt-5 text-white">
+          <div className="font-one text-5xl mb-2 text-left mt-5 text-white">
             {profile.user?.first_name} {profile.user?.last_name}
           </div>
         </div>
       </div>
+      <UserArt profile={profile} />
     </div>
   )
 }
