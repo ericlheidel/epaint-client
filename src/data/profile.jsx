@@ -35,3 +35,22 @@ export const deleteUserImage = (userImageId) => {
     },
   })
 }
+
+export const postUserArtImage = (userArtImage) => {
+  return fetch(`${apiUrl}/userartimages`, {
+    method: "POST",
+    headers: {
+      Authorization: `Token ${getToken()}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(userArtImage),
+  })
+}
+
+export const getUserArtImages = () => {
+  return fetch(`${apiUrl}/userartimages`, {
+    headers: {
+      Authorization: `Token ${getToken()}`,
+    },
+  }).then((res) => res.json())
+}

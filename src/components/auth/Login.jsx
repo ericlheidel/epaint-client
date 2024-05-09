@@ -43,7 +43,7 @@ export const Login = () => {
           <h2
             className="font-one text-8xl mb-6 text-white text-center"
             onClick={() => {
-              setUsername("bob")
+              setUsername("eric")
               setPassword("ThisIsMyPassword1234554321!!")
             }}
           >
@@ -55,7 +55,7 @@ export const Login = () => {
                 htmlFor="username"
                 className="text-4xl mb-2 text-white"
                 onClick={() => {
-                  setUsername("tim")
+                  setUsername("charlie")
                   setPassword("ThisIsMyPassword1234554321!!")
                 }}
               >
@@ -79,7 +79,7 @@ export const Login = () => {
                 htmlFor="password"
                 className="text-4xl mb-2 text-white"
                 onClick={() => {
-                  setUsername("tom")
+                  setUsername("jerry")
                   setPassword("ThisIsMyPassword1234554321!!")
                 }}
               >

@@ -24,6 +24,9 @@ export const PreviousOrderDetail = () => {
       <h2 className="font-three text-9xl mb-5 text-white">
         Order #{previousOrder.id}
       </h2>
+      <h2 className="font-three text-9xl mb-5 text-white">
+        {previousOrder.number_of_items} items - ${previousOrder.total}
+      </h2>
       <table>
         <thead>
           <tr>

@@ -61,22 +61,22 @@ export const Register = () => {
   }
 
   const fillOutFormError = () => {
-    setUsername("bob")
+    setUsername("eric")
     setPassword("ThisIsMyPassword1234554321!!")
-    setEmail("bob@bobbibby.com")
-    setFirstName("Bob")
-    setLastName("Bibby")
-    setAddress("901 1st Ave., Nashville, TN 37377")
+    setEmail("eric@eric.com")
+    setFirstName("Eric")
+    setLastName("Heidel")
+    setAddress("200 Wrong Way., Nashville, TN 37377")
     setPhoneNumber("423-555-9985")
   }
 
   const fillOutFormNoError = () => {
-    setUsername("eric")
+    setUsername("dennis")
     setPassword("ThisIsMyPassword1234554321!!")
-    setEmail("eric@ericheidel.com")
-    setFirstName("Eric")
-    setLastName("Heidel")
-    setAddress("999999 This Way, Nashville, TN 37377")
+    setEmail("dennis@dennis.com")
+    setFirstName("Dennis")
+    setLastName("Reynolds")
+    setAddress("400 Other Way, Nashville, TN 37377")
     setPhoneNumber("533-908-5109")
   }
 
