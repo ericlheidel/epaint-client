@@ -1,4 +1,82 @@
-#root {
+@font-face {
+  font-family: "OneDrips";
+  src: url("./fonts/Onedrips.otf") format("opentype");
+  /* Add more src for different font weights/styles if available */
+}
+
+@font-face {
+  font-family: "BomberUrban-Regular";
+  src: url("./fonts/BomberUrban-Regular.otf") format("opentype");
+  /* Add more src for different font weights/styles if available */
+}
+
+@font-face {
+  font-family: "Deardorf Demo";
+  src: url("./fonts/Deardorf Demo.otf") format("opentype");
+  /* Add more src for different font weights/styles if available */
+}
+
+html {
+  margin: auto 0;
+  text-align: center;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.test {
+  border: 2px solid red;
+}
+
+.font-one {
+  font-family: "OneDrips", sans-serif;
+}
+
+.font-two {
+  font-family: "BomberUrban-Regular", sans-serif;
+}
+
+.font-three {
+  font-family: "Deardorf Demo", sans-serif;
+}
+
+.not-allowed:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.add-to-cart-button {
+  position: relative;
+}
+
+.added-to-cart {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #727584;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 12px;
+  width: max-content;
+  animation: slide-up 1s forwards;
+}
+
+@keyframes slide-up {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, 0%);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, 100%);
+  }
+}
+
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -39,4 +117,4 @@
 
 .read-the-docs {
   color: #888;
-}
+} */
