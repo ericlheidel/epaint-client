@@ -55,7 +55,7 @@ export const Login = () => {
                 htmlFor="username"
                 className="text-4xl mb-2 text-white"
                 onClick={() => {
-                  setUsername("wolf")
+                  setUsername("mac")
                   setPassword("ThisIsMyPassword1234554321!!")
                 }}
               >
