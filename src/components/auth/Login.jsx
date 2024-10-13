@@ -41,7 +41,7 @@ export const Login = () => {
       <section className={`${gradientOne} p-12 rounded-3xl shadow-2xl`}>
         <form className="flex flex-col items-center" onSubmit={handleLogin}>
           <h2
-            className="font-one text-8xl mb-6 text-white text-center"
+            className="font-one text-8xl mb-2 text-white text-center"
             onClick={() => {
               setUsername("heidel")
               setPassword("ThisIsMyPassword1234554321!!")
@@ -49,6 +49,19 @@ export const Login = () => {
           >
             Paintkillerz
           </h2>
+          <h3
+            className="mb-4 text-3xl font-bold text-blue-700 text-center cursor-pointer"
+            onClick={() => {
+              setUsername("heidel")
+              setPassword("ThisIsMyPassword1234554321!!")
+            }}
+          >
+            ***
+            <i>
+              <u>Click Here</u>
+            </i>
+            ***
+          </h3>
           <fieldset className="w-full mb-8">
             <div className="flex flex-col">
               <label
