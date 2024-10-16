@@ -42,7 +42,7 @@ export const UserArtList = () => {
               className={`${gradientOne} flex flex-col rounded-xl p-8 mt-5 mb-10`}
             >
               <h2 className="font-three text-9xl mb-5 text-white">
-                {"User's Art"}
+                Other User&apos;s Art
               </h2>
               <div className="flex flex-row flex-wrap gap-10 justify-evenly">
                 {randomizedArray.map((image) => {

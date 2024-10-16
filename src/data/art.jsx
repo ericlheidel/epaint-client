@@ -1,7 +1,7 @@
-import { apiUrl, getToken } from "../utils.jsx"
+import { deployUrl, getToken } from "../utils.jsx"
 
 export const getOtherUsersArt = () => {
-  return fetch(`${apiUrl}/userartimages/all`, {
+  return fetch(`${deployUrl}/userartimages/all`, {
     headers: {
       Authorization: `Token ${getToken()}`,
     },

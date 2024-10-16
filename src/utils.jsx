@@ -7,7 +7,7 @@
 //++  | $$  | $$ | $$        /$$$$$$
 //++  |__/  |__/ |__/       |______/
 
-export const apiUrl = "http://localhost:8000"
+export const deployUrl = "https://paintkillerz.eheidel.com/api"
 
 //++   /$$$$$$$$  /$$$$$$   /$$   /$$  /$$$$$$$$  /$$   /$$
 //++  |__  $$__/ /$$__  $$ | $$  /$$/ | $$_____/ | $$$ | $$

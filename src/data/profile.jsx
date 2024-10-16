@@ -1,7 +1,7 @@
-import { apiUrl, getToken } from "../utils.jsx"
+import { deployUrl, getToken } from "../utils.jsx"
 
 export const getProfile = () => {
-  return fetch(`${apiUrl}/profile`, {
+  return fetch(`${deployUrl}/profile`, {
     headers: {
       Authorization: `Token ${getToken()}`,
     },
@@ -9,7 +9,7 @@ export const getProfile = () => {
 }
 
 export const getUserImage = () => {
-  return fetch(`${apiUrl}/userimages`, {
+  return fetch(`${deployUrl}/userimages`, {
     headers: {
       Authorization: `Token ${getToken()}`,
     },
@@ -17,7 +17,7 @@ export const getUserImage = () => {
 }
 
 export const postUserImage = (userImage) => {
-  return fetch(`${apiUrl}/userimages`, {
+  return fetch(`${deployUrl}/userimages`, {
     method: "POST",
     headers: {
       Authorization: `Token ${getToken()}`,
@@ -28,7 +28,7 @@ export const postUserImage = (userImage) => {
 }
 
 export const deleteUserImage = (userImageId) => {
-  return fetch(`${apiUrl}/userimages/${userImageId}`, {
+  return fetch(`${deployUrl}/userimages/${userImageId}`, {
     method: "DELETE",
     headers: {
       Authorization: `Token ${getToken()}`,
@@ -37,7 +37,7 @@ export const deleteUserImage = (userImageId) => {
 }
 
 export const postUserArtImage = (userArtImage) => {
-  return fetch(`${apiUrl}/userartimages`, {
+  return fetch(`${deployUrl}/userartimages`, {
     method: "POST",
     headers: {
       Authorization: `Token ${getToken()}`,
@@ -48,7 +48,7 @@ export const postUserArtImage = (userArtImage) => {
 }
 
 export const getUserArtImages = () => {
-  return fetch(`${apiUrl}/userartimages`, {
+  return fetch(`${deployUrl}/userartimages`, {
     headers: {
       Authorization: `Token ${getToken()}`,
     },

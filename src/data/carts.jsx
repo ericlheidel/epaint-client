@@ -1,7 +1,7 @@
-import { apiUrl, getToken } from "../utils.jsx"
+import { deployUrl, getToken } from "../utils.jsx"
 
 export const getCart = () => {
-  return fetch(`${apiUrl}/cart`, {
+  return fetch(`${deployUrl}/cart`, {
     headers: {
       Authorization: `Token ${getToken()}`,
     },

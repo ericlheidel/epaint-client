@@ -7,8 +7,8 @@ import { ModalLoginIncorrect } from "../../elements/modals/ModalLoginIncorrect.j
 import { Backdrop } from "../../elements/Backdrop.jsx"
 
 export const Login = () => {
-  const [username, setUsername] = useState("")
-  const [password, setPassword] = useState("")
+  const [username, setUsername] = useState("heidel")
+  const [password, setPassword] = useState("ThisIsMyPassword1234554321!!")
 
   const [showModal, setShowModal] = useState(false)
 
@@ -49,7 +49,7 @@ export const Login = () => {
           >
             Paintkillerz
           </h2>
-          <h3
+          {/* <h3
             className="mb-4 text-3xl font-bold text-blue-700 text-center cursor-pointer"
             onClick={() => {
               setUsername("heidel")
@@ -61,7 +61,7 @@ export const Login = () => {
               <u>Click Here</u>
             </i>
             ***
-          </h3>
+          </h3> */}
           <fieldset className="w-full mb-8">
             <div className="flex flex-col">
               <label
@@ -115,10 +115,10 @@ export const Login = () => {
           </button>
         </form>
         <Link
-          to="/register"
+          to="/login"
           className="mt-6 text-2xl text-white py-4 px-8 focus:outline-none hover:text-slate-400"
         >
-          Join the community?
+          <s>Join the community?</s>
         </Link>
       </section>
     </main>

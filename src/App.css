@@ -16,6 +16,11 @@
   /* Add more src for different font weights/styles if available */
 }
 
+@font-face {
+  font-family: "AntonSC Regular";
+  src: url("./fonts/AntonSC-Regular.ttf") format("opentype");
+}
+
 html {
   margin: auto 0;
   text-align: center;
@@ -37,6 +42,10 @@ html {
 
 .font-three {
   font-family: "Deardorf Demo", sans-serif;
+}
+
+.font-four {
+  font-family: "AntonSC-Regular", sans-serif;
 }
 
 .not-allowed:disabled {

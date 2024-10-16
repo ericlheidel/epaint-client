@@ -1,7 +1,7 @@
-import { apiUrl, getToken } from "../utils.jsx"
+import { deployUrl, getToken } from "../utils.jsx"
 
 export const closeOrder = (order, orderId) => {
-  return fetch(`${apiUrl}/orders/${orderId}`, {
+  return fetch(`${deployUrl}/orders/${orderId}`, {
     method: "PUT",
     headers: {
       Authorization: `Token ${getToken()}`,
@@ -12,7 +12,7 @@ export const closeOrder = (order, orderId) => {
 }
 
 export const getClosedOrders = () => {
-  return fetch(`${apiUrl}/orders?closed=true`, {
+  return fetch(`${deployUrl}/orders?closed=true`, {
     headers: {
       Authorization: `Token ${getToken()}`,
     },
@@ -20,7 +20,7 @@ export const getClosedOrders = () => {
 }
 
 export const getOrderById = (orderId) => {
-  return fetch(`${apiUrl}/orders/${orderId}`, {
+  return fetch(`${deployUrl}/orders/${orderId}`, {
     headers: {
       Authorization: `Token ${getToken()}`,
     },

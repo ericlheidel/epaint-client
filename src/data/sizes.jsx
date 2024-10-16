@@ -1,7 +1,7 @@
-import { apiUrl, getToken } from "../utils.jsx"
+import { deployUrl, getToken } from "../utils.jsx"
 
 export const getAllSizes = () => {
-  return fetch(`${apiUrl}/sizes`, {
+  return fetch(`${deployUrl}/sizes`, {
     headers: {
       Authorization: `Token ${getToken()}`,
     },
@@ -9,7 +9,7 @@ export const getAllSizes = () => {
 }
 
 export const getSizeById = (id) => {
-  return fetch(`${apiUrl}/sizes/${id}`, {
+  return fetch(`${deployUrl}/sizes/${id}`, {
     headers: {
       Authorization: `Token ${getToken()}`,
     },

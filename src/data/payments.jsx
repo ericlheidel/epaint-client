@@ -1,7 +1,7 @@
-import { apiUrl, getToken } from "../utils.jsx"
+import { deployUrl, getToken } from "../utils.jsx"
 
 export const getUserPayments = () => {
-  return fetch(`${apiUrl}/payments`, {
+  return fetch(`${deployUrl}/payments`, {
     headers: {
       Authorization: `Token ${getToken()}`,
     },
@@ -9,7 +9,7 @@ export const getUserPayments = () => {
 }
 
 export const deleteUserPayment = (paymentId) => {
-  return fetch(`${apiUrl}/payments/${paymentId}`, {
+  return fetch(`${deployUrl}/payments/${paymentId}`, {
     method: "DELETE",
     headers: {
       Authorization: `Token ${getToken()}`,
@@ -18,7 +18,7 @@ export const deleteUserPayment = (paymentId) => {
 }
 
 export const addNewPayment = (newPayment) => {
-  return fetch(`${apiUrl}/payments`, {
+  return fetch(`${deployUrl}/payments`, {
     method: "POST",
     headers: {
       Authorization: `Token ${getToken()}`,
@@ -33,7 +33,7 @@ export const addNewPayment = (newPayment) => {
 }
 
 export const updateUserPayment = (paymentId, updatedPayment) => {
-  return fetch(`${apiUrl}/payments/${paymentId}`, {
+  return fetch(`${deployUrl}/payments/${paymentId}`, {
     method: "PUT",
     headers: {
       Authorization: `Token ${getToken()}`,

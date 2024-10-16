@@ -1,7 +1,7 @@
-import { apiUrl, getToken } from "../utils.jsx"
+import { deployUrl, getToken } from "../utils.jsx"
 
 export const getAllPaints = () => {
-  return fetch(`${apiUrl}/paints`, {
+  return fetch(`${deployUrl}/paints`, {
     headers: {
       Authorization: `Token ${getToken()}`,
     },
@@ -9,7 +9,7 @@ export const getAllPaints = () => {
 }
 
 export const getPaintById = (paintId) => {
-  return fetch(`${apiUrl}/paints/${paintId}`, {
+  return fetch(`${deployUrl}/paints/${paintId}`, {
     headers: {
       Authorization: `Token ${getToken()}`,
     },
@@ -17,7 +17,7 @@ export const getPaintById = (paintId) => {
 }
 
 export const getPaintsByPaintTypeId = (paintTypeId) => {
-  return fetch(`${apiUrl}/paints?paint_type_id=${paintTypeId}`, {
+  return fetch(`${deployUrl}/paints?paint_type_id=${paintTypeId}`, {
     headers: {
       Authorization: `Token ${getToken()}`,
     },
@@ -25,7 +25,7 @@ export const getPaintsByPaintTypeId = (paintTypeId) => {
 }
 
 export const updatePaint = (paint) => {
-  return fetch(`${apiUrl}/paints/${paint.id}`, {
+  return fetch(`${deployUrl}/paints/${paint.id}`, {
     method: "PUT",
     headers: {
       Authorization: `Token ${getToken()}`,
@@ -37,7 +37,7 @@ export const updatePaint = (paint) => {
 
 export const getPaintsBySearchAndOrder = (searchText, orderBy, paintTypeId) => {
   return fetch(
-    `${apiUrl}/paints?search_text=${searchText}&order_by=${orderBy}&paint_type_id=${paintTypeId}`,
+    `${deployUrl}/paints?search_text=${searchText}&order_by=${orderBy}&paint_type_id=${paintTypeId}`,
     {
       headers: {
         Authorization: `Token ${getToken()}`,
@@ -47,7 +47,7 @@ export const getPaintsBySearchAndOrder = (searchText, orderBy, paintTypeId) => {
 }
 
 export const deleteOrderPaintById = (id) => {
-  return fetch(`${apiUrl}/cart/${id}`, {
+  return fetch(`${deployUrl}/cart/${id}`, {
     method: "DELETE",
     headers: {
       Authorization: `Token ${getToken()}`,
@@ -56,7 +56,7 @@ export const deleteOrderPaintById = (id) => {
 }
 
 export const addPaintToCart = (paintId, sizeId) => {
-  return fetch(`${apiUrl}/profile/cart`, {
+  return fetch(`${deployUrl}/profile/cart`, {
     method: "POST",
     headers: {
       Authorization: `Token ${getToken()}`,

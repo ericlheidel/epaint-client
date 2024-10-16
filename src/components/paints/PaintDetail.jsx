@@ -69,8 +69,12 @@ export const PaintDetail = () => {
       {showModal && <Backdrop />}
       <div>
         <h1 className="font-two mb-10 text-9xl">
-          {paint.color} - {paint.paint_number}
+          <div className="">{paint.color}</div>{" "}
+          <div className="inline font-four font-semibold text-8xl">
+            ({paint.paint_number})
+          </div>
         </h1>
+
         <div className="flex flex-col items-center">
           <img
             src={paint.image_two}

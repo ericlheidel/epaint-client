@@ -108,19 +108,21 @@ export const UserArt = ({ profile }) => {
                 value={profile?.user_id || ""}
               />
               <button
+                disabled
                 id="customFileButtonTwo"
                 className={`${buttonNoMarginNoSize} w-48 h-16 mb-5 mx-5 mt-5`}
               >
-                Choose Image
+                <s>Choose Image</s>
               </button>
               <div className="text-center">
                 <h2 className="text-4xl mt-8 text-white">{fileName}</h2>
               </div>
               <button
+                disabled
                 className={`${buttonNoMarginNoSize} w-48 h-16 mx-5 ml-5 mt-5`}
                 onClick={handleUploadUserArtImage}
               >
-                Upload Image
+                <s>Upload Image</s>
               </button>
             </div>
           </div>

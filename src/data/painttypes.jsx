@@ -1,7 +1,7 @@
-import { apiUrl, getToken } from "../utils.jsx"
+import { deployUrl, getToken } from "../utils.jsx"
 
 export const getPaintTypeById = (paintTypeId) => {
-  return fetch(`${apiUrl}/painttypes/${paintTypeId}`, {
+  return fetch(`${deployUrl}/painttypes/${paintTypeId}`, {
     headers: {
       Authorization: `Token ${getToken()}`,
     },
