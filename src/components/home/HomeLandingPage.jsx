@@ -10,7 +10,7 @@ export const HomeLandingPage = () => {
       <div className="flex flex-row justify-around m-16">
         <div className="text-center shrink-0">
           <img
-            src="src/media/BLACK/black_2.jpg"
+            src="https://paintkillerz.eheidel.com/media/BLACK/black_2.jpg"
             alt="black logo"
             draggable="false"
             className="w-80 m-auto rounded-lg hover:cursor-pointer hover:scale-110 hover:opacity-80"
@@ -25,7 +25,7 @@ export const HomeLandingPage = () => {
         </div>
         <div className="text-cent shrink-0">
           <img
-            src="src/media/GOLD/coke_2.jpg"
+            src="https://paintkillerz.eheidel.com/media/GOLD/coke_2.jpg"
             alt="gold logo"
             draggable="false"
             className="w-80 m-auto rounded-lg hover:cursor-pointer hover:scale-110 hover:opacity-80"
@@ -40,7 +40,7 @@ export const HomeLandingPage = () => {
         </div>
         <div className="text-cent shrink-0">
           <img
-            src="src/media/WHITE/b_52_2.jpg"
+            src="https://paintkillerz.eheidel.com/media/WHITE/b_52_2.jpg"
             alt="white logo"
             draggable="false"
             className="w-80 m-auto rounded-lg hover:cursor-pointer hover:scale-110 hover:opacity-80"
@@ -55,7 +55,7 @@ export const HomeLandingPage = () => {
         </div>
         <div className="text-cent shrink-0">
           <img
-            src="src/media/SPECIAL/vintage_1.jpg"
+            src="https://paintkillerz.eheidel.com/media/SPECIAL/vintage_1.jpg"
             alt="special logo"
             draggable="false"
             className="size-80 m-auto rounded-lg hover:cursor-pointer hover:scale-110 hover:opacity-80"
@@ -71,7 +71,7 @@ export const HomeLandingPage = () => {
       </div>
       <div className="mt-20 text-3xl">
         <img
-          src="src/media/montana.jpg"
+          src="https://paintkillerz.eheidel.com/media/montana.jpg"
           alt="image of logo"
           draggable="false"
           className="size-80 m-auto rounded-lg hover:cursor-pointer hover:scale-110 hover:opacity-80"
